@@ -1,0 +1,61 @@
+WiFiPay/
+├── backend/
+│   ├── controllers/
+│   │   ├── authController.js       # Handles authentication logic
+│   │   ├── tokenController.js      # Manages token generation and validation
+│   │   ├── deviceController.js     # Manages device connections and disconnections
+│   │   └── routerController.js     # Manages communication with the MikroTik Router
+│   ├── models/
+│   │   ├── Token.js                # Mongoose schema for Token data
+│   │   ├── Device.js               # Mongoose schema for Device data
+│   │   ├── Transaction.js          # Mongoose schema for Transaction data
+│   │   └── AccessLog.js            # Mongoose schema for Access Logs
+│   ├── routes/
+│   │   ├── authRoutes.js           # Routes for authentication-related APIs
+│   │   ├── tokenRoutes.js          # Routes for token-related APIs
+│   │   ├── deviceRoutes.js         # Routes for device-related APIs
+│   │   └── routerRoutes.js         # Routes for router-related APIs
+│   ├── services/
+│   │   ├── dbService.js            # Database connection and services
+│   │   ├── cacheService.js         # Redis cache service
+│   │   ├── mqttService.js          # MQTT service for publishing/subscribing to events
+│   │   ├── routerService.js        # Service for interacting with RouterOS API
+│   │   └── tokenService.js         # Service for token management
+│   ├── utils/
+│   │   ├── logger.js               # Logger setup
+│   │   └── config.js               # Configuration file
+│   ├── app.js                      # Express app setup
+│   ├── server.js                   # Entry point to start the Node.js server
+│   └── package.json                # Node.js dependencies and scripts
+├── frontend/
+│   ├── public/
+│   │   ├── index.html              # Captive portal front-end HTML
+│   │   └── styles.css              # Captive portal styling
+│   ├── src/
+│   │   ├── js/
+│   │   │   ├── main.js             # Front-end JavaScript logic for the captive portal
+│   │   └── img/
+│   │       ├── logo.png            # Branding assets
+│   ├── package.json                # Dependencies for any front-end tooling
+│   ├── webpack.config.js           # Webpack configuration (if using Webpack)
+│   └── README.md                   # Front-end specific documentation
+├── config/
+│   ├── default.json                # Default configuration file (e.g., database, Redis, API keys)
+│   ├── production.json             # Production-specific configuration
+│   └── development.json            # Development-specific configuration
+├── docs/
+│   ├── architecture-diagram.png    # System architecture diagram
+│   ├── API_DOCUMENTATION.md        # API documentation for backend services
+│   └── SETUP_GUIDE.md              # Step-by-step setup guide for the project
+├── test/
+│   ├── integration/
+│   │   ├── token.test.js           # Integration tests for token logic
+│   │   ├── device.test.js          # Integration tests for device logic
+│   ├── unit/
+│   │   ├── tokenService.test.js    # Unit tests for token service
+│   │   ├── routerService.test.js   # Unit tests for router service
+│   └── test-setup.js               # Test environment setup (e.g., database mock, test framework setup)
+├── .env.example                    # Example environment variables file
+├── .gitignore                      # Files and directories to ignore in the Git repository
+├── README.md                       # Project overview and main documentation
+└── LICENSE                         # License for the project
