@@ -1,2 +1,0 @@
-var qrcode = require('qrcode');
-
