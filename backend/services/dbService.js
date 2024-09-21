@@ -294,7 +294,7 @@ async function addDeviceToToken(token, device) {
             disconnected_at: null
         })
 
-        const updateData = { devices_connected: tokenRecord.devices_connected };
+        const updateData = { devices_connected: tokenRecord.devices_connected, max_devices: tokenRecord.max_devices };
         const updatedRecord = await updateTokenRecord(token, updateData);
         console.log('Device added successfully!', updatedRecord);
     } catch (error) {
