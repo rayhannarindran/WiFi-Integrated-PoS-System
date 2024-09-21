@@ -1,5 +1,4 @@
-const fs = require('fs');
-
+const fs = require('fs'); //file system module
 var qrcode = require('qrcode'); //qrcode creator
 const crypto = require('crypto'); //crypto module
 
@@ -29,10 +28,10 @@ async function generateQR(token) {
 
 // Generate a token record based on the purchase data
 function generateTokenRecord(pos_data) {
-  time_limit = 180; // 3 hours
+  const time_limit = 180; // 3 hours
 
-  valid_from_date = new Date(pos_data.created_at);
-  valid_until_date = new Date(valid_from_date.getTime() + time_limit * 60 * 1000); // 3 hours
+  const valid_from_date = new Date(pos_data.created_at);
+  const valid_until_date = new Date(valid_from_date.getTime() + time_limit * 60 * 1000); // 3 hours
 
   // Generate token record
   const tokenRecord = {
@@ -41,7 +40,7 @@ function generateTokenRecord(pos_data) {
     purchase_id: pos_data.id,
     valid_from: valid_from_date.toISOString(),
     valid_until: valid_until_date.toISOString(),
-    max_devices: Math.floor((pos_data.subtotal + pos_data.gratuities + pos_data.taxes)/30000), // 30,000 is threshold for device increase
+    max_devices: Math.floor((pos_data.subtotal + pos_data.gratuities + pos_data.taxes)/30000), // For every Rp30,000, the user can connect one device
     devices_connected: [],
     time_limit: time_limit,
     created_at: new Date().toISOString(),

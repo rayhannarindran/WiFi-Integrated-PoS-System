@@ -9,7 +9,7 @@ const mongoURI = 'mongodb://localhost:27017/pos_dummy'; // MongoDB URI
 async function insertTokenRecord(record) {
     try {
         // Connect to the database
-        await mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+        await mongoose.connect(mongoURI);
 
         // Create a new token document
         const newToken = new Token(record);
