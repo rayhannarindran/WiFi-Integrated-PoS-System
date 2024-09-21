@@ -19,7 +19,7 @@ async function closeConnection() {
     }
 }
 
-// TOKENS FUNCTIONS
+// JOI SCHEMAS
 const tokenSchema = Joi.object({
     token: Joi.string()
         .required()
@@ -66,7 +66,7 @@ const tokenSchema = Joi.object({
         .items(Joi.object({
             device_id: Joi.string().required(),
             connected_at: Joi.date().required(),
-            disconnected_at: Joi.date()
+            disconnected_at: Joi.date().allow(null)
         }))
         .max(Joi.ref('max_devices'))
         .messages({
@@ -92,19 +92,37 @@ const tokenUpdateSchema = Joi.object({
             'any.only': 'Status must be one of [valid, expired, revoked]',
         }),
 
-    devices_connected: Joi.array()
+        max_devices: Joi.number() // Add this to reference max_devices
+        .optional() // Allow it to be optional in updates
+        .default(1)
+        .min(1)
+        .messages({
+            'number.min': 'Max devices must be at least 1'
+        }),
+
+        devices_connected: Joi.array()
         .items(Joi.object({
             device_id: Joi.string().required(),
             connected_at: Joi.date().required(),
-            disconnected_at: Joi.date()
-        }))
-        .max(Joi.ref('max_devices'))
+            disconnected_at: Joi.date().allow(null)
+        }).unknown(true))
+        .when('max_devices', {
+            is: Joi.exist(),
+            then: Joi.array().max(Joi.ref('max_devices')),
+            otherwise: Joi.array()
+        })
         .messages({
             'array.max': 'You can connect a maximum of {#limit} devices!'
         }),
-
-    updated_at: Joi.date().default(() => new Date())
 });
+
+const deviceSchema = Joi.object({
+    device_id: Joi.string().required().messages({
+        'any.required': 'Device ID is required'
+    })
+});
+
+// FUNCTIONS
 
 async function validateTokenRecord(record, update = false) {
     try {
@@ -178,6 +196,7 @@ async function updateTokenRecord(token, update) {
             throw new Error('Token not found');
         }
         
+        record.updated_at = new Date();
         console.log('Record updated!');
         return record;
     } catch (error) {
@@ -190,6 +209,105 @@ async function updateTokenRecord(token, update) {
     }
 }
 
+async function deleteTokenRecord(token) {
+    let conn = null;
+    try {
+        conn = await getConnection();
+        const result = await Token.deleteOne({ token });
+        if (result.deletedCount === 0) {
+            throw new Error('Token not found for deletion');
+        }
+        console.log('Token deleted successfully!');
+    } catch (error) {
+        console.error('Error deleting token:', error);
+        throw error;
+    } finally {
+        if (conn) {
+            await closeConnection();
+        }
+    }
+}
+
+async function countTokens() {
+    let conn = null;
+    try {
+        conn = await getConnection();
+        const count = await Token.countDocuments();
+        console.log(`Total tokens: ${count}`);
+        return count;
+    } catch (error) {
+        console.error('Error counting tokens:', error);
+        throw error;
+    } finally {
+        if (conn) {
+            await closeConnection();
+        }
+    }
+}
+
+async function findTokensByCriteria(criteria) {
+    let conn = null;
+    try {
+        conn = await getConnection();
+        
+        const tokens = await Token.find(criteria); // Use the passed criteria to find tokens
+        if (tokens.length === 0) {
+            console.log('No tokens found for the given criteria.');
+        } else {
+            console.log('Count:', tokens.length);
+            console.log('Tokens found:', tokens);
+        }
+        return tokens;
+    } catch (error) {
+        console.error('Error finding tokens:', error);
+        throw error;
+    } finally {
+        if (conn) {
+            await closeConnection();
+        }
+    }
+}
+
+async function addDeviceToToken(token, device) {
+    let conn = null;
+    try {
+        conn = await getConnection();
+
+        await deviceSchema.validateAsync(device);
+        console.log('Device validated!');
+
+        // Find the token record
+        const tokenRecord = await Token.findOne({ token });
+        if (!tokenRecord) {
+            throw new Error('Token not found');
+        }
+
+        // Check if the maximum device limit is reached
+        if (tokenRecord.devices_connected.length >= tokenRecord.max_devices) {
+            throw new Error('Maximum devices limit reached');
+        }
+
+        // Add the new device
+        tokenRecord.devices_connected.push({
+            device_id: device.device_id,
+            connected_at: new Date(),
+            disconnected_at: null
+        })
+
+        const updateData = { devices_connected: tokenRecord.devices_connected };
+        const updatedRecord = await updateTokenRecord(token, updateData);
+        console.log('Device added successfully!', updatedRecord);
+    } catch (error) {
+        console.error('Error adding device:', error);
+        throw error;
+    } finally {
+        if (conn) {
+            await closeConnection();
+        }
+    }
+}
+
+
 // TESTING FUNCTION
 async function runService() {
     try {
@@ -198,7 +316,7 @@ async function runService() {
         // 1 to insert a record
         // 2 to find a record
         // 3 to update a record
-        const test_func = 3;
+        const test_func = 7;
 
         // Replace this with your actual record data
         current_date = new Date();
@@ -220,11 +338,26 @@ async function runService() {
             console.log('Found record:\n', record);
         } 
         else if (test_func === 3) {
-            const update = { status: 'revoked', updated_at: new Date() };
-            current_record = await findTokenRecord(mockRecord.token);
-            updated_record = await updateTokenRecord(mockRecord.token, update);
+            const update = { status: 'revoked' };
+            current_record = await findTokenRecord('exampleToken');
+            updated_record = await updateTokenRecord('exampleToken', update);
             console.log('OLD RECORD:\n', current_record, '\nUPDATED RECORD:\n', updated_record);
-        } else {
+        }
+        else if (test_func === 4) {
+            await deleteTokenRecord('exampleToken');
+        }
+        else if (test_func === 5) {
+            await countTokens();
+        }
+        else if (test_func === 6) {
+            const criteria = { 'devices_connected.length': { $gt: 1 } };
+            await findTokensByCriteria(criteria);
+        }
+        else if (test_func === 7) {
+            const device = { device_id: 'exampleDeviceId' };
+            await addDeviceToToken('exampleToken', device);
+        }
+        else {
             console.log('TEST FUNCTION NOT FOUND');
         }
     } catch (error) {
@@ -247,4 +380,8 @@ module.exports = {
     findTokenRecord,
     validateTokenRecord,
     updateTokenRecord,
+    deleteTokenRecord,
+    countTokens,
+    findTokensByCriteria,
+    addDeviceToToken
 };

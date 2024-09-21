@@ -9,15 +9,15 @@ const TokenSchema = new mongoose.Schema({
     max_devices: { type: Number, default: 1 }, // Maximum number of devices that can use this token
     devices_connected: { 
         type: [{
-            device_id: String,
-            connected_at: Date,
-            disconnected_at: Date
+            device_id: { type: String, required: true },
+            connected_at: { type: Date, required: true },
+            disconnected_at: { type: Date, default: null }
         }],
         validate: {
             validator: function(v) {
                 return v.length <= this.max_devices; // Constraint based on max_devices
             },
-            message: props => `You can connect a maximum of ${props.value.max_devices} devices!`
+            message: props => `You can connect a maximum of ${props.instance.max_devices} devices!` // Correct reference to max_devices
         }
     }, // List of devices connected to the token
     time_limit: { type: Number, default: 180 }, // Time limit for the token in minutes
