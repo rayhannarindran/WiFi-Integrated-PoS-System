@@ -1,45 +1,43 @@
-const mongoose = require('mongoose');
+require('dotenv').config();
 const dbService = require('../../backend/services/dbService');
-const Token = require('../../backend/models/Token');
 
-jest.mock('../../backend/models/Token');
+//console.log('process.env.MONGODB_URI:', process.env.MONGODB_URI);
 
 describe('dbService', () => {
-    const mockRecord = { token: 'mockToken', status: 'valid' };
-    let mockTokenInstance;
-
-    beforeAll(() => {
-        mongoose.connect = jest.fn().mockResolvedValue();
-        mongoose.connection.close = jest.fn();
+    let connection;
+    let db;
+    
+    beforeAll(async () => {
+        connection = await MongoClient.connect('mongodb://localhost:27017/');
+        db = connection.db('pos_dummy');
+    });
+    
+    afterAll(async () => {
+        await connection.close();
     });
 
-    beforeEach(() => {
-        mockTokenInstance = { save: jest.fn().mockResolvedValue(mockRecord) };
-        Token.mockImplementation(() => mockTokenInstance);
+    it('should connect to the database successfully', async () => {
+        const result = await dbService.getConnection();
+        expect(result).toEqual(db);
     });
-
-    afterEach(() => {
-        jest.clearAllMocks();
-        jest.resetModules();
-    });
-
-    it('should insert a token record successfully', async () => {
-        await dbService.insertTokenRecord(mockRecord);
-
-        expect(Token).toHaveBeenCalledWith(mockRecord);
-        expect(mockTokenInstance.save).toHaveBeenCalled();
-        expect(mongoose.connect).toHaveBeenCalled();
-        expect(mongoose.connection.close).toHaveBeenCalled();
-    });
-
-    it('should handle errors when inserting a token', async () => {
-        mockTokenInstance.save.mockRejectedValue(new Error('Insert Error'));
-        console.error = jest.fn();
-
-        await dbService.insertTokenRecord(mockRecord);
-
-        expect(console.error).toHaveBeenCalledWith('Error inserting token:', expect.any(Error));
-        expect(mongoose.connect).toHaveBeenCalled();
-        expect(mongoose.connection.close).toHaveBeenCalled();
+    
+    it('should insert a token successfully', async () => {
+        const mockRecord = {
+            token: 'exampleToken',
+            status: 'valid',
+            purchase_id: 'examplePurchaseID',
+            valid_from: '2022-10-20T03:00:00.000Z',
+            valid_until: '2022-10-20T06:00:00.000Z',
+            max_devices: 1,
+            devices_connected: [],
+            time_limit: 180,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+        };
+        const result = await dbService.insertTokenRecord(mockRecord);
+        expect(result).toEqual({
+            insertedCount: 1,
+            insertedId: expect.any(Object)
+        });
     });
 });
