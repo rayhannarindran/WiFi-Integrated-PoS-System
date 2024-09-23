@@ -2,7 +2,7 @@ require('dotenv').config();
 const Token = require('../../models/Token'); // Import your model
 const { getConnection, closeConnection } = require('./dbConnection');
 const { validateTokenRecord, validateDevice } = require('./dbValidation');
-const { DbServiceError, logger, retryOperation, sanitizeInput } = require('./dbUtils');
+const { DbServiceError, logger, retryOperation } = require('./dbUtils');
 
 
 async function insertTokenRecord(record) {
