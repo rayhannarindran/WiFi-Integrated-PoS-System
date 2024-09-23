@@ -21,9 +21,7 @@ const tokenSchema = Joi.object({
     'number.min': 'Max devices must be at least 1'
   }),
   devices_connected: Joi.array().items(Joi.object({
-    device_id: Joi.string().required(),
-    connected_at: Joi.date().required(),
-    disconnected_at: Joi.date().allow(null)
+    device_id: Joi.string().required()
   })).max(Joi.ref('max_devices')).messages({
     'array.max': 'You can connect a maximum of {#limit} devices!'
   }),
@@ -42,9 +40,7 @@ const tokenUpdateSchema = Joi.object({
     'number.min': 'Max devices must be at least 1'
   }),
   devices_connected: Joi.array().items(Joi.object({
-    device_id: Joi.string().required(),
-    connected_at: Joi.date().required(),
-    disconnected_at: Joi.date().allow(null)
+    device_id: Joi.string().required()
   }).unknown(true)).when('max_devices', {
     is: Joi.exist(),
     then: Joi.array().max(Joi.ref('max_devices')),
@@ -54,11 +50,39 @@ const tokenUpdateSchema = Joi.object({
   }),
 });
 
+// const tokenDeviceUpdateSchema = Joi.object({
+//   device_id: Joi.string().required().messages({
+//     'any.required': 'Device ID is required'
+//   })
+// });
+
 const deviceSchema = Joi.object({
   device_id: Joi.string().required().messages({
     'any.required': 'Device ID is required'
-  })
+  }),
+  token_id: Joi.any().required().messages({
+    'any.required': 'Token ID is required'
+  }),
+  ip_address: Joi.string().required().messages({
+    'any.required': 'IP address is required'
+  }),
+  mac_address: Joi.string().required().messages({
+    'any.required': 'MAC address is required'
+  }),
+  connected_at: Joi.date().default(() => new Date()),
+  disconnected_at: Joi.date().default(null).allow(null),
+  created_at: Joi.date().default(() => new Date()),
+  updated_at: Joi.date().default(() => new Date())
 });
+
+const deviceUpdateSchema = Joi.object({
+  ip_address: Joi.string().optional(),
+  mac_address: Joi.string().optional(),
+  connected_at: Joi.date().optional(),
+  disconnected_at: Joi.date().optional()
+});
+
+// VALIDATION FUNCTIONS
 
 async function validateTokenRecord(record, update = false) {
   try {
@@ -70,13 +94,23 @@ async function validateTokenRecord(record, update = false) {
   }
 }
 
-async function validateDevice(device) {
+// async function validateTokenDeviceUpdate(device) {
+//   try {
+//     const value = await tokenDeviceUpdateSchema.validateAsync(device);
+//     return value;
+//   } catch (error) {
+//     throw new Error(`Device validation error: ${error.message}`);
+//   }
+// }
+
+async function validateDeviceRecord(record, update = false) {
   try {
-    const value = await deviceSchema.validateAsync(device);
+    const schema = update ? deviceUpdateSchema : deviceSchema;
+    const value = await schema.validateAsync(record);
     return value;
   } catch (error) {
-    throw new Error(`Device validation error: ${error.message}`);
+    throw new Error(`Validation error: ${error.message}`);
   }
 }
 
-module.exports = { validateTokenRecord, validateDevice };
+module.exports = { validateTokenRecord, validateDeviceRecord };

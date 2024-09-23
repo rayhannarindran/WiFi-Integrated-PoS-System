@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 const TokenSchema = new mongoose.Schema({
     token: { type: String, required: true, unique: true }, // Token generated for the purchase
@@ -9,11 +10,9 @@ const TokenSchema = new mongoose.Schema({
     max_devices: { type: Number, default: 1 }, // Maximum number of devices that can use this token
     devices_connected: { 
         type: [{
-            device_id: { type: String, required: true },
-            connected_at: { type: Date, required: true },
-            disconnected_at: { type: Date, default: null }
+            device_id: { type: Schema.Types.ObjectId, ref: 'Device' } // Reference to the device ID
         }],
-        validate: {
+        validate: {  
             validator: function(v) {
                 return v.length <= this.max_devices; // Constraint based on max_devices
             },
