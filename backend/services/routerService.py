@@ -9,9 +9,6 @@ def connect_to_mikrotik():
     except TrapError as e:
         print(f"Error: {e}")
         return None
-    
-#REHAN ANJING
-#kjcsjbh
 
 # Memblokir atau mengubah status IP Binding pada Hotspot (MAC dan IP) jika sudah ada
 def block_hotspot_user(api, mac_address, ip_address):
@@ -21,7 +18,7 @@ def block_hotspot_user(api, mac_address, ip_address):
         for binding in bindings:
             if binding.get('mac-address') == mac_address and binding.get('address') == ip_address:
                 # Jika binding sudah ada, ubah statusnya menjadi 'blocked'
-                api.path('ip/hotspot/ip-binding').set(id=binding.get('id'), type='blocked')
+                api.path('ip/hotspot/ip-binding').update(id=binding.get('id'), type='blocked')
                 print(f"Hotspot user with MAC {mac_address} and IP {ip_address} has been blocked (updated)!")
                 return
         
