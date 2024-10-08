@@ -56,19 +56,3 @@ module.exports = {
   generateQR,
   generateTokenRecord
 };
-
-// TESTING
-// const data_file = fs.readFileSync('./backend/data_example/pos_data.json');
-// const pos_data = JSON.parse(data_file);
-
-// const token = generateToken(pos_data);
-// (async () => {
-//   try {
-//     const qr_uri = await generateQR(token);
-//     console.log("QR URI:", qr_uri);
-//   } catch (err) {
-//     console.log("Error:", err);
-//   }
-// } )();
-// const tokenRecord = generateTokenRecord(token, pos_data);
-// console.log("Token Record:", tokenRecord);
