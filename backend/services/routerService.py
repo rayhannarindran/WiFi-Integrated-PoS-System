@@ -11,6 +11,7 @@ def connect_to_mikrotik():
         return None
     
 #REHAN ANJING
+#kjcsjbh
 
 # Memblokir atau mengubah status IP Binding pada Hotspot (MAC dan IP) jika sudah ada
 def block_hotspot_user(api, mac_address, ip_address):
