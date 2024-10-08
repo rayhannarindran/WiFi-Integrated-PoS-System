@@ -7,6 +7,7 @@
   "license": "ISC",
   "description": "This is the backend of the project, it is responsible for the API and the database",
   "dependencies": {
+    "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "fs": "^0.0.1-security",

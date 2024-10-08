@@ -91,5 +91,36 @@ def set_time_limit():
     except TrapError as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
+# Change connection type (blocked, bypassed, or regular) for a device
+@app.route('/change-connection-type', methods=['POST'])
+def change_connection_type():
+    data = request.json
+    mac_address = data.get('mac_address')
+    connection_type = data.get('connection_type')  # Expect 'blocked', 'bypassed', or 'regular'
+    
+    if connection_type not in ['blocked', 'bypassed', 'regular']:
+        return jsonify({"status": "error", "message": "Invalid connection type"}), 400
+    
+    try:
+        api = connect_to_mikrotik()
+        bindings = api.path('ip/hotspot/ip-binding').get()
+        
+        # Check if the MAC address exists in the IP bindings
+        for binding in bindings:
+            if binding.get('mac-address') == mac_address:
+                # Update the connection type
+                api.path('ip/hotspot/ip-binding').set(id=binding.get('.id'), type=connection_type)
+                return jsonify({"status": "success", "message": f"Connection type for {mac_address} changed to {connection_type}"}), 200
+        
+        # If MAC address not found, add it
+        api.path('ip/hotspot/ip-binding').add(
+            mac_address=mac_address, 
+            type=connection_type
+        )
+        return jsonify({"status": "success", "message": f"Connection type for {mac_address} set to {connection_type}"}), 200
+
+    except TrapError as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4000)
