@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Information</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>QR Code Information</h1>
+        <p>QR Code Data: <span class="highlight" id="qr-data">Loading...</span></p>
+        <p>Your IP Address: <span class="highlight" id="ip-address">Fetching IP...</span></p>
+        <p>Network Connection Type: <span class="highlight" id="network-info">Fetching...</span></p>
+        <p>Estimated Bandwidth: <span class="highlight" id="bandwidth-info">Fetching...</span></p>
+    </div>
+
+    <script>
+        // Get QR data from query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const qrData = urlParams.get('qrData');
+        const qrDataElement = document.getElementById('qr-data');
+        qrDataElement.textContent = qrData;
+
+        // Fetch the user's public IP address using a free API
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip-address').textContent = data.ip;
+            })
+            .catch(error => {
+                console.error('Error fetching IP address:', error);
+                document.getElementById('ip-address').textContent = 'Unable to fetch IP';
+            });
+
+        // Network Information API - Check connection type and bandwidth (if supported by the browser)
+        const networkInfoElement = document.getElementById('network-info');
+        const bandwidthInfoElement = document.getElementById('bandwidth-info');
+        
+        if (navigator.connection) {
+            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            const connectionType = connection.effectiveType || 'Unknown';
+            const downlink = connection.downlink || 'Unknown';
+            
+            // Display network connection type
+            networkInfoElement.textContent = connectionType.toUpperCase();
+            
+            // Display estimated bandwidth
+            bandwidthInfoElement.textContent = `${downlink} Mbps`;
+        } else {
+            networkInfoElement.textContent = 'Not Available';
+            bandwidthInfoElement.textContent = 'Not Available';
+        }
+    </script>
+
+</body>
+</html>
