@@ -7,7 +7,7 @@ app = Flask(__name__)
 # MikroTik connection settings
 HOST = '192.168.88.1'
 USER = 'admin'
-PASSWORD = 'password'
+PASSWORD = '1234'
 
 # Connect to the MikroTik Router
 def connect_to_mikrotik():
@@ -92,4 +92,4 @@ def set_time_limit():
         return jsonify({"status": "error", "message": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=4000)
