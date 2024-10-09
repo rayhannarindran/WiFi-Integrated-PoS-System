@@ -9,12 +9,11 @@ const PYTHON_API_URL = 'http://localhost:4000';
 
 // Add device to MikroTik Hotspot
 app.post('/add-device', async (req, res) => {
-    const { mac_address, rate_limit } = req.body;
+    const { mac_address } = req.body;
 
     try {
         const response = await axios.post(`${PYTHON_API_URL}/add-device`, {
             mac_address: mac_address,
-            rate_limit: rate_limit || '2M/1M'
         });
         res.status(200).json(response.data);
     } catch (error) {
