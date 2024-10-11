@@ -1,17 +1,16 @@
 {
-  "name": "captive-portal-backend",
+  "name": "hotspotqww",
   "version": "1.0.0",
-  "description": "A simple captive portal backend",
-  "main": "server/app.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node server/app.js"
-  },
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "html5-qrcode": "^2.3.8"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mongodb": "^6.9.0"
+  }
 }

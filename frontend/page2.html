@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wi-Fi Area Landing Page with Spinning Squares</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', Arial, sans-serif; /* Modern Google font */
+            height: 100%;
+            scroll-behavior: smooth;
+            background-color: #000000; /* Soft background */
+            overflow: hidden; /* Disable scrollbars to keep the animation smooth */
+        }
+
+        /* Container Setup */
+        .container {
+            max-width: 100%;
+            margin: auto;
+            padding: 2%;
+            display: none;
+            color: #333; /* Neutral color for text */
+            position: relative; /* So squares stay behind content */
+            z-index: 1;
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5% 0;
+            background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for elegance */
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 2%;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #4caf50; /* Vibrant color for the logo */
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #4caf50; /* Green hover effect */
+        }
+
+        /* Section Setup */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5% 0;
+        }
+
+        /* Typography */
+        h1, h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 3vw;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.5vw;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.2vw;
+            line-height: 1.6;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0px 8px 15px rgba(0, 123, 255, 0.3);
+            transition: all 0.3s ease;
+            font-size: 1.2vw;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            box-shadow: 0px 12px 20px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Loading Screen */
+        .loading {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2vw;
+            color: #007bff;
+            z-index: 1001;
+        }
+
+        /* Home Section with Split Design */
+        .home-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1300px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .text-box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5%;
+        }
+
+        .image-box {
+            flex: 1;
+            background: url('afa.jpg') no-repeat center center;
+            background-size: cover;
+            min-height: 50vh;
+        }
+
+        .divider {
+            width: 2px;
+            background-color: rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        /* Square Animation */
+        .square {
+            position: absolute;
+            top: 0vh;
+            background-color: rgba(253, 253, 253, 0.5);
+            animation: float 10s infinite ease-in-out, spin 4s infinite linear;
+            opacity: 0;
+            z-index: 0; /* To ensure it's behind the content */
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(100vw, -100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .home-container {
+                flex-direction: column;
+            }
+
+            h1 {
+                font-size: 6vw;
+            }
+
+            h2 {
+                font-size: 4vw;
+            }
+
+            p {
+                font-size: 1.8vw;
+            }
+
+            .btn {
+                font-size: 2.5vw;
+                padding: 12px 24px;
+            }
+
+            nav ul li {
+                margin-left: 10px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"> <!-- Google font for modern look -->
+</head>
+<body>
+    <div class="loading" id="loading">Loading...</div>
+    <div class="container" id="container">
+        <section id="home" class="section">
+            <div class="home-container">
+                <div class="text-box">
+                    <h1>Welcome to the Wi-Fi Area</h1>
+                    <p>Click on GET STARTED to connect to the internet services.</p>
+                    <a href="javascript:void(0);" class="btn" id="getStarted">Get Started</a>
+                </div>
+                <div class="divider"></div> <!-- Vertical Divider -->
+                <div class="image-box"></div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('container').style.display = 'block';
+            }, 500); // Simulate loading for 0.5 seconds
+
+            document.getElementById('getStarted').addEventListener('click', function() {
+                window.location.href = 'index.html'; // Navigate when button is clicked
+            });
+
+            // Fungsi untuk membuat kotak
+            function createSquare() {
+                const square = document.createElement('div');
+                square.classList.add('square');
+                
+                // Tentukan ukuran kotak
+                const size = Math.random() * 20 + 20 + 'px';
+                square.style.width = size;
+                square.style.height = size;
+
+                // Tentukan posisi kotak secara acak
+                square.style.left = Math.random() * 100 + 'vw';
+                square.style.top = Math.random() * 100 + 'vh';
+                square.style.animationDuration = Math.random() * 5 + 5 + 's';
+
+                document.body.appendChild(square);
+
+                // Hapus kotak setelah animasi selesai
+                setTimeout(() => {
+                    square.remove();
+                }, 10000);  // Sesuaikan durasi ini dengan animation duration
+            }
+
+            // Buat kotak setiap 700ms
+            setInterval(createSquare, 700);
+        });
+    </script>
+</body>
+</html>

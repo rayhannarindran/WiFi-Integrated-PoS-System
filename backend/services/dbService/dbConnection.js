@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { logger } = require('./dbUtils');
+require('dotenv').config();
 
 let dbConnection = null;
 

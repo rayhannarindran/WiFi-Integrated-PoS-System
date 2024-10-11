@@ -50,9 +50,42 @@ function generateTokenRecord(pos_data) {
   return tokenRecord;
 }
 
+// TESTING FUNCTION
+async function runService(function_number = 0) {
+  try {
+      const test_func = function_number;
+
+      // Replace this with your actual record data
+      datapath = fs.readFileSync("./data_example/pos_data.json", "utf8")
+      mockPOS = JSON.parse(datapath)
+
+      // function testing
+      switch (test_func) {
+          case 1:
+              token = generateToken(mockPOS);
+              console.log(token);
+              break;
+          default:
+              console.log('TEST FUNCTION NOT FOUND');
+      }
+  } catch (error) {
+      console.error('Error running service:', error);
+  } finally {
+      // Ensure the process exits after the operation
+      process.exit(0);
+  }
+}
+
+// If this file is run directly (not imported as a module), execute the service
+if (require.main === module) {
+  // Test services
+  runService(1);
+}
+
 // Export the functions
 module.exports = {
   generateToken,
   generateQR,
   generateTokenRecord
 };
+
