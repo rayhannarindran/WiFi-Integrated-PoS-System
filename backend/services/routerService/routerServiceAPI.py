@@ -13,6 +13,7 @@ PASSWORD = '1234'
 def connect_to_mikrotik():
     return connect(username=USER, password=PASSWORD, host=HOST)
 
+# GETS ALL IP BINDINGS
 @app.route('/get-ip-binding-ids', methods=['GET'])
 def get_ip_binding_ids():
     try:
@@ -42,7 +43,7 @@ def get_ip_binding_ids():
         return jsonify({"status": "error", "message": f"An unexpected error occurred: {str(e)}"}), 500
 
 
-# Add device to IP Bindings (Hotspot)
+# ADDS DEVICE TO IP BINDINGS
 @app.route('/add-device', methods=['POST'])
 def add_device_to_ip_binding():
     data = request.json
@@ -60,7 +61,8 @@ def add_device_to_ip_binding():
     except TrapError as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
-# Remove device from IP Bindings (Hotspot)
+
+# REMOVES DEVICE FROM IP BINDINGS
 @app.route('/remove-device', methods=['POST'])
 def remove_device_from_ip_binding():
     data = request.json
@@ -111,6 +113,7 @@ def device_status():
     except TrapError as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
+
 # Set bandwidth limit for a device using Simple Queues
 @app.route('/set-bandwidth-limit', methods=['POST'])
 def set_bandwidth_limit():
@@ -130,6 +133,7 @@ def set_bandwidth_limit():
     except TrapError as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
+
 # Set time limit for a device connection using IP Binding's 'uptime'
 @app.route('/set-time-limit', methods=['POST'])
 def set_time_limit():
@@ -146,6 +150,7 @@ def set_time_limit():
         return jsonify({"status": "success", "message": f"Time limit {time_limit} set for {mac_address}"}), 200
     except TrapError as e:
         return jsonify({"status": "error", "message": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4000)
