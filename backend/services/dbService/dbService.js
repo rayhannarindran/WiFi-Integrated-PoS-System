@@ -37,6 +37,23 @@ async function findTokenRecord(token) {
     }
 }
 
+async function findTokenRecordByID(token_id) {
+    try {
+        return await retryOperation(async () => {
+            const dbConnection = await getConnection();
+            const record = await Token.findById(token_id);
+            if (!record) {
+                throw new DbServiceError('Token not found', 404);
+            }
+            logger.info('Token \'' + token_id + '\' Found!');
+            return record;
+        });
+    } catch (error) {
+        logger.error('Error finding token:', error);
+        throw error;
+    }
+}
+
 async function updateTokenRecord(token, update) {
     try {
         await validateTokenRecord(update, true);
@@ -125,6 +142,7 @@ async function addDevice(token, device) {
                     token_id: tokenRecord._id,
                     ip_address: device.ip_address,
                     mac_address: device.mac_address,
+                    bandwidth: tokenRecord.max_bandwidth,
                     connected_at: new Date()
                 }
             );
@@ -176,6 +194,76 @@ async function removeDevice(token, mac_address) {
     }
 }
 
+async function updateDevice(token, mac_address, update) {
+    try {
+        return await retryOperation(async () => {
+            const dbConnection = await getConnection();
+            const tokenRecord = await Token.findOne({ token });
+
+            if (!tokenRecord) {
+                throw new DbServiceError('Token not found', 404);
+            }
+            if (tokenRecord.status !== 'valid') {
+                throw new DbServiceError('Token is not valid', 400);
+            }
+            if (tokenRecord.devices_connected.length === 0) {
+                throw new DbServiceError('No devices connected', 400);
+            }
+
+            // Find the device record and update in database
+            const deviceRecord = await Device.findOneAndUpdate(
+                { mac_address },
+                { $set: update },
+                { new: true }
+            );
+
+            if (!deviceRecord) {
+                throw new DbServiceError('Device not found', 404);
+            }
+            deviceRecord.updated_at = new Date();
+            await deviceRecord.save();
+            logger.info('Device \'' + mac_address + '\' updated successfully!');
+            return deviceRecord;
+        }
+        );
+    }
+    catch (error) {
+        logger.error('Error updating device:', error);
+        throw error;
+    }
+};
+
+async function findDevice(mac_address) {
+    try {
+        return await retryOperation(async () => {
+            const dbConnection = await getConnection();
+            const device = await Device.findOne({ mac_address });
+            logger.info('Device \'' + mac_address + '\' Found!');
+            return device;
+        });
+    } catch (error) {
+        logger.error('Error finding device:', error);
+        throw error;
+    }
+}
+
+async function findDeviceByID(device_id) {
+    try {
+        return await retryOperation(async () => {
+            const dbConnection = await getConnection();
+            const device = await Device.findById(device_id);
+            if (!device) {
+                throw new DbServiceError('Device not found', 404);
+            }
+            logger.info('Device \'' + device_id + '\' Found!');
+            return device;
+        });
+    } catch (error) {
+        logger.error('Error finding device:', error);
+        throw error;
+    }
+}
+
 // TESTING FUNCTION
 async function runService(function_number = 0) {
     try {
@@ -185,10 +273,10 @@ async function runService(function_number = 0) {
         current_date = new Date();
         const mockRecord = { token: 'exampleToken', status: 'valid', purchase_id: 'examplePurchaseId', 
                              valid_from: current_date, valid_until: new Date(current_date.getTime() + (180 * 60000)),  
-                             max_devices: 3, devices_connected: [], time_limit: 180, 
+                             max_devices: 3, max_bandwidth: 10, devices_connected: [], time_limit: 180, 
                              created_at: current_date, updated_at: current_date };
 
-        const mockDevice = { ip_address: '192.168.1.1' , mac_address: '00:00:00:00:00:00' };
+        const mockDevice = { ip_address: '192.168.1.2' , mac_address: '00:00:00:00:00:00' };
 
         // function testing
         switch (test_func) {
@@ -222,10 +310,26 @@ async function runService(function_number = 0) {
                 await addDevice('exampleToken', mockDevice);
                 break;
             case 7:
-                await removeDevice('exampleToken', 'exampleDeviceId');
+                await removeDevice('exampleToken', '00:00:00:00:99:98');
                 break;
             case 8:
+                const device_update = { bandwidth: 20 };
+                await updateDevice('exampleToken', '00:00:00:00:99:99', device_update);
+                break;
+            case 9:
+                device = await findDevice('00:00:00:00:99:98');
+                console.log('Found device:\n', device);
+                break;
+            case 10:
+                device = await findDeviceByID('6720ef6cc0264a03def7672b');
+                console.log('Found device:\n', device);
+                break;
+            case 11:
                 await deleteTokenRecord('exampleToken');
+                break;
+            case 12:
+                tokenRecord = await findTokenRecordByID('6720ef683e02cf9b3c90fc08');
+                console.log('Found record:\n', tokenRecord.token);
                 break;
             default:
                 console.log('TEST FUNCTION NOT FOUND');
@@ -241,16 +345,20 @@ async function runService(function_number = 0) {
 // If this file is run directly (not imported as a module), execute the service
 if (require.main === module) {
     // Test services
-    runService(8);
+    runService(7);
 }
 
 module.exports = {
     insertTokenRecord,
     findTokenRecord,
+    findTokenRecordByID,
     updateTokenRecord,
     deleteTokenRecord,
     countTokens,
     findTokensByCriteria,
     addDevice,
-    removeDevice
+    removeDevice,
+    updateDevice,
+    findDevice,
+    findDeviceByID
 };

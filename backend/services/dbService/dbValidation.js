@@ -24,7 +24,7 @@ const tokenSchema = Joi.object({
     'number.min': 'Max bandwidth must be at least 10'
   }),
   devices_connected: Joi.array().items(Joi.object({
-    mac_address: Joi.string().required()
+    device_id: Joi.string().required()
   })).max(Joi.ref('max_devices')).messages({
     'array.max': 'You can connect a maximum of {#limit} devices!'
   }),
@@ -46,7 +46,7 @@ const tokenUpdateSchema = Joi.object({
     'number.min': 'Max bandwidth must be at least 1'
   }),
   devices_connected: Joi.array().items(Joi.object({
-    mac_address: Joi.string().required()
+    device_id: Joi.string().required()
   }).unknown(true)).when('max_devices', {
     is: Joi.exist(),
     then: Joi.array().max(Joi.ref('max_devices')),
