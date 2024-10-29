@@ -1,12 +1,14 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const dbService = require('./services/dbService/dbService.js');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
+app.use(cors());
 
 // Routes
 

@@ -1,6 +1,7 @@
 const fs = require('fs'); //file system module
 var qrcode = require('qrcode'); //qrcode creator
 const crypto = require('crypto'); //crypto module
+require('dotenv').config(); //dotenv module
 
 function generateRandomString(length) {
   return crypto.randomBytes(Math.ceil(length / 2)).toString('hex').slice(0, length);
@@ -18,7 +19,8 @@ function generateToken(pos_data) {
 async function generateQR(token) {
   try {
     // Generate QR code using await
-    const uri = await qrcode.toDataURL(token); // Await the QR code generation
+    URL = process.env.MIKROTIK_HOST + "?token=" + token;
+    const uri = await qrcode.toDataURL(URL); // Await the QR code generation
     return uri;  // Return the QR code URL
   } catch (err) {
     console.log("Error:", err);
@@ -41,6 +43,7 @@ function generateTokenRecord(pos_data) {
     valid_from: valid_from_date.toISOString(),
     valid_until: valid_until_date.toISOString(),
     max_devices: Math.floor((pos_data.subtotal + pos_data.gratuities + pos_data.taxes)/30000), // For every Rp30,000, the user can connect one device
+    max_bandwidth: 10 * Math.floor((pos_data.subtotal + pos_data.gratuities + pos_data.taxes)/30000), // 10 Mbps
     devices_connected: [],
     time_limit: time_limit,
     created_at: new Date().toISOString(),
@@ -49,6 +52,11 @@ function generateTokenRecord(pos_data) {
 
   return tokenRecord;
 }
+
+// TEST QR
+generateQR('test').then((uri) => {
+  console.log("QR URI:", uri);
+});
 
 // Export the functions
 module.exports = {

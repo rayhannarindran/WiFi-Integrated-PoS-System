@@ -5,7 +5,6 @@ const { getConnection, closeConnection } = require('./dbConnection');
 const { validateTokenRecord, validateDeviceRecord } = require('./dbValidation');
 const { DbServiceError, logger, retryOperation } = require('./dbUtils');
 
-
 async function insertTokenRecord(record) {
     try {
       await validateTokenRecord(record);
@@ -123,7 +122,6 @@ async function addDevice(token, device) {
             // Create a new device record and adds to database
             const newDevice = new Device(
                 {
-                    device_id: device.device_id,
                     token_id: tokenRecord._id,
                     ip_address: device.ip_address,
                     mac_address: device.mac_address,
@@ -135,7 +133,7 @@ async function addDevice(token, device) {
             // Add the device to the token record
             tokenRecord.devices_connected.push(newDevice._id);
             await tokenRecord.save();
-            logger.info('Device \'' + newDevice.device_id + '\' added successfully!');
+            logger.info('Device \'' + newDevice.mac_address + '\' added successfully!');
         });
     } catch (error) {
         logger.error('Error adding device:', error);
@@ -143,7 +141,7 @@ async function addDevice(token, device) {
     }
 }
 
-async function removeDevice(token, device_id) {
+async function removeDevice(token, mac_address) {
     try {
         return await retryOperation(async () => {
             const dbConnection = await getConnection();
@@ -160,8 +158,7 @@ async function removeDevice(token, device_id) {
             }
             
             // Find the device record and remove from database
-            const deviceRecord = await Device.findOneAndDelete({ device_id });
-            //const deviceRecord = await Device.findOneAndDelete({ device_id });
+            const deviceRecord = await Device.findOneAndDelete({ mac_address });
             if (!deviceRecord) {
                 throw new DbServiceError('Device not found', 404);
             }
@@ -170,7 +167,7 @@ async function removeDevice(token, device_id) {
             const index = tokenRecord.devices_connected.indexOf(deviceRecord._id);
             tokenRecord.devices_connected.splice(index, 1);
             await tokenRecord.save();
-            logger.info('Device \'' + device_id + '\' removed successfully!');
+            logger.info('Device \'' + mac_address + '\' removed successfully!');
             return tokenRecord;
         });
     } catch (error) {
@@ -191,7 +188,7 @@ async function runService(function_number = 0) {
                              max_devices: 3, devices_connected: [], time_limit: 180, 
                              created_at: current_date, updated_at: current_date };
 
-        const mockDevice = { device_id: 'exampleDeviceId', ip_address: '192.168.1.1' , mac_address: '00:00:00:00:00:00' };
+        const mockDevice = { ip_address: '192.168.1.1' , mac_address: '00:00:00:00:00:00' };
 
         // function testing
         switch (test_func) {

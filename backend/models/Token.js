@@ -8,6 +8,7 @@ const TokenSchema = new mongoose.Schema({
     valid_from: { type: Date, required: true }, // When the token becomes valid
     valid_until: { type: Date, required: true }, // When the token expires
     max_devices: { type: Number, default: 1 }, // Maximum number of devices that can use this token
+    max_bandwidth: { type: Number, default: 10}, // Maximum bandwidth for the token
     devices_connected: { 
         type: [{
             device_id: { type: Schema.Types.ObjectId, ref: 'Device' } // Reference to the device ID

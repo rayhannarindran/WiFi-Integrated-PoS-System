@@ -20,8 +20,11 @@ const tokenSchema = Joi.object({
   max_devices: Joi.number().default(1).min(1).messages({
     'number.min': 'Max devices must be at least 1'
   }),
+  max_bandwidth: Joi.number().default(10).min(1).messages({
+    'number.min': 'Max bandwidth must be at least 10'
+  }),
   devices_connected: Joi.array().items(Joi.object({
-    device_id: Joi.string().required()
+    mac_address: Joi.string().required()
   })).max(Joi.ref('max_devices')).messages({
     'array.max': 'You can connect a maximum of {#limit} devices!'
   }),
@@ -39,8 +42,11 @@ const tokenUpdateSchema = Joi.object({
   max_devices: Joi.number().optional().default(1).min(1).messages({
     'number.min': 'Max devices must be at least 1'
   }),
+  max_bandwidth: Joi.number().optional().default(10).min(1).messages({
+    'number.min': 'Max bandwidth must be at least 1'
+  }),
   devices_connected: Joi.array().items(Joi.object({
-    device_id: Joi.string().required()
+    mac_address: Joi.string().required()
   }).unknown(true)).when('max_devices', {
     is: Joi.exist(),
     then: Joi.array().max(Joi.ref('max_devices')),
@@ -50,16 +56,7 @@ const tokenUpdateSchema = Joi.object({
   }),
 });
 
-// const tokenDeviceUpdateSchema = Joi.object({
-//   device_id: Joi.string().required().messages({
-//     'any.required': 'Device ID is required'
-//   })
-// });
-
 const deviceSchema = Joi.object({
-  device_id: Joi.string().required().messages({
-    'any.required': 'Device ID is required'
-  }),
   token_id: Joi.any().required().messages({
     'any.required': 'Token ID is required'
   }),
@@ -68,6 +65,9 @@ const deviceSchema = Joi.object({
   }),
   mac_address: Joi.string().required().messages({
     'any.required': 'MAC address is required'
+  }),
+  bandwidth: Joi.number().default(10).min(1).messages({
+    'number.min': 'Bandwidth must be at least 1'
   }),
   connected_at: Joi.date().default(() => new Date()),
   disconnected_at: Joi.date().default(null).allow(null),
@@ -78,6 +78,9 @@ const deviceSchema = Joi.object({
 const deviceUpdateSchema = Joi.object({
   ip_address: Joi.string().optional(),
   mac_address: Joi.string().optional(),
+  bandwidth: Joi.number().optional().min(1).messages({
+    'number.min': 'Bandwidth must be at least 1'
+  }),
   connected_at: Joi.date().optional(),
   disconnected_at: Joi.date().optional()
 });
@@ -93,15 +96,6 @@ async function validateTokenRecord(record, update = false) {
     throw new Error(`Validation error: ${error.message}`);
   }
 }
-
-// async function validateTokenDeviceUpdate(device) {
-//   try {
-//     const value = await tokenDeviceUpdateSchema.validateAsync(device);
-//     return value;
-//   } catch (error) {
-//     throw new Error(`Device validation error: ${error.message}`);
-//   }
-// }
 
 async function validateDeviceRecord(record, update = false) {
   try {
