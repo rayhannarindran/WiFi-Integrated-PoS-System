@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const dbService = require('./services/dbService/dbService.js');
 
 //API Routes
-const tokenRoutes = require('./routes/tokenRoutes');
+const deviceRoutes = require('./routes/deviceRoutes.js');
 
 const app = express();
 const PORT = 3001;
@@ -18,7 +18,7 @@ app.use(cors());
 
 // Routes
 
-app.use('/api/token', tokenRoutes);
+app.use('/api/device', deviceRoutes);
 
 
 // Start server
