@@ -345,7 +345,7 @@ async function runService(function_number = 0) {
 // If this file is run directly (not imported as a module), execute the service
 if (require.main === module) {
     // Test services
-    runService(7);
+    runService(1);
 }
 
 module.exports = {

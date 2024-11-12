@@ -7,6 +7,8 @@
   "license": "ISC",
   "description": "This is the backend of the project, it is responsible for the API and the database",
   "dependencies": {
+    "@node-escpos/core": "^0.6.0",
+    "@node-escpos/usb-adapter": "^0.3.1",
     "axios": "^1.7.7",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
