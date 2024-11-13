@@ -10,6 +10,8 @@ device.open(async function(err){
     return
   }
 
+  //TESTING
+
   // encoding is optional
   const options = { encoding: "GB18030" /* default */ }
   let printer = new Printer(device, options);
