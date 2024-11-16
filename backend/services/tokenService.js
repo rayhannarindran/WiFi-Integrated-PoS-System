@@ -1,5 +1,5 @@
 const fs = require('fs'); //file system module
-var qrcode = require('qrcode'); //qrcode creator
+//var qrcode = require('qrcode'); //qrcode creator
 const crypto = require('crypto'); //crypto module
 require('dotenv').config(); //dotenv module
 
@@ -20,8 +20,8 @@ async function generateQR(token) {
   try {
     // Generate QR code using await
     URL = process.env.MIKROTIK_HOST + "?token=" + token;
-    const uri = await qrcode.toDataURL(URL); // Await the QR code generation
-    return uri;  // Return the QR code URL
+    // const uri = await qrcode.toDataURL(URL); // Await the QR code generation
+    return URL;  // Return the QR code URL
   } catch (err) {
     console.log("Error:", err);
     throw err;  // Throw the error to be handled by the caller

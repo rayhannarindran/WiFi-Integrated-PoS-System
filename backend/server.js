@@ -3,11 +3,9 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-// Services
-const dbService = require('./services/dbService/dbService.js');
-
 //API Routes
 const deviceRoutes = require('./routes/deviceRoutes.js');
+const transactionRoutes = require('./routes/transactionRoutes.js');
 
 const app = express();
 const PORT = 3001;
@@ -19,6 +17,7 @@ app.use(cors());
 // Routes
 
 app.use('/api/device', deviceRoutes);
+app.use('/api/transaction', transactionRoutes);
 
 
 // Start server
