@@ -331,6 +331,9 @@ async function runService(function_number = 0) {
                 tokenRecord = await findTokenRecordByID('6720ef683e02cf9b3c90fc08');
                 console.log('Found record:\n', tokenRecord.token);
                 break;
+            case 13:
+                console.log('TEST RECORD:', mockRecord);
+                break;
             default:
                 console.log('TEST FUNCTION NOT FOUND');
         }
@@ -360,5 +363,5 @@ module.exports = {
     removeDevice,
     updateDevice,
     findDevice,
-    findDeviceByID
+    findDeviceByID,
 };

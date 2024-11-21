@@ -53,11 +53,6 @@ function generateTokenRecord(pos_data) {
   return tokenRecord;
 }
 
-// TEST QR
-generateQR('test').then((uri) => {
-  console.log("QR URI:", uri);
-});
-
 // Export the functions
 module.exports = {
   generateToken,
