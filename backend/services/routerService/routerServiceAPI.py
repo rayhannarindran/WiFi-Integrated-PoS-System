@@ -113,7 +113,6 @@ def device_status():
     except TrapError as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
-
 # Set bandwidth limit for a device using Simple Queues
 @app.route('/set-bandwidth-limit', methods=['POST'])
 def set_bandwidth_limit():
@@ -121,36 +120,32 @@ def set_bandwidth_limit():
     ip_address = data.get('ip_address')
     download_limit = data.get('download_limit', '2M')
     upload_limit = data.get('upload_limit', '1M')
+    
+    if not ip_address:
+        return jsonify({"status": "error", "message": "IP address is required"}), 400
+
+    api = connect_to_mikrotik()
+
+    if api is None:
+        return jsonify({"status": "error", "message": "Failed to connect to MikroTik"}), 500
+
     try:
-        api = connect_to_mikrotik()
         # Set bandwidth limit via Simple Queues
+        print(f"Setting bandwidth limit for {ip_address} to {download_limit}/{upload_limit}")
+        
         api.path('queue/simple').add(
             name=f"{ip_address}_limit", 
             target=ip_address, 
-            max_limit=f"{download_limit}/{upload_limit}"
+            **{'max-limit': f"{download_limit}/{upload_limit}"}
         )
+        
         return jsonify({"status": "success", "message": f"Bandwidth limit set for {ip_address}"}), 200
     except TrapError as e:
+        print(f"TrapError: {str(e)}")
         return jsonify({"status": "error", "message": str(e)}), 500
-
-
-# Set time limit for a device connection using IP Binding's 'uptime'
-@app.route('/set-time-limit', methods=['POST'])
-def set_time_limit():
-    data = request.json
-    mac_address = data.get('mac_address')
-    time_limit = data.get('time_limit', '1h')  # Default to 1 hour
-    try:
-        api = connect_to_mikrotik()
-        # Set time limit (uptime-limit) via IP Binding
-        api.path('ip/hotspot/ip-binding').set(
-            where={"mac-address": mac_address}, 
-            uptime_limit=time_limit  # Set time limit (e.g., 1h for 1 hour)
-        )
-        return jsonify({"status": "success", "message": f"Time limit {time_limit} set for {mac_address}"}), 200
-    except TrapError as e:
-        return jsonify({"status": "error", "message": str(e)}), 500
-
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return jsonify({"status": "error", "message": f"An unexpected error occurred: {str(e)}"}), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4000)
