@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Settings.css';
 
 function App() {
@@ -41,8 +42,12 @@ function App() {
   return (
     <div className="App">
       <h1>Environment Variables Editor</h1>
-      <form onSubmit={handleSubmit}>
 
+      {/* Back button to main page */}
+      
+
+      {/* Form to edit environment variables */}
+      <form onSubmit={handleSubmit}>
         {/* Backend Variables Section */}
         <button type="button" onClick={() => setShowBackend(!showBackend)}>
           {showBackend ? 'Hide' : 'Show'} System Ports
@@ -201,6 +206,10 @@ function App() {
         )}
 
         <button type="submit">Save Changes</button>
+
+        <Link to="/">
+        <button type="main-page-button">BACK TO MAIN PAGE</button>
+        </Link>
       </form>
     </div>
   );

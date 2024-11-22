@@ -54,6 +54,11 @@ button[type="submit"] {
     background-color: #007bff;
 }
 
+button[type="main-page-button"] {
+    background-color: #5d635d;
+    margin-top: 4rem; /* Add more gap from the button above it */
+}
+
 /* Styling for the form sections */
 .section {
     margin-top: 1rem;

@@ -6,7 +6,7 @@ import './MainPage.css';
 const MainPage = () => {
   return (
     <div className='main-page'>
-      <h1>Welcome to the Main Page</h1>
+      <h1>WiFi PoS Integration Manager</h1>
       
       <div className="button-container">
         <div className="section">
