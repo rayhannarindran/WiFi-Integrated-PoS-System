@@ -8,7 +8,7 @@ const deviceRoutes = require('./routes/deviceRoutes.js');
 const transactionRoutes = require('./routes/transactionRoutes.js');
 
 const app = express();
-const PORT = 3001;
+const PORT = parseInt(process.env.BACKEND_SERVER_PORT);
 
 // Middleware
 app.use(bodyParser.json());

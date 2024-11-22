@@ -151,4 +151,4 @@ def set_bandwidth_limit():
         return jsonify({"status": "error", "message": f"An unexpected error occurred: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=4000)
+    app.run(host='0.0.0.0', port=int(os.getenv('MIKROTIK_PYTHON_API_PORT')))
