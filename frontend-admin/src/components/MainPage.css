@@ -1,0 +1,40 @@
+/* MainPage.css */
+
+/* Styling for the main page container */
+.main-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Styling for the button container with shadow */
+  .button-container {
+    display: flex;  /* Use flexbox to arrange buttons */
+    flex-direction: column;  /* Stack buttons vertically */
+    align-items: center;  /* Center buttons horizontally */
+    gap: 5px;  /* Reduced space between buttons */
+    max-width: 400px;  /* Limit the width of the container */
+    margin: 0 auto;  /* Center the container in the page */
+    padding: 20px;  /* Padding around the buttons */
+    border-radius: 8px;  /* Rounded corners */
+    background-color: #fff;  /* Background color for the container */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* Shadow effect */
+  }
+  
+  /* Styling for the buttons */
+  .main-page-button {
+    padding: 0.7rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;  /* Set a max width for the buttons */
+    font-size: 1rem;
+  }
+  
+  .main-page-button:hover {
+    background-color: #45a049;
+  }
+  
