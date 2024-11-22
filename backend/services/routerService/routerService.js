@@ -1,110 +1,84 @@
-const express = require('express');
 const axios = require('axios');
-const app = express();
 
-app.use(express.json());
+// Base URL for the Python API
+const BASE_URL = 'http://localhost:4000'; // Replace with your actual API URL
 
-// Python API Base URL
-const PYTHON_API_URL = 'http://localhost:4000';
+// Utility functions for calling the API
 
-// Add device to MikroTik Hotspot
-app.post('/add-device', async (req, res) => {
-    const { mac_address } = req.body;
-
+// Get all IP bindings
+async function getIpBindings() {
     try {
-        const response = await axios.post(`${PYTHON_API_URL}/add-device`, {
-            mac_address: mac_address,
-        });
-        res.status(200).json(response.data);
+        const response = await axios.get(`${BASE_URL}/get-ip-binding-ids`);
+        return response.data;
     } catch (error) {
-        console.error('Error adding device:', error.response ? error.response.data : error.message);
-        res.status(500).json({ status: 'error', message: error.response ? error.response.data.message : 'Failed to add device' });
+        handleError(error);
     }
-});
+}
 
-// Remove device from MikroTik Hotspot
-app.post('/remove-device', async (req, res) => {
-    const { mac_address } = req.body;
-
+// Add a device to IP bindings
+async function addDevice(macAddress) {
     try {
-        const response = await axios.post(`${PYTHON_API_URL}/remove-device`, {
-            mac_address: mac_address
-        });
-        res.status(200).json(response.data);
+        const response = await axios.post(`${BASE_URL}/add-device`, { mac_address: macAddress });
+        return response.data;
     } catch (error) {
-        console.error('Error removing device:', error.response ? error.response.data : error.message);
-        res.status(500).json({ status: 'error', message: error.response ? error.response.data.message : 'Failed to remove device' });
+        handleError(error);
     }
-});
+}
 
-// Check the connection status of a device
-app.get('/device-status', async (req, res) => {
-    const { mac_address } = req.query;
-
+// Remove a device from IP bindings
+async function removeDevice(macAddress) {
     try {
-        const response = await axios.get(`${PYTHON_API_URL}/device-status`, {
-            params: { mac_address: mac_address }
-        });
-        res.status(200).json(response.data);
+        const response = await axios.post(`${BASE_URL}/remove-device`, { mac_address: macAddress });
+        return response.data;
     } catch (error) {
-        console.error('Error checking device status:', error.response ? error.response.data : error.message);
-        // Tambahkan logging lebih rinci
-        console.error('Full error response:', error);
-        res.status(500).json({ status: 'error', message: error.response ? error.response.data.message : 'Failed to check device status' });
+        handleError(error);
     }
-});
+}
 
-
-// Set bandwidth limit for a device
-app.post('/set-bandwidth-limit', async (req, res) => {
-    const { ip_address, download_limit, upload_limit } = req.body;
-
+// Get device status
+async function getDeviceStatus(macAddress) {
     try {
-        const response = await axios.post(`${PYTHON_API_URL}/set-bandwidth-limit`, {
-            ip_address: ip_address,
-            download_limit: download_limit || '2M',
-            upload_limit: upload_limit || '1M'
+        const response = await axios.get(`${BASE_URL}/device-status`, {
+            params: { mac_address: macAddress }
         });
-        res.status(200).json(response.data);
+        return response.data;
     } catch (error) {
-        console.error('Error setting bandwidth limit:', error.response ? error.response.data : error.message);
-        res.status(500).json({ status: 'error', message: error.response ? error.response.data.message : 'Failed to set bandwidth limit' });
+        handleError(error);
     }
-});
+}
 
-// Set connection time limit for a device
-app.post('/set-time-limit', async (req, res) => {
-    const { mac_address, time_limit } = req.body;
-
+// Set bandwidth limit
+async function setBandwidthLimit(ipAddress, downloadLimit = '2M', uploadLimit = '1M') {
     try {
-        const response = await axios.post(`${PYTHON_API_URL}/set-time-limit`, {
-            mac_address: mac_address,
-            time_limit: time_limit || '1h'
+        const response = await axios.post(`${BASE_URL}/set-bandwidth-limit`, {
+            ip_address: ipAddress,
+            download_limit: downloadLimit,
+            upload_limit: uploadLimit
         });
-        res.status(200).json(response.data);
+        return response.data;
     } catch (error) {
-        console.error('Error setting time limit:', error.response ? error.response.data : error.message);
-        res.status(500).json({ status: 'error', message: error.response ? error.response.data.message : 'Failed to set time limit' });
+        handleError(error);
     }
-});
+}
 
-// Change connection type (blocked, bypass, regular)
-app.post('/change-connection-type', async (req, res) => {
-    const { mac_address, connection_type } = req.body;
-
-    try {
-        const response = await axios.post(`${PYTHON_API_URL}/change-connection-type`, {
-            mac_address: mac_address,
-            connection_type: connection_type
-        });
-        res.status(200).json(response.data);
-    } catch (error) {
-        console.error('Error changing connection type:', error.response ? error.response.data : error.message);
-        res.status(500).json({ status: 'error', message: error.response ? error.response.data.message : 'Failed to change connection type' });
+// Error handling helper
+function handleError(error) {
+    if (error.response) {
+        console.error(`API Error: ${error.response.data.message}`);
+        throw new Error(error.response.data.message);
+    } else if (error.request) {
+        console.error('No response received from the API');
+        throw new Error('No response received from the API');
+    } else {
+        console.error(`Error: ${error.message}`);
+        throw new Error(error.message);
     }
-});
+}
 
-// Start the Node.js server
-app.listen(3000, () => {
-    console.log('Node.js server running on port 3000');
-});
+module.exports = {
+    getIpBindings,
+    addDevice,
+    removeDevice,
+    getDeviceStatus,
+    setBandwidthLimit
+};

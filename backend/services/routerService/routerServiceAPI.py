@@ -1,13 +1,16 @@
+import os
 from flask import Flask, request, jsonify
 from librouteros import connect
 from librouteros.exceptions import TrapError
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 
 # MikroTik connection settings
-HOST = '192.168.88.1'
-USER = 'admin'
-PASSWORD = '1234'
+HOST = os.getenv('MIKROTIK_HOST')
+USER = os.getenv('MIKROTIK_USER')
+PASSWORD = os.getenv('MIKROTIK_PASSWORD')
 
 # Connect to the MikroTik Router
 def connect_to_mikrotik():
