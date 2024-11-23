@@ -902,3 +902,5 @@
 {"level":"info","message":"Token inserted successfully!","service":"db-service"}
 {"level":"info","message":"Connected to MongoDB","service":"db-service"}
 {"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}

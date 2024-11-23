@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Settings.css';
+
+const BACKEND_ENV_API_URL = `http://localhost:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/env`;
 
 function App() {
   // State to manage the visibility of each section
@@ -25,6 +27,37 @@ function App() {
     TIME_LIMIT_PER_TOKEN: '',
   });
 
+  // Fetch environment variables from the backend when the component mounts
+  useEffect(() => {
+    const fetchEnvData = async () => {
+      try {
+        const response = await fetch(`${BACKEND_ENV_API_URL}/get-env`);
+        const data = await response.json();
+
+        // Parse the .env file data into key-value pairs
+        const envData = data.data
+          .split('\n')
+          .filter((line) => line.trim() !== '') // Remove empty lines
+          .reduce((acc, line) => {
+            const [key, value] = line.split('=');
+            acc[key] = value;
+            return acc;
+          }, {});
+
+        // Update the form data with the fetched environment variables
+        setFormData({
+          ...formData,
+          ...envData,
+        });
+
+      } catch (error) {
+        console.error('Error fetching environment variables:', error);
+      }
+    };
+
+    fetchEnvData();
+  }, []);
+
   // Handle input changes
   const handleChange = (e) => {
     setFormData({
@@ -34,9 +67,37 @@ function App() {
   };
 
   // Handle form submission (just log the data for now)
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Environment Variables:', formData);
+    
+    // Filter formData to include only keys with non-empty values
+    const filteredData = Object.entries(formData)
+      .filter(([key, value]) => value.trim() !== '') // Keep only non-empty values
+      .reduce((acc, [key, value]) => {
+        acc[key] = value;
+        return acc;
+      }, {});
+
+    try {
+      // Make the API call with filtered data
+      const response = await fetch(`${BACKEND_ENV_API_URL}/update-env`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(filteredData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      console.log(result); // Log success message or response data
+      alert('Environment variables updated successfully!');
+    } catch (error) {
+      console.error('Failed to update environment variables:', error);
+      alert('Failed to update environment variables. Check console for details.');
+    }
   };
 
   return (
@@ -62,7 +123,7 @@ function App() {
                 name="BACKEND_SERVER_PORT"
                 value={formData.BACKEND_SERVER_PORT}
                 onChange={handleChange}
-                placeholder="3001"
+                placeholder={formData.BACKEND_SERVER_PORT || "3001"}
               />
             </div>
             <div>
@@ -73,7 +134,7 @@ function App() {
                 name="MIKROTIK_PYTHON_API_PORT"
                 value={formData.MIKROTIK_PYTHON_API_PORT}
                 onChange={handleChange}
-                placeholder="4000"
+                placeholder={formData.MIKROTIK_PYTHON_API_PORT || "4000"}
               />
             </div>
           </div>
@@ -93,7 +154,7 @@ function App() {
                 name="MIKROTIK_HOST"
                 value={formData.MIKROTIK_HOST}
                 onChange={handleChange}
-                placeholder="192.168.88.1"
+                placeholder={formData.MIKROTIK_HOST || "192.168.88.1"}
               />
             </div>
             <div>
@@ -104,7 +165,7 @@ function App() {
                 name="MIKROTIK_USER"
                 value={formData.MIKROTIK_USER}
                 onChange={handleChange}
-                placeholder="admin"
+                placeholder={formData.MIKROTIK_USER || "admin"}
               />
             </div>
             <div>
@@ -115,7 +176,7 @@ function App() {
                 name="MIKROTIK_PASS"
                 value={formData.MIKROTIK_PASS}
                 onChange={handleChange}
-                placeholder="password"
+                placeholder={formData.MIKROTIK_PASS || "password"}
               />
             </div>
           </div>
@@ -135,7 +196,7 @@ function App() {
                 name="PRINTER_USB_VENDOR_ID"
                 value={formData.PRINTER_USB_VENDOR_ID}
                 onChange={handleChange}
-                placeholder="0fe6"
+                placeholder={formData.PRINTER_USB_VENDOR_ID || "0fe6"}
               />
             </div>
             <div>
@@ -146,7 +207,7 @@ function App() {
                 name="PRINTER_USB_PRODUCT_ID"
                 value={formData.PRINTER_USB_PRODUCT_ID}
                 onChange={handleChange}
-                placeholder="811e"
+                placeholder={formData.PRINTER_USB_PRODUCT_ID || "811e"}
               />
             </div>
           </div>
@@ -166,7 +227,7 @@ function App() {
                 name="MAX_SYSTEM_BANDWIDTH"
                 value={formData.MAX_SYSTEM_BANDWIDTH}
                 onChange={handleChange}
-                placeholder="300"
+                placeholder={formData.MAX_SYSTEM_BANDWIDTH || "300"}
               />
             </div>
             <div>
@@ -177,7 +238,7 @@ function App() {
                 name="MAX_SYSTEM_DEVICES"
                 value={formData.MAX_SYSTEM_DEVICES}
                 onChange={handleChange}
-                placeholder="20"
+                placeholder={formData.MAX_SYSTEM_DEVICES || "20"}
               />
             </div>
             <div>
@@ -188,7 +249,7 @@ function App() {
                 name="MINIMUM_PAYMENT_PER_DEVICE"
                 value={formData.MINIMUM_PAYMENT_PER_DEVICE}
                 onChange={handleChange}
-                placeholder="30000"
+                placeholder={formData.MINIMUM_PAYMENT_PER_DEVICE || "30000"}
               />
             </div>
             <div>
@@ -199,16 +260,26 @@ function App() {
                 name="TIME_LIMIT_PER_TOKEN"
                 value={formData.TIME_LIMIT_PER_TOKEN}
                 onChange={handleChange}
-                placeholder="180"
+                placeholder={formData.TIME_LIMIT_PER_TOKEN || "180"}
               />
             </div>
           </div>
         )}
 
-        <button type="submit">Save Changes</button>
+        <button
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            if (window.confirm('Are you sure you want to save these changes and reboot the system?')) {
+              handleSubmit(e);
+            }
+          }}
+        >
+          SAVE CHANGES AND REBOOT SYSTEM
+        </button>
 
         <Link to="/">
-        <button type="main-page-button">BACK TO MAIN PAGE</button>
+          <button type="main-page-button">BACK TO MAIN PAGE</button>
         </Link>
       </form>
     </div>

@@ -1,7 +1,9 @@
+require('dotenv').config();
 const axios = require('axios');
 
 // Base URL for the Python API
-const BASE_URL = 'http://localhost:4000'; // Replace with your actual API URL
+const MIKROTIK_PYTHON_API_PORT = process.env.MIKROTIK_PYTHON_API_PORT;
+const BASE_URL = `http://localhost:${MIKROTIK_PYTHON_API_PORT}`;
 
 // Utility functions for calling the API
 

@@ -4,7 +4,6 @@ const USB = require("@node-escpos/usb-adapter");
 
 vendor_id = parseInt(process.env.PRINTER_USB_VENDOR_ID, 16);
 product_id = parseInt(process.env.PRNTER_USB_PRODUCT_ID, 16);
-console.log(vendor_id);
 
 async function printReceipt(pos_data, qrCodeURL) {
   const device = new USB(vendor_id, product_id);
