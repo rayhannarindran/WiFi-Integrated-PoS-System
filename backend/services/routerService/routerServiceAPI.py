@@ -16,6 +16,20 @@ PASSWORD = os.getenv('MIKROTIK_PASSWORD')
 def connect_to_mikrotik():
     return connect(username=USER, password=PASSWORD, host=HOST)
 
+# UPDATES ROUTER CONFIGURATION
+@app.route('/update-router-config', methods=['POST'])
+def update_router():
+    try:
+        data = request.json
+        api = connect_to_mikrotik()
+
+        #! CODE FOR UPDATING ROUTER CONFIGURATION GOES HERE
+
+    except TrapError as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+    except Exception as e:
+        return jsonify({"status": "error", "message": f"An unexpected error occurred: {str(e)}"}), 500
+
 # GETS ALL IP BINDINGS
 @app.route('/get-ip-binding-ids', methods=['GET'])
 def get_ip_binding_ids():

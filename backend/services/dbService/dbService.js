@@ -5,6 +5,16 @@ const { getConnection, closeConnection } = require('./dbConnection');
 const { validateTokenRecord, validateDeviceRecord } = require('./dbValidation');
 const { DbServiceError, logger, retryOperation } = require('./dbUtils');
 
+// FOR UPDATING THE DATABASE TO SYNC WITH ENV VARIABLES
+async function databaseUpdate(){
+    try{
+        //! UPDATE FUNCTIONS GOES HERE
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
 async function insertTokenRecord(record) {
     try {
       await validateTokenRecord(record);
@@ -352,6 +362,7 @@ if (require.main === module) {
 }
 
 module.exports = {
+    databaseUpdate,
     insertTokenRecord,
     findTokenRecord,
     findTokenRecordByID,

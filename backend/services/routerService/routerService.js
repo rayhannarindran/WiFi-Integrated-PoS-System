@@ -7,6 +7,16 @@ const BASE_URL = `http://localhost:${MIKROTIK_PYTHON_API_PORT}`;
 
 // Utility functions for calling the API
 
+// Update Router Configuration
+async function updateRouterConfiguration() {
+    try {
+        const response = await axios.post(`${BASE_URL}/update-router-config`);
+        return response.data;
+    } catch (error) {
+        handleError(error);
+    }
+}
+
 // Get all IP bindings
 async function getIpBindings() {
     try {
@@ -78,6 +88,7 @@ function handleError(error) {
 }
 
 module.exports = {
+    updateRouterConfiguration,
     getIpBindings,
     addDevice,
     removeDevice,
