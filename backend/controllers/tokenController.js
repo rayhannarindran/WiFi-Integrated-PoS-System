@@ -6,7 +6,12 @@ const dbService = require('../services/dbService/dbService');
 async function validateToken(req, res) {
     try {
         const token = req.body.token;
-        const isValid = tokenService.validateToken(token);
+        const tokenRecord = await dbService.findTokenRecord(token);
+        if (tokenRecord.status != valid){
+            isValid = false;
+        } else {
+            isValid = true;
+        }
         res.status(200).json({ message: 'Token validation successful', data: { isValid } });
     } catch (error) {
         console.error('Error validating token: ', error);
