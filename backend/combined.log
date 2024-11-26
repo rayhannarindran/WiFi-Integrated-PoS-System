@@ -950,3 +950,7 @@
 {"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
 {"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
 {"level":"error","message":"Error finding token: Token not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Token not found\n    at /home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:80:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async retryOperation (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async Object.findTokenRecord (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:76:16)\n    at async validateToken (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/controllers/tokenController.js:9:29)","statusCode":404}
+{"level":"info","message":"Token '63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_832d15d062' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token '63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_832d15d062' Found!","service":"db-service"}
+{"level":"info","message":"Token '63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_832d15d062' Found!","service":"db-service"}

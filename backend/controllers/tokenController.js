@@ -7,7 +7,7 @@ async function validateToken(req, res) {
     try {
         const token = req.body.token;
         const tokenRecord = await dbService.findTokenRecord(token);
-        if (tokenRecord.status != valid){
+        if (tokenRecord.status != "valid"){
             isValid = false;
         } else {
             isValid = true;
