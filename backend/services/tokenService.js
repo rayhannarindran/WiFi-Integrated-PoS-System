@@ -54,9 +54,45 @@ function generateTokenRecord(pos_data) {
   return tokenRecord;
 }
 
+function validateToken(token) {
+  // Split the token into parts
+  const parts = token.split('_');
+  if (parts.length !== 3) {
+    console.error('Invalid token format: incorrect number of parts.');
+    return false;
+  }
+
+  const [uuid, isoDate, hexString] = parts;
+
+  // Validate UUID
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+  if (!uuidRegex.test(uuid)) {
+    console.error('Invalid token format: invalid UUID.');
+    return false;
+  }
+
+  // Validate ISO Date
+  const date = new Date(isoDate);
+  if (isNaN(date.getTime())) {
+    console.error('Invalid token format: invalid ISO date.');
+    return false;
+  }
+
+  // Validate Hexadecimal String (exactly 10 characters)
+  const hexRegex = /^[0-9a-f]{10}$/i;
+  if (!hexRegex.test(hexString)) {
+    console.error('Invalid token format: invalid hexadecimal string or incorrect length.');
+    return false;
+  }
+
+  // If all validations pass
+  return true;
+}
+
 // Export the functions
 module.exports = {
   generateToken,
   generateQR,
-  generateTokenRecord
+  generateTokenRecord,
+  validateToken
 };

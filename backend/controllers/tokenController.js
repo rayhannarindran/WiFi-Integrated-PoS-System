@@ -2,6 +2,18 @@ const tokenService = require('../services/tokenService');
 const printerService = require('../services/printerService');
 const dbService = require('../services/dbService/dbService');
 
+// Validate token
+async function validateToken(req, res) {
+    try {
+        const token = req.body.token;
+        const isValid = tokenService.validateToken(token);
+        res.status(200).json({ message: 'Token validation successful', data: { isValid } });
+    } catch (error) {
+        console.error('Error validating token: ', error);
+        res.status(500).json({ message: 'Failed to validate token', error: error.message });
+    }
+}
+
 // Create a new transaction
 async function createTransaction(req, res) {
     try {
@@ -25,5 +37,6 @@ async function createTransaction(req, res) {
 }
 
 module.exports = {
+    validateToken,
     createTransaction,
 };
