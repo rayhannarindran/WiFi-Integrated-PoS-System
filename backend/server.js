@@ -6,9 +6,10 @@ const bodyParser = require('body-parser');
 //API Routes
 const deviceRoutes = require('./routes/deviceRoutes.js');
 const transactionRoutes = require('./routes/transactionRoutes.js');
+const envRoutes = require('./routes/envRoutes.js');
 
 const app = express();
-const PORT = 3001;
+const PORT = parseInt(process.env.BACKEND_SERVER_PORT);
 
 // Middleware
 app.use(bodyParser.json());
@@ -18,7 +19,7 @@ app.use(cors());
 
 app.use('/api/device', deviceRoutes);
 app.use('/api/transaction', transactionRoutes);
-
+app.use('/api/env', envRoutes);
 
 // Start server
 app.listen(PORT, () => {

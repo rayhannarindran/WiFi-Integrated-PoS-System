@@ -45,7 +45,7 @@ async function connectDevice(req, res){
         }
 
         // Update router configuration
-        // routerService.updateRouterConfig(tokenRecord, newDevice);
+        await routerService.addDevice(newDevice.mac_address);
 
         res.status(200).json({ 
             message: 'Device connected successfully', 
@@ -98,7 +98,7 @@ async function disconnectDevice(req, res){
         }
 
         // Update router configuration
-        // routerService.updateRouterConfig(tokenRecord, deviceRecord);
+        await routerService.removeDevice(mac_address);
 
         res.status(200).json({ 
             message: 'Device disconnected successfully', 

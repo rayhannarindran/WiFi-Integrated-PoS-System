@@ -1,31 +1,13 @@
+require('dotenv').config();
 const { Printer, Image } = require("@node-escpos/core");
 const USB = require("@node-escpos/usb-adapter");
 
-const device = new USB(0x0fe6, 0x811e);
-
-// DATA EXAMPLE
-// const data = {
-//   items: [
-//     {
-//       name: "Item 1",
-//       price: 100,
-//       quantity: 2,
-//     },
-//     {
-//       name: "Item 2",
-//       price: 200,
-//       quantity: 1,
-//     },
-//   ],
-//   tax: 20,
-//   total: 420,
-//   date: "2022-02-02",
-//   time: "12:00",
-//   receiptNumber: "123456",
-//   token: "123456",
-// };
+vendor_id = parseInt(process.env.PRINTER_USB_VENDOR_ID, 16);
+product_id = parseInt(process.env.PRNTER_USB_PRODUCT_ID, 16);
 
 async function printReceipt(pos_data, qrCodeURL) {
+  const device = new USB(vendor_id, product_id);
+
   device.open(async function(err){
     if(err){
       // handle error

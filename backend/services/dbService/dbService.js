@@ -5,6 +5,57 @@ const { getConnection, closeConnection } = require('./dbConnection');
 const { validateTokenRecord, validateDeviceRecord } = require('./dbValidation');
 const { DbServiceError, logger, retryOperation } = require('./dbUtils');
 
+// FOR UPDATING THE DATABASE TO SYNC WITH ENV VARIABLES
+async function databaseUpdate(){
+    try{
+        await retryOperation(async () => {
+            const dbConnection = await getConnection();
+            const tokens = await Token.find();
+            for (const token of tokens) {
+                // UPDATING VALIDITY
+                if (token.valid_until < new Date()) {
+                    token.status = 'expired';
+                    await token.save();
+                }
+
+                if (token.status === 'valid') {
+                    // UPDATING MAX BANDWIDTH
+                    if (token.max_bandwidth !== (parseInt(process.env.MAX_SYSTEM_BANDWIDTH) / parseInt(process.env.MAX_SYSTEM_DEVICES)) * token.max_devices) {
+                        token.max_bandwidth = (parseInt(process.env.MAX_SYSTEM_BANDWIDTH) / parseInt(process.env.MAX_SYSTEM_DEVICES)) * token.max_devices;
+                        await token.save();
+                    }
+
+                    // UPDATING TIME LIMIT
+                    if (token.time_limit !== parseInt(process.env.TIME_LIMIT_PER_TOKEN)) {
+                        token.time_limit = parseInt(process.env.TIME_LIMIT_PER_TOKEN);
+
+                        // UPDATING VALID UNTIL
+                        token.valid_until = new Date(token.valid_from.getTime() + (token.time_limit * 60000));
+                        await token.save();
+                    }
+                }
+
+                // UPDATING DEVICES
+                for (const device_id of token.devices_connected) {
+                    const deviceRecord = await Device.findById(device_id);
+                    if (deviceRecord) {
+                        const newBandwidth = Math.floor(token.max_bandwidth / token.devices_connected.length);
+                        if (deviceRecord.bandwidth !== newBandwidth) {
+                            deviceRecord.bandwidth = newBandwidth;
+                            await deviceRecord.save();
+                        }
+                    }
+                }
+
+            }
+            logger.info('Database updated successfully!');
+        });
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
 async function insertTokenRecord(record) {
     try {
       await validateTokenRecord(record);
@@ -271,12 +322,12 @@ async function runService(function_number = 0) {
 
         // Replace this with your actual record data
         current_date = new Date();
-        const mockRecord = { token: 'exampleToken', status: 'valid', purchase_id: 'examplePurchaseId', 
+        const mockRecord = { token: 'exampleToken2', status: 'valid', purchase_id: 'examplePurchaseId2', 
                              valid_from: current_date, valid_until: new Date(current_date.getTime() + (180 * 60000)),  
                              max_devices: 3, max_bandwidth: 10, devices_connected: [], time_limit: 180, 
                              created_at: current_date, updated_at: current_date };
 
-        const mockDevice = { ip_address: '192.168.1.2' , mac_address: '00:00:00:00:00:00' };
+        const mockDevice = { ip_address: '192.168.1.2' , mac_address: '00:00:00:00:00:01' };
 
         // function testing
         switch (test_func) {
@@ -331,6 +382,12 @@ async function runService(function_number = 0) {
                 tokenRecord = await findTokenRecordByID('6720ef683e02cf9b3c90fc08');
                 console.log('Found record:\n', tokenRecord.token);
                 break;
+            case 13:
+                console.log('TEST RECORD:', mockRecord);
+                break;
+            case 14:
+                await databaseUpdate();
+                break;
             default:
                 console.log('TEST FUNCTION NOT FOUND');
         }
@@ -345,10 +402,11 @@ async function runService(function_number = 0) {
 // If this file is run directly (not imported as a module), execute the service
 if (require.main === module) {
     // Test services
-    runService(1);
+    runService(14);
 }
 
 module.exports = {
+    databaseUpdate,
     insertTokenRecord,
     findTokenRecord,
     findTokenRecordByID,
@@ -360,5 +418,5 @@ module.exports = {
     removeDevice,
     updateDevice,
     findDevice,
-    findDeviceByID
+    findDeviceByID,
 };

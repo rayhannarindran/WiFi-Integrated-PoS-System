@@ -1,5 +1,9 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+
+BANDWIDTH_PER_DEVICE = parseInt(process.env.MAX_SYSTEM_BANDWIDTH) / parseInt(process.env.MAX_SYSTEM_DEVICES);
+TIME_LIMIT = parseInt(process.env.TIME_LIMIT_PER_TOKEN)
 
 const TokenSchema = new mongoose.Schema({
     token: { type: String, required: true, unique: true }, // Token generated for the purchase
@@ -8,7 +12,7 @@ const TokenSchema = new mongoose.Schema({
     valid_from: { type: Date, required: true }, // When the token becomes valid
     valid_until: { type: Date, required: true }, // When the token expires
     max_devices: { type: Number, default: 1 }, // Maximum number of devices that can use this token
-    max_bandwidth: { type: Number, default: 10}, // Maximum bandwidth for the token
+    max_bandwidth: { type: Number, default: BANDWIDTH_PER_DEVICE}, // Maximum bandwidth for the token
     devices_connected: { 
         type: [{
             device_id: { type: Schema.Types.ObjectId, ref: 'Device' } // Reference to the device ID
@@ -20,7 +24,7 @@ const TokenSchema = new mongoose.Schema({
             message: props => `You can connect a maximum of ${props.instance.max_devices} devices!` // Correct reference to max_devices
         }
     }, // List of devices connected to the token
-    time_limit: { type: Number, default: 180 }, // Time limit for the token in minutes
+    time_limit: { type: Number, default: TIME_LIMIT }, // Time limit for the token in minutes
     created_at: { type: Date, default: Date.now }, // Timestamp for when the token was created
     updated_at: { type: Date, default: Date.now }, // Timestamp for when the token was last updated
 });

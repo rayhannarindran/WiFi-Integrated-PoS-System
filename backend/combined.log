@@ -897,3 +897,50 @@
 {"level":"info","message":"Device '00:11:22:33:44:55' updated successfully!","service":"db-service"}
 {"level":"info","message":"Device '6731acc7935e56d368458d69' Found!","service":"db-service"}
 {"level":"info","message":"Device '00:11:22:33:44:66' updated successfully!","service":"db-service"}
+{"level":"error","message":"Error inserting token: Validation error: Purchase ID is required","service":"db-service","stack":"Error: Validation error: Purchase ID is required\n    at validateTokenRecord (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbValidation.js:96:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async Object.insertTokenRecord (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:10:7)\n    at async createTransaction (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/controllers/transactionController.js:12:9)"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:00' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:01' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}

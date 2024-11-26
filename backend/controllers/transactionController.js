@@ -1,6 +1,6 @@
 const tokenService = require('../services/tokenService');
 const printerService = require('../services/printerService');
-const dbService = require('../services/dbService');
+const dbService = require('../services/dbService/dbService');
 
 // Create a new transaction
 async function createTransaction(req, res) {
@@ -23,3 +23,7 @@ async function createTransaction(req, res) {
         res.status(500).json({ message: 'Failed to create transaction', error: error.message });
     }
 }
+
+module.exports = {
+    createTransaction,
+};

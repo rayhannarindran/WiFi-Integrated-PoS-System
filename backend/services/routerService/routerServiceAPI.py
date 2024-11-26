@@ -1,17 +1,34 @@
+import os
 from flask import Flask, request, jsonify
 from librouteros import connect
 from librouteros.exceptions import TrapError
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 
 # MikroTik connection settings
-HOST = '192.168.88.1'
-USER = 'admin'
-PASSWORD = '1234'
+HOST = os.getenv('MIKROTIK_HOST')
+USER = os.getenv('MIKROTIK_USER')
+PASSWORD = os.getenv('MIKROTIK_PASSWORD')
 
 # Connect to the MikroTik Router
 def connect_to_mikrotik():
     return connect(username=USER, password=PASSWORD, host=HOST)
+
+# UPDATES ROUTER CONFIGURATION
+@app.route('/update-router-config', methods=['POST'])
+def update_router():
+    try:
+        data = request.json
+        api = connect_to_mikrotik()
+
+        #! CODE FOR UPDATING ROUTER CONFIGURATION GOES HERE
+
+    except TrapError as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+    except Exception as e:
+        return jsonify({"status": "error", "message": f"An unexpected error occurred: {str(e)}"}), 500
 
 # GETS ALL IP BINDINGS
 @app.route('/get-ip-binding-ids', methods=['GET'])
@@ -148,4 +165,4 @@ def set_bandwidth_limit():
         return jsonify({"status": "error", "message": f"An unexpected error occurred: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=4000)
+    app.run(host='0.0.0.0', port=int(os.getenv('MIKROTIK_PYTHON_API_PORT')))
