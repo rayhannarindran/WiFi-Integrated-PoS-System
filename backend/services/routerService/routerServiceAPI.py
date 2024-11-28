@@ -135,8 +135,8 @@ def device_status():
 def set_bandwidth_limit():
     data = request.json
     ip_address = data.get('ip_address')
-    download_limit = data.get('download_limit', '2M')
-    upload_limit = data.get('upload_limit', '1M')
+    download_limit = data.get('download_limit')
+    upload_limit = data.get('upload_limit')
     
     if not ip_address:
         return jsonify({"status": "error", "message": "IP address is required"}), 400
