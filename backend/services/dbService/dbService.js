@@ -322,12 +322,12 @@ async function runService(function_number = 0) {
 
         // Replace this with your actual record data
         current_date = new Date();
-        const mockRecord = { token: 'exampleToken2', status: 'valid', purchase_id: 'examplePurchaseId2', 
+        const mockRecord = { token: 'exampleToken', status: 'valid', purchase_id: 'examplePurchaseId', 
                              valid_from: current_date, valid_until: new Date(current_date.getTime() + (180 * 60000)),  
                              max_devices: 3, max_bandwidth: 10, devices_connected: [], time_limit: 180, 
                              created_at: current_date, updated_at: current_date };
 
-        const mockDevice = { ip_address: '192.168.1.2' , mac_address: '00:00:00:00:00:01' };
+        const mockDevice = { ip_address: '192.168.1.3' , mac_address: '00:00:00:00:00:11' };
 
         // function testing
         switch (test_func) {
@@ -368,7 +368,7 @@ async function runService(function_number = 0) {
                 await updateDevice('exampleToken', '00:00:00:00:99:99', device_update);
                 break;
             case 9:
-                device = await findDevice('00:00:00:00:99:98');
+                device = await findDevice('00:00:00:00:00:11');
                 console.log('Found device:\n', device);
                 break;
             case 10:
@@ -402,7 +402,7 @@ async function runService(function_number = 0) {
 // If this file is run directly (not imported as a module), execute the service
 if (require.main === module) {
     // Test services
-    runService(14);
+    runService(9);
 }
 
 module.exports = {
