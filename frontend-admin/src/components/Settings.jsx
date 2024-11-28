@@ -18,7 +18,7 @@ function App() {
     MONGODB_URI: '',
     MIKROTIK_HOST: '',
     MIKROTIK_USER: '',
-    MIKROTIK_PASS: '',
+    MIKROTIK_PASSWORD: '',
     PRINTER_USB_VENDOR_ID: '',
     PRINTER_USB_PRODUCT_ID: '',
     MAX_SYSTEM_BANDWIDTH: '',
@@ -169,14 +169,14 @@ function App() {
               />
             </div>
             <div>
-              <label htmlFor="MIKROTIK_PASS">MikroTik Password:</label>
+              <label htmlFor="MIKROTIK_PASSWORD">MikroTik Password:</label>
               <input
                 type="password"
-                id="MIKROTIK_PASS"
-                name="MIKROTIK_PASS"
-                value={formData.MIKROTIK_PASS}
+                id="MIKROTIK_PASSWORD"
+                name="MIKROTIK_PASSWORD"
+                value={formData.MIKROTIK_PASSWORD}
                 onChange={handleChange}
-                placeholder={formData.MIKROTIK_PASS || "password"}
+                placeholder={formData.MIKROTIK_PASSWORD || "password"}
               />
             </div>
           </div>

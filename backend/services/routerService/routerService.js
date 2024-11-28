@@ -184,15 +184,6 @@ async function syncMikroDb() {
     }
 }
 
-// Wrap syncMikroDb call inside an async function for execution
-(async () => {
-    try {
-        await syncMikroDb();
-    } catch (error) {
-        console.error("Fatal error during execution:", error.message);
-    }
-})();
-
 module.exports = {
     updateRouterConfiguration,
     getIpBindings,
