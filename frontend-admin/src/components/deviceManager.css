@@ -1,0 +1,88 @@
+.device-manager {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+  }
+  
+  .device-manager h1 {
+    margin-bottom: 20px;
+    color: #444;
+  }
+  
+  .tokens-list {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .token-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+  }
+  
+  .token-item:last-child {
+    border-bottom: none;
+  }
+  
+  .token-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .token-header div {
+    margin-bottom: 10px;
+  }
+  
+  .toggle-button {
+    padding: 5px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .toggle-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .status {
+    font-weight: bold;
+  }
+  
+  .status.valid {
+    color: green;
+  }
+  
+  .status.expired {
+    color: red;
+  }
+  
+  .devices-dropdown {
+    margin-top: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  
+  .device-item {
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  .device-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .no-devices {
+    color: #999;
+    font-style: italic;
+  }
+  

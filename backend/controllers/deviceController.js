@@ -77,7 +77,6 @@ async function disconnectDevice(req, res){
         await dbService.removeDevice(token, mac_address);
 
         const updatedTokenRecord = await dbService.findTokenRecord(token);
-
         // Check if device was the only one connected
         if (updatedTokenRecord.devices_connected.length === 0) {
             return res.status(200).json({ 
@@ -98,7 +97,7 @@ async function disconnectDevice(req, res){
         }
 
         // Update router configuration
-        await routerService.removeDevice(mac_address);
+        //await routerService.removeDevice(mac_address);
 
         res.status(200).json({ 
             message: 'Device disconnected successfully', 
@@ -111,7 +110,51 @@ async function disconnectDevice(req, res){
     }
 }
 
+async function findDevice(req, res){
+    try{
+        const mac_address = req.query.mac_address;
+
+        // Find and validate device
+        const deviceRecord = await dbService.findDevice(mac_address);
+        if(!deviceRecord){
+            return res.status(404).json({ message: 'Device not found' });
+        }
+
+        res.status(200).json({ 
+            message: 'Device found', 
+            data: { deviceRecord }
+        });
+    }
+    catch(error){
+        console.error('Error getting device: ', error);
+        res.status(500).json({ message: 'Failed to get device', error: error.message });
+    }
+}
+
+async function findDeviceByID(req, res){
+    try{
+        const device_id = req.query.device_id;
+
+        // Find and validate device
+        const deviceRecord = await dbService.findDeviceByID(device_id);
+        if(!deviceRecord){
+            return res.status(404).json({ message: 'Device not found' });
+        }
+
+        res.status(200).json({ 
+            message: 'Device found', 
+            data: { deviceRecord }
+        });
+    }
+    catch(error){
+        console.error('Error getting device: ', error);
+        res.status(500).json({ message: 'Failed to get device', error: error.message });
+    }
+}
+
 module.exports = {
     connectDevice,
-    disconnectDevice
+    disconnectDevice,
+    findDevice,
+    findDeviceByID
 };

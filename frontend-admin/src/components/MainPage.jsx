@@ -16,7 +16,7 @@ const MainPage = () => {
         </div>
 
         <div className="section">
-            <Link to="/placeholder2">
+            <Link to="/device-manager">
             <button className='main-page-button'>DEVICE MANAGEMENT</button>
             </Link>
         </div>

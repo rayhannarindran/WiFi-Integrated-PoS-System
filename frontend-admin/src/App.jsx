@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainPage from './components/MainPage';  // Main page layout with buttons
 import Settings from './components/Settings';  // Settings page
+import DeviceManager from './components/deviceManager';  // Device Manager page
 import Placeholder from './components/Placeholder';  // Placeholder pages
 
 const App = () => {
@@ -12,8 +13,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<MainPage />} />  {/* Main Page */}
           <Route path="/settings" element={<Settings />} />  {/* Settings Page */}
-          <Route path="/placeholder1" element={<Placeholder />} />
-          <Route path="/placeholder2" element={<Placeholder />} />
+          <Route path="/device-manager" element={<DeviceManager />} />
+          <Route path="/placeholder" element={<Placeholder />} />
         </Routes>
       </div>
     </Router>

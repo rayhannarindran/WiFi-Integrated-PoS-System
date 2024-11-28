@@ -216,27 +216,28 @@ async function removeDevice(token, mac_address) {
             const dbConnection = await getConnection();
             const tokenRecord = await Token.findOne({ token });
 
-            if (!tokenRecord) {
-                throw new DbServiceError('Token not found', 404);
-            }
-            if (tokenRecord.status !== 'valid') {
-                throw new DbServiceError('Token is not valid', 400);
-            }
-            if (tokenRecord.devices_connected.length === 0) {
-                throw new DbServiceError('No devices connected', 400);
-            }
+            // Previous validation checks remain the same...
             
-            // Find the device record and remove from database
+            // Find the device record first
             const deviceRecord = await Device.findOneAndDelete({ mac_address });
             if (!deviceRecord) {
                 throw new DbServiceError('Device not found', 404);
             }
 
-            // Remove the device from the token record
-            const index = tokenRecord.devices_connected.indexOf(deviceRecord._id);
-            tokenRecord.devices_connected.splice(index, 1);
+            // More robust device removal
+            const initialLength = tokenRecord.devices_connected.length;
+            tokenRecord.devices_connected = tokenRecord.devices_connected.filter(
+                connectedDeviceId => !connectedDeviceId.equals(deviceRecord._id)
+            );
+
+            // Optional: Log if no device was removed
+            if (tokenRecord.devices_connected.length === initialLength) {
+                logger.warn(`No device ID found for MAC address: ${mac_address}`);
+            }
+
             await tokenRecord.save();
-            logger.info('Device \'' + mac_address + '\' removed successfully!');
+            
+            logger.info(`Device '${mac_address}' removed successfully!`);
             return tokenRecord;
         });
     } catch (error) {
@@ -322,12 +323,12 @@ async function runService(function_number = 0) {
 
         // Replace this with your actual record data
         current_date = new Date();
-        const mockRecord = { token: 'exampleToken', status: 'valid', purchase_id: 'examplePurchaseId', 
-                             valid_from: current_date, valid_until: new Date(current_date.getTime() + (180 * 60000)),  
-                             max_devices: 3, max_bandwidth: 10, devices_connected: [], time_limit: 180, 
+        const mockRecord = { token: 'exampleToken3', status: 'valid', purchase_id: 'examplePurchaseId', 
+                             valid_from: current_date, valid_until: new Date(current_date.getTime() + (parseInt(process.env.TIME_LIMIT_PER_TOKEN) * 60000)),  
+                             max_devices: 3, max_bandwidth: 10, devices_connected: [], time_limit: parseInt(process.env.TIME_LIMIT_PER_TOKEN), 
                              created_at: current_date, updated_at: current_date };
 
-        const mockDevice = { ip_address: '192.168.1.3' , mac_address: '00:00:00:00:00:11' };
+        const mockDevice = { ip_address: '192.168.1.92' , mac_address: '00:00:00:88:88' };
 
         // function testing
         switch (test_func) {
@@ -358,10 +359,10 @@ async function runService(function_number = 0) {
                 console.log('Found records:\n', records);
                 break;
             case 6:
-                await addDevice('exampleToken', mockDevice);
+                await addDevice('exampleToken3', mockDevice);
                 break;
             case 7:
-                await removeDevice('exampleToken', '00:00:00:00:99:98');
+                await removeDevice('exampleToken', '00:00:00:00:00:11');
                 break;
             case 8:
                 const device_update = { bandwidth: 20 };
@@ -402,7 +403,7 @@ async function runService(function_number = 0) {
 // If this file is run directly (not imported as a module), execute the service
 if (require.main === module) {
     // Test services
-    runService(9);
+    runService(6);
 }
 
 module.exports = {

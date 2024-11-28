@@ -19,6 +19,34 @@ async function validateToken(req, res) {
     }
 }
 
+async function findAllTokens(req, res) {
+    try {
+        const tokens = await dbService.findTokensByCriteria({});
+        res.status(200).json({ message: 'All DB tokens', data: { tokens } });
+    } catch (error) {
+        console.error('Error getting token: ', error);
+        res.status(500).json({ message: 'Failed to get tokens', error: error.message });
+    }
+}
+
+async function findToken(req, res){
+    try{
+        const token = req.query.token;
+
+        if (!token){
+            return res.status(400).json({ message: 'Token not provided' });
+        }
+
+        // Find and validate token
+        const tokenRecord = await dbService.findTokenRecord(token);
+        res.status(200).json({ message: 'Token found', data: { tokenRecord } });
+    }
+    catch(error){
+        console.error('Error getting token: ', error);
+        res.status(500).json({ message: 'Failed to get token', error: error.message });
+    }
+}
+
 // Create a new transaction
 async function createTransaction(req, res) {
     try {
@@ -43,5 +71,7 @@ async function createTransaction(req, res) {
 
 module.exports = {
     validateToken,
+    findAllTokens,
+    findToken,
     createTransaction,
 };

@@ -1445,3 +1445,359 @@
 {"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
 {"level":"info","message":"Device '67482fd52d430442e08affcd' Found!","service":"db-service"}
 {"level":"info","message":"Device '67482fdf6d7be5ea90e0658d' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Token 'exampleToken' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Token 'exampleToken' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token 'exampleToken' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding token: Token not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Token not found\n    at /home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:80:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async retryOperation (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async Object.findTokenRecord (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:76:16)\n    at async findToken (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/controllers/tokenController.js:35:29)","statusCode":404}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding token: Token not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Token not found\n    at /home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:80:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async retryOperation (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async Object.findTokenRecord (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:76:16)\n    at async findToken (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/controllers/tokenController.js:35:29)","statusCode":404}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding token: Token not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Token not found\n    at /home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:80:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async retryOperation (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async Object.findTokenRecord (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:76:16)\n    at async findToken (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/controllers/tokenController.js:35:29)","statusCode":404}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding token: Token not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Token not found\n    at /home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:80:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async retryOperation (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async Object.findTokenRecord (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:76:16)\n    at async findToken (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/controllers/tokenController.js:35:29)","statusCode":404}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token 'exampleToken' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token 'exampleToken' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:00' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d17b09b929a5ec0493ce' Found!","service":"db-service"}
+{"level":"info","message":"Device '6742d1ae5c3cfded52dbbd1f' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:00' Found!","service":"db-service"}
+{"level":"info","message":"Token '6742cf0af14d846a59669d87' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:00' removed successfully!","service":"db-service"}
+{"level":"info","message":"Token 'exampleToken' Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding device: Device not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Device not found\n    at /home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:307:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async retryOperation (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async Object.findDeviceByID (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:303:16)\n    at async disconnectDevice (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/controllers/deviceController.js:93:22)","statusCode":404}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding device: Device not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Device not found\n    at /home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:307:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async retryOperation (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async Object.findDeviceByID (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:303:16)\n    at async findDeviceByID (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/controllers/deviceController.js:139:30)","statusCode":404}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding device: Device not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Device not found\n    at /home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:307:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async retryOperation (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async Object.findDeviceByID (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:303:16)\n    at async findDeviceByID (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/controllers/deviceController.js:139:30)","statusCode":404}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding device: Device not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Device not found\n    at /home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:307:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async retryOperation (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async Object.findDeviceByID (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:303:16)\n    at async findDeviceByID (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/controllers/deviceController.js:139:30)","statusCode":404}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding device: Device not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Device not found\n    at /home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:307:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async retryOperation (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async Object.findDeviceByID (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:303:16)\n    at async findDeviceByID (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/controllers/deviceController.js:139:30)","statusCode":404}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:11' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:10' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '674883ac9d7ad178a6e36cbb' Found!","service":"db-service"}
+{"level":"info","message":"Device '674883b886690808bd746f8f' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '674883ac9d7ad178a6e36cbb' Found!","service":"db-service"}
+{"level":"info","message":"Device '674883b886690808bd746f8f' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:11' Found!","service":"db-service"}
+{"level":"info","message":"Token '6742cf0af14d846a59669d87' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:11' removed successfully!","service":"db-service"}
+{"level":"info","message":"Token 'exampleToken' Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding device: Device not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Device not found\n    at /home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:307:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async retryOperation (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async Object.findDeviceByID (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:303:16)\n    at async disconnectDevice (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/controllers/deviceController.js:93:22)","statusCode":404}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:10' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:11' added successfully!","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:10' removed successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:11' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:10' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:10' removed successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:12' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:12' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:11' removed successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:12' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:10' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":400},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":400},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":400},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error adding device: Maximum devices limit reached","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Maximum devices limit reached\n    at /home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:187:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async retryOperation (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async addDevice (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:176:16)\n    at async runService (/home/narindrans-wsl/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:362:17)","statusCode":400}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:99' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:19' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:29' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:59' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:89' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:69' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:08' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:88' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:88:88' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cad76fcf74a11345b38' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cb510f8e52b66733ab4' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cbb1bedef04aeb71405' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488ccc03cf1bd9a29a2ffe' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cd4deff416cec14ee93' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cdceaf533413d3444f1' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:99' Found!","service":"db-service"}
+{"level":"info","message":"Token '67488c1472469611339439e6' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:99' removed successfully!","service":"db-service"}
+{"level":"info","message":"Token 'exampleToken' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cb510f8e52b66733ab4' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:19' updated successfully!","service":"db-service"}
+{"level":"info","message":"Device '67488cbb1bedef04aeb71405' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:29' updated successfully!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cb510f8e52b66733ab4' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cbb1bedef04aeb71405' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cf6de703911b431c557' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cfd125f348f310385c7' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488d07a83a44e2d9a2b33e' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:88:88' Found!","service":"db-service"}
+{"level":"info","message":"Token '67488c7349ee7bbc5fd2ffe1' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:88:88' removed successfully!","service":"db-service"}
+{"level":"info","message":"Token 'exampleToken3' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cf6de703911b431c557' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:08' updated successfully!","service":"db-service"}
+{"level":"info","message":"Device '67488cfd125f348f310385c7' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:88' updated successfully!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cbb1bedef04aeb71405' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cb510f8e52b66733ab4' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cfd125f348f310385c7' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cf6de703911b431c557' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488ccc03cf1bd9a29a2ffe' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cd4deff416cec14ee93' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cdceaf533413d3444f1' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cb510f8e52b66733ab4' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cbb1bedef04aeb71405' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
