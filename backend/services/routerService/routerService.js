@@ -6,19 +6,7 @@ const MIKROTIK_PYTHON_API_PORT = process.env.MIKROTIK_PYTHON_API_PORT;
 const BASE_URL = `http://localhost:${MIKROTIK_PYTHON_API_PORT}`;
 const dbService = require('../dbService/dbService');
 
-// Utility functions for calling the API
-
-// Update Router Configuration
-async function updateRouterConfiguration() {
-    try {
-        const response = await axios.post(`${BASE_URL}/update-router-config`);
-        return response.data;
-    } catch (error) {
-        handleError(error);
-    }
-}
-
-// Get all IP bindings
+// GET IP BINDINGS
 async function getIpBindings() {
     try {
         const response = await axios.get(`${BASE_URL}/get-ip-binding-ids`);
@@ -28,7 +16,7 @@ async function getIpBindings() {
     }
 }
 
-// Add a device to IP bindings
+// ADD DEVICE TO IP BINDINGS
 async function addDevice(macAddress) {
     try {
         const response = await axios.post(`${BASE_URL}/add-device`, { mac_address: macAddress });
@@ -38,7 +26,7 @@ async function addDevice(macAddress) {
     }
 }
 
-// Remove a device from IP bindings
+// REMOVE DEVICE
 async function removeDevice(macAddress) {
     try {
         const response = await axios.post(`${BASE_URL}/remove-device`, { mac_address: macAddress });
@@ -48,7 +36,7 @@ async function removeDevice(macAddress) {
     }
 }
 
-// Get device status
+// GET DEVICE STATUS
 async function getDeviceStatus(macAddress) {
     try {
         const response = await axios.get(`${BASE_URL}/device-status`, {
@@ -60,7 +48,7 @@ async function getDeviceStatus(macAddress) {
     }
 }
 
-// Set bandwidth limit
+// SET BANDWIDTH LIMIT
 async function setBandwidthLimit(ip_address, int_download_limit, int_upload_limit) {
     if (!ip_address) {
         throw new Error("IP address is required to set bandwidth limit.");
@@ -85,7 +73,7 @@ async function setBandwidthLimit(ip_address, int_download_limit, int_upload_limi
     }
 }
 
-// Error handling helper
+// ERROR HANDLING
 function handleError(error) {
     if (error.response) {
         console.error(`API Error: ${error.response.data.message}`);
@@ -103,7 +91,7 @@ async function syncMikroDb() {
     console.log("Starting synchronization between database and MikroTik...");
 
     try {
-        // Step 1: Get all tokens from the database
+        // AMBIL TOKEN DARI DATABASE
         const tokens = await dbService.findTokensByCriteria({});
         if (!tokens || tokens.length === 0) {
             console.log("No tokens found in the database. Exiting synchronization.");
@@ -111,14 +99,13 @@ async function syncMikroDb() {
         }
         // console.log(tokens);
 
-        // Step 2: Get all MikroTik IP bindings (devices in MikroTik)
+        // AMBIL DATA MIKROTIK IP BINDINGS
         const mikrotikDevices = await getIpBindings();
         const mikrotikDeviceMap = new Map(
             mikrotikDevices.data.map(device => [device.mac_address, device])
         );
-        console.log(mikrotikDevices)
 
-        // Step 3: Process tokens to adjust bandwidth limits in MikroTik
+        // PROSES TOKEN UNTUK ADJUST BANDWIDTH MIKROTIK
         for (const token of tokens) {
             console.log(`Processing token: ${token.token} with ${token.devices_connected.length} device connected`);
 
@@ -160,7 +147,7 @@ async function syncMikroDb() {
                         }
                     }
 
-                    // Ensure the device is not expired
+                    // CHECKIN TOKEN TIDAK EXPIRED
                     if (token.status !== 'valid' || new Date() > new Date(token.valid_until)) {
                         console.log(`Device ${device.mac_address} associated with expired token. Disconnecting...`);
                         await removeDevice(device.mac_address);
@@ -171,7 +158,7 @@ async function syncMikroDb() {
                 }
             }
 
-            // Mark expired tokens
+            // MARK EXPIRED TOKEN
             if (token.status !== 'valid' || new Date() > new Date(token.valid_until)) {
                 console.log(`Marking token ${token.token} as expired.`);
                 await dbService.updateTokenRecord(token.token, { status: 'expired' });
@@ -179,13 +166,14 @@ async function syncMikroDb() {
         }
 
         console.log("Synchronization between database and MikroTik completed successfully!");
+        process.exit(0);
     } catch (error) {
         console.error("Error during synchronization:", error.message);
+        process.exit(1);
     }
 }
 
 module.exports = {
-    updateRouterConfiguration,
     getIpBindings,
     addDevice,
     removeDevice,
