@@ -1801,3 +1801,15 @@
 {"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
 {"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
 {"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '67482fd52d430442e08affcd' Found!","service":"db-service"}
+{"level":"info","message":"Device '67482fdf6d7be5ea90e0658d' Found!","service":"db-service"}
+{"level":"info","message":"Token 'exampleToken' updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '67482fd52d430442e08affcd' Found!","service":"db-service"}
+{"level":"info","message":"Device '67482fdf6d7be5ea90e0658d' Found!","service":"db-service"}
+{"level":"info","message":"Token 'exampleToken' updated successfully!","service":"db-service"}
