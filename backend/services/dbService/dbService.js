@@ -323,7 +323,7 @@ async function runService(function_number = 0) {
 
         // Replace this with your actual record data
         current_date = new Date();
-        const mockRecord = { token: 'exampleToken3', status: 'valid', purchase_id: 'examplePurchaseId3', 
+        const mockRecord = { token: '63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_14cac7715d', status: 'valid', purchase_id: 'examplePurchaseId_1', 
                              valid_from: current_date, valid_until: new Date(current_date.getTime() + (parseInt(process.env.TIME_LIMIT_PER_TOKEN) * 60000)),  
                              max_devices: 3, max_bandwidth: parseInt(process.env.MAX_SYSTEM_BANDWIDTH/process.env.MAX_SYSTEM_DEVICES)*3, devices_connected: [], time_limit: parseInt(process.env.TIME_LIMIT_PER_TOKEN), 
                              created_at: current_date, updated_at: current_date };
@@ -403,7 +403,7 @@ async function runService(function_number = 0) {
 // If this file is run directly (not imported as a module), execute the service
 if (require.main === module) {
     // Test services
-    runService(14);
+    runService(1);
 }
 
 module.exports = {

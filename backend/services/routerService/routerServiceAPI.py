@@ -16,20 +16,6 @@ PASSWORD = os.getenv('MIKROTIK_PASSWORD')
 def connect_to_mikrotik():
     return connect(username=USER, password=PASSWORD, host=HOST)
 
-# UPDATES ROUTER CONFIGURATION
-@app.route('/update-router-config', methods=['POST'])
-def update_router():
-    try:
-        data = request.json
-        api = connect_to_mikrotik()
-
-        #! CODE FOR UPDATING ROUTER CONFIGURATION GOES HERE
-
-    except TrapError as e:
-        return jsonify({"status": "error", "message": str(e)}), 500
-    except Exception as e:
-        return jsonify({"status": "error", "message": f"An unexpected error occurred: {str(e)}"}), 500
-
 # GETS ALL IP BINDINGS
 @app.route('/get-ip-binding-ids', methods=['GET'])
 def get_ip_binding_ids():
@@ -118,15 +104,36 @@ def device_status():
     mac_address = request.args.get('mac_address')
     try:
         api = connect_to_mikrotik()
-        bindings = api.path('ip/hotspot/ip-binding').get()
+        bindings = api.path('ip/hotspot/ip-binding').select('.id', 'mac-address','type')
+
         for binding in bindings:
             if binding['mac-address'] == mac_address:
                 return jsonify({
                     "status": "found",
-                    "ip_address": binding.get('address', 'Not assigned'),
+                    "mac_address": binding['mac-address'],
                     "type": binding['type']
                 }), 200
         return jsonify({"status": "not found"}), 404
+    except TrapError as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+    
+# Update the connection status of a device in IP Binding
+@app.route('/update-device-status', methods=['POST'])
+def update_device_status():
+    data = request.json
+    mac_address = data.get('mac_address')
+    status = data.get('status')
+    try:
+        api = connect_to_mikrotik()
+        bindings = api.path('ip/hotspot/ip-binding').select('.id', 'mac-address', 'type')
+        for binding in bindings:
+            if binding['mac-address'] == mac_address:
+                binding_id = binding['.id']
+                api.path('ip/hotspot/ip-binding').update(
+                    **{'.id': binding_id, 'type': status}  # Update 'type' based on .id
+                )
+                return jsonify({"status": "success", "message": f"Device {mac_address} status updated to {status}"}), 200
+        return jsonify({"status": "error", "message": f"No IP binding found for MAC address {mac_address}"}), 404
     except TrapError as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
