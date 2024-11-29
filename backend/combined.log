@@ -1802,14 +1802,117 @@
 {"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
 {"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
 {"level":"info","message":"Connected to MongoDB","service":"db-service"}
-{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"level":"error","message":"Failed to connect to MongoDB: connect ECONNREFUSED 127.0.0.1:27017","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{"localhost:27017":{"$clusterTime":null,"address":"localhost:27017","arbiters":[],"electionId":null,"error":{},"hosts":[],"lastUpdateTime":711684,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxWireVersion":0,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"}},"setName":null,"stale":false,"type":"Unknown"},"service":"db-service","stack":"MongooseServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017\n    at _handleConnectionErrors (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/node_modules/mongoose/lib/connection.js:900:11)\n    at NativeConnection.openUri (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/node_modules/mongoose/lib/connection.js:851:11)\n    at async getConnection (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbConnection.js:9:22)\n    at async /home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:163:34\n    at async retryOperation (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async Object.findTokensByCriteria (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:162:16)\n    at async findAllTokens (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/controllers/tokenController.js:24:24)"}
+{"error":{"message":"connect ECONNREFUSED 127.0.0.1:27017","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{"localhost:27017":{"$clusterTime":null,"address":"localhost:27017","arbiters":[],"electionId":null,"error":{},"hosts":[],"lastUpdateTime":711684,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxWireVersion":0,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"}},"setName":null,"stale":false,"type":"Unknown"}},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding tokens: Operation `tokens.find()` buffering timed out after 10000ms","service":"db-service","stack":"MongooseError: Operation `tokens.find()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)"}
+{"level":"error","message":"Error finding tokens: Operation `tokens.find()` buffering timed out after 10000ms","service":"db-service","stack":"MongooseError: Operation `tokens.find()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"level":"error","message":"Failed to connect to MongoDB: connection timed out","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{"100.79.237.86:27017":{"$clusterTime":null,"address":"100.79.237.86:27017","arbiters":[],"electionId":null,"error":{},"hosts":[],"lastUpdateTime":1036504,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxWireVersion":0,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"}},"setName":null,"stale":false,"type":"Unknown"},"service":"db-service","stack":"MongooseServerSelectionError: connection timed out\n    at _handleConnectionErrors (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/node_modules/mongoose/lib/connection.js:900:11)\n    at NativeConnection.openUri (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/node_modules/mongoose/lib/connection.js:851:11)\n    at async getConnection (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbConnection.js:9:22)\n    at async /home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:163:34\n    at async retryOperation (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbUtils.js:34:14)\n    at async Object.findTokensByCriteria (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/services/dbService/dbService.js:162:16)\n    at async findAllTokens (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/controllers/tokenController.js:24:24)"}
+{"error":{"message":"connection timed out","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{"100.79.237.86:27017":{"$clusterTime":null,"address":"100.79.237.86:27017","arbiters":[],"electionId":null,"error":{},"hosts":[],"lastUpdateTime":1036504,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxWireVersion":0,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"}},"setName":null,"stale":false,"type":"Unknown"}},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding tokens: Operation `tokens.find()` buffering timed out after 10000ms","service":"db-service","stack":"MongooseError: Operation `tokens.find()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)"}
+{"level":"error","message":"Error finding tokens: Operation `tokens.find()` buffering timed out after 10000ms","service":"db-service","stack":"MongooseError: Operation `tokens.find()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (/home/rayhannarindran/programming/WiFi-Integrated-PoS-System/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cbb1bedef04aeb71405' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cb510f8e52b66733ab4' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:19' Found!","service":"db-service"}
+{"level":"info","message":"Token '67488c1472469611339439e6' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:19' removed successfully!","service":"db-service"}
+{"level":"info","message":"Token 'exampleToken' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cbb1bedef04aeb71405' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:29' updated successfully!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:29' Found!","service":"db-service"}
+{"level":"info","message":"Token '67488c1472469611339439e6' Found!","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:00:29' removed successfully!","service":"db-service"}
+{"level":"info","message":"Token 'exampleToken' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488ccc03cf1bd9a29a2ffe' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cd4deff416cec14ee93' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cdceaf533413d3444f1' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488ccc03cf1bd9a29a2ffe' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cd4deff416cec14ee93' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cdceaf533413d3444f1' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
 {"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
-{"level":"info","message":"Device '67482fd52d430442e08affcd' Found!","service":"db-service"}
-{"level":"info","message":"Device '67482fdf6d7be5ea90e0658d' Found!","service":"db-service"}
-{"level":"info","message":"Token 'exampleToken' updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"0 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"0 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:88:88' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:88' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '00:00:00:00:81' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '10:00:00:00:81' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '11:00:00:00:81' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '11:11:00:00:81' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '11:11:11:00:81' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '11:11:11:11:81' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '11:11:11:11:00' added successfully!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6749167c69edb064ece2ebff' Found!","service":"db-service"}
+{"level":"info","message":"Device '674916931cb1accccc6f9a8e' Found!","service":"db-service"}
+{"level":"info","message":"Device '674916851b76c193a47883cb' Found!","service":"db-service"}
+{"level":"info","message":"Device '6749165669f8482e48d00f24' Found!","service":"db-service"}
+{"level":"info","message":"Device '6749165d4ad998f10d3026a6' Found!","service":"db-service"}
+{"level":"info","message":"Device '6749166646725b564d8969ab' Found!","service":"db-service"}
+{"level":"info","message":"Device '6749163395d36af5ecab2e1d' Found!","service":"db-service"}
+{"level":"info","message":"Device '674916498825942cfea4901f' Found!","service":"db-service"}
+{"level":"info","message":"Device '674916414e2f92a461aacea9' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6749167c69edb064ece2ebff' Found!","service":"db-service"}
+{"level":"info","message":"Device '674916851b76c193a47883cb' Found!","service":"db-service"}
+{"level":"info","message":"Device '674916931cb1accccc6f9a8e' Found!","service":"db-service"}
 {"level":"info","message":"Connected to MongoDB","service":"db-service"}
 {"level":"info","message":"Database updated successfully!","service":"db-service"}
-{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
-{"level":"info","message":"Device '67482fd52d430442e08affcd' Found!","service":"db-service"}
-{"level":"info","message":"Device '67482fdf6d7be5ea90e0658d' Found!","service":"db-service"}
-{"level":"info","message":"Token 'exampleToken' updated successfully!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6749167c69edb064ece2ebff' Found!","service":"db-service"}
+{"level":"info","message":"Device '674916851b76c193a47883cb' Found!","service":"db-service"}
+{"level":"info","message":"Device '674916931cb1accccc6f9a8e' Found!","service":"db-service"}
+{"level":"info","message":"Device '6749165669f8482e48d00f24' Found!","service":"db-service"}
+{"level":"info","message":"Device '6749166646725b564d8969ab' Found!","service":"db-service"}
+{"level":"info","message":"Device '6749165d4ad998f10d3026a6' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '6749167c69edb064ece2ebff' Found!","service":"db-service"}
+{"level":"info","message":"Device '674916851b76c193a47883cb' Found!","service":"db-service"}
+{"level":"info","message":"Device '674916931cb1accccc6f9a8e' Found!","service":"db-service"}
