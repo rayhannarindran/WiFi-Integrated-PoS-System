@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Captive Portal</title>
+    <link href="https://fonts.bunny.net/css?family=poppins:300,400,600" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <!-- Floating Squares for Background Animation -->
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+
+    <div class="container">
+        <!-- SVG Icon Above Heading -->
+        <img src="image.jpg" alt="Wi-Fi Icon" class="icon">
+        <h1>Wi-Fi Area</h1>
+        <p id="message">Click connect to validate your token...</p>
+        <!-- Display IP and MAC Address -->
+        <div class="info">
+            <p>IP Address: <span>$(ip)</span></p>
+            <p>MAC Address: <span>$(mac)</span></p>
+        </div>
+        <button id="connect-button" class="button">Connect</button>
+        
+        <!-- Loader Animation -->
+        <div class="loader" id="loader">
+            <span class="load"></span>
+        </div>
+    
+        <script src="connect.js"></script>
+        <p class="qr-message" id="qr-message"></p>
+    </div>
+    
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('connect-button').addEventListener('click', function() {
+            const loader = document.getElementById('loader');
+            const qrMessage = document.getElementById('qr-message');
+
+            // Show loader and hide button
+            loader.style.display = 'block';
+            this.style.display = 'none';
+
+            // Simulate loading for 6 seconds
+            setTimeout(function() {
+                loader.style.display = 'none'; // Hide loader
+                qrMessage.style.display = 'block'; // Show QR message
+            }, 6000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    height: 100%;
+    scroll-behavior: smooth;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    /* Grid Background */
+    --gap: 5em;
+    --line: 1px;
+    --color: rgba(255, 255, 255, 0.2);
+
+    background-image: 
+        linear-gradient(
+            -90deg,
+            transparent calc(var(--gap) - var(--line)),
+            var(--color) calc(var(--gap) - var(--line) + 1px),
+            var(--color) var(--gap)
+        ),
+        linear-gradient(
+            0deg,
+            transparent calc(var(--gap) - var(--line)),
+            var(--color) calc(var(--gap) - var(--line) + 1px),
+            var(--color) var(--gap)
+        );
+    background-size: var(--gap) var(--gap);
+}
+
+.container {
+    box-sizing: border-box;
+    width: 90%;
+    max-width: 400px;
+    padding: 40px;
+    height: auto;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(3, 3, 3);
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-weight: bolder;
+    color: black;
+}
+
+.container:hover {
+    border: 2px solid rgb(53, 1, 243);
+    transform: scale(1.05);
+}
+
+.container:active {
+    transform: scale(0.95) rotateZ(1.7deg);
+}
+
+.button {
+    position: relative;
+    padding: 13px 42px;
+    border-radius: 60px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: #7d2ae8;
+    transition: all 0.2s ease;
+}
+
+.button:active {
+    transform: scale(0.96);
+}
+
+.button:before,
+.button:after {
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
+}
+
+.button:hover:before {
+    top: -70%;
+    background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+        10% 10%, 18% 18%;
+    background-position: 50% 120%;
+    animation: greentopBubbles 0.6s ease;
+}
+
+@keyframes greentopBubbles {
+    0% {
+        background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+            40% 90%, 55% 90%, 70% 90%;
+    }
+
+    50% {
+        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+            50% 50%, 65% 20%, 90% 30%;
+    }
+
+    100% {
+        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+            50% 40%, 65% 10%, 90% 20%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+
+.button:hover::after {
+    bottom: -70%;
+    background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+    background-position: 50% 0%;
+    animation: greenbottomBubbles 0.6s ease;
+}
+
+@keyframes greenbottomBubbles {
+    0% {
+        background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+            70% -10%, 70% 0%;
+    }
+
+    50% {
+        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+            105% 0%;
+    }
+
+    100% {
+        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+            110% 10%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+
+
+#connect-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0px 12px 20px rgba(0, 123, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Floating Square Animations */
+.square {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+    animation: float 15s infinite ease-in-out, spin 10s infinite linear;
+    opacity: 0;
+    z-index: 0;
+    border-radius: 20%;
+}
+
+.square:nth-child(1) {
+    width: 60px;
+    height: 60px;
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.square:nth-child(2) {
+    width: 100px;
+    height: 100px;
+    top: 70%;
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.square:nth-child(3) {
+    width: 80px;
+    height: 80px;
+    top: 40%;
+    left: 70%;
+    animation-delay: 4s;
+}
+
+.square:nth-child(4) {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 10%;
+    animation-delay: 6s;
+}
+
+.square:nth-child(5) {
+    width: 70px;
+    height: 70px;
+    top: 20%;
+    left: 85%;
+    animation-delay: 8s;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0.1; }
+    50% { opacity: 0.8; transform: translate(50vw, -50vh) rotate(180deg); }
+    100% { transform: translate(100vw, -100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Loader Animation Styling */
+.loader {
+    width: 50%;
+    height: 50px;
+    position: relative;
+    margin: 20px auto;
+    display: none; /* Initially hidden */
+}
+
+.load {
+    background-color: #ffffff;
+    border-radius: 50px;
+    display: block;
+    height: 16px;
+    width: 16px;
+    bottom: 0;
+    position: absolute;
+    transform: translateX(64px);
+    animation: loading_713 3.5s ease both infinite;
+}
+
+.load::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #747474;
+    border-radius: inherit;
+    animation: loading2_713 3.5s ease both infinite;
+}
+
+@keyframes text_713 {
+    0% { letter-spacing: 1px; transform: translateX(0px); }
+    40% { letter-spacing: 2px; transform: translateX(26px); }
+    80% { letter-spacing: 1px; transform: translateX(32px); }
+    100% { letter-spacing: 1px; transform: translateX(0px); }
+}
+
+@keyframes loading_713 {
+    0% { width: 16px; transform: translateX(0px); }
+    40% { width: 100%; transform: translateX(0px); }
+    80% { width: 16px; transform: translateX(64px); }
+    100% { width: 16px; transform: translateX(0px); }
+}
+
+@keyframes loading2_713 {
+    0% { transform: translateX(0px); width: 16px; }
+    40% { transform: translateX(0%); width: 80%; }
+    80% { width: 100%; transform: translateX(0px); }
+    100% { transform: translateX(0px); width: 16px; }
+}
+
+.icon {
+    width: 300px; /* Adjust size as needed */
+    height: 300px;
+    margin-bottom: 10px; /* Adds spacing below the icon */
+}
