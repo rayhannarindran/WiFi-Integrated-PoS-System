@@ -97,7 +97,6 @@ async function syncMikroDb() {
             console.log("No tokens found in the database. Exiting synchronization.");
             return;
         }
-        // console.log(tokens);
 
         // AMBIL DATA MIKROTIK IP BINDINGS
         const mikrotikDevices = await getIpBindings();
