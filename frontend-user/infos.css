@@ -1,0 +1,140 @@
+@keyframes twinkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100vh) translateX(0); opacity: 1; }
+    70% { opacity: 1; }
+    100% { transform: translateY(100vh) translateX(100px); opacity: 0; }
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    height: 100%;
+    scroll-behavior: smooth;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    /* Grid Background */
+    --gap: 5em;
+    --line: 1px;
+    --color: rgba(255, 255, 255, 0.2);
+
+    background-image: 
+        linear-gradient(
+            -90deg,
+            transparent calc(var(--gap) - var(--line)),
+            var(--color) calc(var(--gap) - var(--line) + 1px),
+            var(--color) var(--gap)
+        ),
+        linear-gradient(
+            0deg,
+            transparent calc(var(--gap) - var(--line)),
+            var(--color) calc(var(--gap) - var(--line) + 1px),
+            var(--color) var(--gap)
+        );
+    background-size: var(--gap) var(--gap);
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 32px;
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 24px;
+    transition: color 0.3s ease;
+}
+
+p {
+    margin: 16px 0;
+    transition: opacity 0.3s ease;
+    color: #ffffff;
+}
+
+.highlight {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: block;
+}
+
+.highlight:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+}
+
+#validation-status.valid {
+    color: #4ade80;
+}
+
+#validation-status.invalid {
+    color: #f87171;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+
+button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    margin: 0 8px;
+}
+
+button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.loading {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
