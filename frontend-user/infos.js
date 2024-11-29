@@ -1,9 +1,9 @@
 // Get QR data and validation status from query string
 const urlParams = new URLSearchParams(window.location.search);
-const qrData = urlParams.get('qrData');
+const token = urlParams.get('token');
 const validationStatus = urlParams.get('status');
 
-document.getElementById('qr-data').textContent = qrData;
+document.getElementById('token').textContent = token;
 
 // Show the validation status
 const validationStatusElement = document.getElementById('validation-status');

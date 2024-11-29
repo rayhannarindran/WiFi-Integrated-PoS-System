@@ -1,4 +1,4 @@
-// Assuming 'connectButton' is the connect button in the HTML and 'qrData' holds the QR code token.
+// Assuming 'connectButton' is the connect button in the HTML and 'token' holds the QR code token.
 const connectButton = document.getElementById('connect-button');  // Connect button element
 
 // Function to get the 'token' parameter from the URL
@@ -8,7 +8,7 @@ function getTokenFromURL() {
 }
 
 // Retrieve the token from the URL
-const qrData = getTokenFromURL();
+const token = getTokenFromURL();
 const messageElement = document.getElementById('message');
 const apiUrl = 'http://192.168.88.250:3001/api';
 
@@ -30,7 +30,7 @@ connectButton.addEventListener("click", async function () {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ token: qrData }),
+            body: JSON.stringify({ token: token }),
         });
 
         if (response.ok) {
@@ -45,7 +45,7 @@ connectButton.addEventListener("click", async function () {
                             "Content-Type": "application/json",
                         },
                         body: JSON.stringify({
-                            token: qrData,
+                            token: token,
                             ip_address: ipAddress,
                             mac_address: macAddress,
                         }),
@@ -60,24 +60,24 @@ connectButton.addEventListener("click", async function () {
                     console.error("Error saving device:", error);
                 }
 
-                window.location.href = `infos.html?qrData=${encodeURIComponent(
-                    qrData
+                window.location.href = `infos.html?token=${encodeURIComponent(
+                    token
                 )}&status=valid`;
             } else {
-                window.location.href = `infos.html?qrData=${encodeURIComponent(
-                    qrData
+                window.location.href = `infos.html?token=${encodeURIComponent(
+                    token
                 )}&status=invalid`;
             }
         } else {
             console.error(`API call failed with status: ${response.status}`);
-            window.location.href = `infos.html?qrData=${encodeURIComponent(
-                qrData
+            window.location.href = `infos.html?token=${encodeURIComponent(
+                token
             )}&status=error`;
         }
     } catch (error) {
         console.error("Error validating token:", error);
-        window.location.href = `infos.html?qrData=${encodeURIComponent(
-            qrData
+        window.location.href = `infos.html?token=${encodeURIComponent(
+            token
         )}&status=error`;
     }
 });

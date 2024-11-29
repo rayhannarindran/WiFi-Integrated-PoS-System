@@ -1916,3 +1916,24 @@
 {"level":"info","message":"Device '6749167c69edb064ece2ebff' Found!","service":"db-service"}
 {"level":"info","message":"Device '674916851b76c193a47883cb' Found!","service":"db-service"}
 {"level":"info","message":"Device '674916931cb1accccc6f9a8e' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cd4deff416cec14ee93' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488ccc03cf1bd9a29a2ffe' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cdceaf533413d3444f1' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cf6de703911b431c557' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cfd125f348f310385c7' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"3 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cd4deff416cec14ee93' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488ccc03cf1bd9a29a2ffe' Found!","service":"db-service"}
+{"level":"info","message":"Device '67488cdceaf533413d3444f1' Found!","service":"db-service"}
