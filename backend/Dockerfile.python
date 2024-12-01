@@ -1,0 +1,17 @@
+FROM python:3.10.15-slim
+
+# Set the working directory for the Python app
+WORKDIR /app
+
+# Copy the Python requirements file into the container
+COPY backend/python-requirements.txt ./
+RUN pip install --no-cache-dir -r python-requirements.txt
+
+# Copy the rest of the Python application files into the container
+COPY backend/services/routerService/routerServiceAPI.py ./
+
+# Expose the port your Python API will run on (e.g., 4000)
+EXPOSE 4001
+
+# Run the Python API server
+CMD ["python", "routerServiceAPI.py"]
