@@ -21,7 +21,7 @@ function generateToken(pos_data) {
 async function generateQR(token) {
   try {
     // Generate QR code using await
-    URL = process.env.MIKROTIK_HOST + "?token=" + token;
+    URL = "hotspot.wifipos.id/login?token=" + token;
     return URL;  // Return the QR code URL
   } catch (err) {
     console.log("Error:", err);
