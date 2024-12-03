@@ -26,7 +26,7 @@ async function printReceipt(pos_data, qrCodeURL) {
       .text(pos_data)
       
     // inject qrimage to printer
-    printer = await printer.qrimage(qrCodeURL)
+    printer = await printer.qrimage(qrCodeURL, { type: 'png', mode: 'dhdw', size: 4 })
 
     printer
       .cut()
