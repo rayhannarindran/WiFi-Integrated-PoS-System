@@ -23,18 +23,7 @@ async function printReceipt(pos_data, qrCodeURL) {
       .align("ct")
       .style("bu")
       .size(1, 1)
-      .text("May the gold fill your pocket")
-      // .text("恭喜发财")
-      // .barcode(112233445566, "EAN13", { width: 50, height: 50 })
-      // .table(["One", "Two", "Three"])
-      // .tableCustom(
-      //   [
-      //     { text: "Left", align: "LEFT", width: 0.33, style: "B" },
-      //     { text: "Center", align: "CENTER", width: 0.33 },
-      //     { text: "Right", align: "RIGHT", width: 0.33 },
-      //   ],
-      //   { encoding: "cp857", size: [1, 1] }, // Optional
-      // )
+      .text(pos_data)
       
     // inject qrimage to printer
     printer = await printer.qrimage(qrCodeURL)
@@ -44,6 +33,9 @@ async function printReceipt(pos_data, qrCodeURL) {
       .close()
   });
 }
+
+// RUN WITH SUDO!
+printReceipt("tes", "hotspot.wifipos.id/login?token=63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_14cac7715d");
 
 module.exports = {
   printReceipt,
