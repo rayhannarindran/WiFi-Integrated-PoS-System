@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Settings.css';
 
-const BACKEND_ENV_API_URL = `http://localhost:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/env`;
+const BACKEND_ENV_API_URL = `http://127.0.0.1:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/env`;
 
 function App() {
   // State to manage the visibility of each section

@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./deviceManager.css";
 
-const BACKEND_TOKEN_API_URL = `http://localhost:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/token`;
-const BACKEND_DEVICE_API_URL = `http://localhost:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/device`;
+const BACKEND_TOKEN_API_URL = `http://127.0.0.1:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/token`;
+const BACKEND_DEVICE_API_URL = `http://127.0.0.1:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/device`;
 const DeviceManager = () => {
   const [tokens, setTokens] = useState([]);
   const [expandedTokens, setExpandedTokens] = useState({}); 
