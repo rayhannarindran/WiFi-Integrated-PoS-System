@@ -5,7 +5,6 @@ const printerService = require('../services/printerService');
 
 // Keep track of the last processed transaction
 const POLLING_INTERVAL = 15000;
-let last_transaction_id = null;
 
 // Function to poll transactions periodically
 async function pollMokaTransactions() {
@@ -13,8 +12,11 @@ async function pollMokaTransactions() {
         console.log("Polling Moka API for new transactions...");
         const data = await mokaService.getMokaTransactions();
 
+        // Get the last transaction ID from the database
+        const latest_token_record = await dbService.findLatestTokenRecord();
+        const last_transaction_id = latest_token_record?.purchase_id || null;
+
         if (data?.data?.payments?.length > 0 && data.data.payments[0].id !== last_transaction_id) {
-            last_transaction_id = data.data.payments[0].id;
             console.log("New Transactions Found");
             
             //! SEND DATA TO DATABASE
@@ -48,8 +50,6 @@ function startMokaPolling() {
         pollMokaTransactions();
     }, POLLING_INTERVAL);
 }
-
-pollMokaTransactions();
 
 module.exports = {
     startMokaPolling
