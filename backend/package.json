@@ -7,7 +7,7 @@
   "license": "ISC",
   "description": "This is the backend of the project, it is responsible for the API and the database",
   "scripts": {
-    "start": "node prestart.js && node server.js"
+    "start": "node backend-prestart.js && node server.js"
   },
   "dependencies": {
     "@node-escpos/adapter": "^0.0.1",
