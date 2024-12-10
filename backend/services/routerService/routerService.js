@@ -1,9 +1,12 @@
 require('dotenv').config();
 const axios = require('axios');
+const isDocker = () => fs.existsSync('/.dockerenv');
 
 // Base URL for the Python API
 const MIKROTIK_PYTHON_API_PORT = process.env.MIKROTIK_PYTHON_API_PORT;
-const BASE_URL = `http://python-api:${MIKROTIK_PYTHON_API_PORT}`;
+const BASE_URL = isDocker()
+    ? `http://python-api:${MIKROTIK_PYTHON_API_PORT}`
+    : `http://localhost:${MIKROTIK_PYTHON_API_PORT}`;
 const dbService = require('../dbService/dbService');
 
 // WHITELISTED MAC ADDRESS
