@@ -20,14 +20,18 @@ async function pollMokaTransactions() {
             //! SEND DATA TO DATABASE
             db_data = mokaService.preprocessDataForDB(data);
             printing_data = mokaService.preprocessDataForPrinting(data);
+
+            //! DEBUGGING
+            console.log("DB Data:", db_data);
+            console.log("Printing Data:", printing_data);
         
             // Generate and insert token record
             const tokenRecord = tokenService.generateTokenRecord(db_data);
             await dbService.insertTokenRecord(tokenRecord);
 
             //! PRINTING DATA
-            const qrCodeURL = tokenService.generateQRCodeURL(tokenRecord.token);
-            await printerService.printReceipt(printing_data, qrCodeURL);
+            // const qrCodeURL = tokenService.generateQRCodeURL(tokenRecord.token);
+            // await printerService.printReceipt(printing_data, qrCodeURL);
 
         } else {
             console.log("No new transactions found.");
@@ -44,6 +48,8 @@ function startMokaPolling() {
         pollMokaTransactions();
     }, POLLING_INTERVAL);
 }
+
+pollMokaTransactions();
 
 module.exports = {
     startMokaPolling
