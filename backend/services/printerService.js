@@ -33,15 +33,13 @@ function formatReceipt(pos_data) {
     // Daftar barang
     checkouts.forEach((item) => {
         // Nama barang di sebelah kiri
-        let line = item.item_name.padEnd(leftColumnWidth, ' ');
+        let line = item.item_name.padEnd(totalWidth, ' ');
+        receipt += line + "\n"; // Tambahkan nama barang di baris pertama
 
-        // Kuantitas dan total harga di sebelah kanan
-        const quantityAndPrice = `${item.quantity}x${item.item_price.toFixed(0)}=`.padEnd(10, ' ');
-        const totalPrice = `${item.total_price.toFixed(0)}`;
-        line += `${quantityAndPrice}${totalPrice.padStart(rightColumnWidth - quantityAndPrice.length, ' ')}`;
-
-        // Tambahkan baris ke struk
-        receipt += line + "\n";
+        // Kuantitas dan total harga di baris baru dengan rata kanan
+        const quantityAndPrice = `${item.quantity}x${item.item_price.toFixed(0)}=`;
+        receipt += quantityAndPrice.padEnd(leftColumnWidth, ' '); // Kuantitas dan harga
+        receipt += `${item.total_price.toFixed(0).padStart(rightColumnWidth, ' ')}` + "\n"; // Total harga
     });
 
     receipt += `--------------------------------\n`;
@@ -100,37 +98,37 @@ const dummyData = {
     id: "123456",
     payment_no: "INV-20241210-001",
     created_at: "2024-12-10T12:30:00Z",
-    discounts: 10.00,
-    subtotal: 100.00,
-    gratuities: 5.00,
-    taxes: 10.00,
+    discounts: 3000,
+    subtotal: 95000,
+    gratuities: 5000,
+    taxes: 9500,
     checkouts: [
         {
-            item_name: "nabati peach",
-            tax_amount: 2.00,
+            item_name: "pancong",
+            tax_amount: 1500,
             quantity: 1,
-            item_price: 2000,
-            total_price: 2000,
-            discount_amount: 0.00,
+            item_price: 15000,
+            total_price: 13500,
+            discount_amount: 1000,
             gratuity_amount: 0.00,
             note: null,
         },
         {
-            item_name: "oreo vanilla 38",
-            tax_amount: 3.00,
+            item_name: "suprek",
+            tax_amount: 3000,
             quantity: 1,
-            item_price: 2000,
-            total_price: 2000,
-            discount_amount: 0.00,
+            item_price: 30000,
+            total_price: 27000,
+            discount_amount: 2000,
             gratuity_amount: 0.00,
             note: null,
         },
         {
-            item_name: "tajimas gold grenjeng",
-            tax_amount: 0.00,
+            item_name: "warkam",
+            tax_amount: 5000,
             quantity: 2,
-            item_price: 9000,
-            total_price: 18000,
+            item_price: 50000,
+            total_price: 45000,
             discount_amount: 0.00,
             gratuity_amount: 0.00,
             note: null,
