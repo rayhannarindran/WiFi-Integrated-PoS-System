@@ -140,7 +140,7 @@ const dummyData = {
 const dummyQrCodeURL = "https://example.com/qr-code-for-receipt";
 
 // Panggil printReceipt untuk Testing
-printReceipt(dummyData, dummyQrCodeURL);
+// printReceipt(dummyData, dummyQrCodeURL);
 
 module.exports = {
     printReceipt,

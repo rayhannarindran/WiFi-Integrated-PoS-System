@@ -105,6 +105,23 @@ async function findTokenRecordByID(token_id) {
     }
 }
 
+async function findLatestTokenRecord(){
+    try {
+        return await retryOperation(async () => {
+            const dbConnection = await getConnection();
+            const record = await Token.findOne().sort({ created_at: -1 });
+            if (!record) {
+                throw new DbServiceError('Token not found', 404);
+            }
+            logger.info('Latest Token Found!');
+            return record;
+        });
+    } catch (error) {
+        logger.error('Error finding token:', error);
+        throw error;
+    }
+}
+
 async function updateTokenRecord(token, update) {
     try {
         await validateTokenRecord(update, true);
@@ -389,6 +406,10 @@ async function runService(function_number = 0) {
             case 14:
                 await databaseUpdate();
                 break;
+            case 15:
+                const latestToken = await findLatestTokenRecord();
+                console.log('Latest Token:', latestToken);
+                break;
             default:
                 console.log('TEST FUNCTION NOT FOUND');
         }
@@ -403,7 +424,7 @@ async function runService(function_number = 0) {
 // If this file is run directly (not imported as a module), execute the service
 if (require.main === module) {
     // Test services
-    runService(4);
+    runService(15);
 }
 
 module.exports = {
@@ -411,6 +432,7 @@ module.exports = {
     insertTokenRecord,
     findTokenRecord,
     findTokenRecordByID,
+    findLatestTokenRecord,
     updateTokenRecord,
     deleteTokenRecord,
     countTokens,
