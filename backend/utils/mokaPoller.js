@@ -1,6 +1,7 @@
 const dbService = require('../services/dbService/dbService');
 const tokenService = require('../services/tokenService');
 const mokaService = require('../services/mokaService');
+const printerService = require('../services/printerService');
 
 // Keep track of the last processed transaction
 const POLLING_INTERVAL = 15000;
@@ -25,6 +26,8 @@ async function pollMokaTransactions() {
             await dbService.insertTokenRecord(tokenRecord);
 
             //! PRINTING DATA
+            const qrCodeURL = tokenService.generateQRCodeURL(tokenRecord.token);
+            await printerService.printReceipt(printing_data, qrCodeURL);
 
         } else {
             console.log("No new transactions found.");

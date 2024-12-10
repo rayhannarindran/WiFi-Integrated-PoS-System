@@ -13,7 +13,6 @@ async function printReceipt(pos_data, qrCodeURL) {
       // handle error
       return
     }
-
     // encoding is optional
     const options = { encoding: "GB18030" /* default */ }
     let printer = new Printer(device, options);
