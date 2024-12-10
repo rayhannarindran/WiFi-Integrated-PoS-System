@@ -26,18 +26,23 @@ function formatReceipt(pos_data) {
     const leftColumnWidth = 20; // Lebar untuk nama barang
     const rightColumnWidth = totalWidth - leftColumnWidth; // Lebar untuk angka
 
-    let receipt = `Receipt No: ${payment_no}\n`;
+    // Nama kafe di tengah
+    const cafeName = "My Cafe Name";
+    const centeredCafeName = cafeName.padStart((totalWidth + cafeName.length) / 2, ' ');
+
+    let receipt = `${centeredCafeName}\n`; // Nama kafe di paling atas
+    receipt += `Receipt No: ${payment_no}\n`;
     receipt += `Date: ${new Date(created_at).toLocaleString()}\n`;
     receipt += `--------------------------------\n`;
 
     // Daftar barang
     checkouts.forEach((item) => {
-        // Nama barang di sebelah kiri
-        let line = item.item_name.padEnd(totalWidth, ' ');
+        // Nama barang (bold) di baris pertama
+        let line = `**${item.item_name}**`.padEnd(totalWidth, ' ');
         receipt += line + "\n"; // Tambahkan nama barang di baris pertama
 
-        // Kuantitas dan total harga di baris baru dengan rata kanan
-        const quantityAndPrice = `${item.quantity}x${item.item_price.toFixed(0)}=`;
+        // Kuantitas dan total harga di baris baru, menjorok ke dalam
+        const quantityAndPrice = `   ${item.quantity}x${item.item_price.toFixed(0)}=`; // Menambahkan spasi untuk menjorok
         receipt += quantityAndPrice.padEnd(leftColumnWidth, ' '); // Kuantitas dan harga
         receipt += `${item.total_price.toFixed(0).padStart(rightColumnWidth, ' ')}` + "\n"; // Total harga
     });
@@ -137,7 +142,7 @@ const dummyData = {
 };
 
 // URL QR Dummy
-const dummyQrCodeURL = "https://example.com/qr-code-for-receipt";
+const dummyQrCodeURL = "http://hotspot.wifipos.id/login?token=63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_14cac7715d";
 
 // Panggil printReceipt untuk Testing
 printReceipt(dummyData, dummyQrCodeURL);
