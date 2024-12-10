@@ -6,35 +6,6 @@ const vendor_id = parseInt(process.env.PRINTER_USB_VENDOR_ID, 16);
 const product_id = parseInt(process.env.PRINTER_USB_PRODUCT_ID, 16);
 
 /**
- * Format receipt data for printing
- * @param {Object} pos_data - Processed POS data
- * @returns {String} - Formatted receipt string
- */
-function formatReceipt(pos_data) {
-    const {
-        payment_no,
-        created_at,
-        discounts,
-        subtotal,
-        gratuities,
-        taxes,
-        checkouts
-    } = pos_data;
-
-    let receipt = `Receipt No: ${payment_no}\n`;
-    receipt += `Date: ${new Date(created_at).toLocaleString()}\n`;
-    receipt += `--------------------------------\n`;
-
-    // Format bagian non-bold (kuantitas dan total harga)
-    const itemsDetails = checkouts.map((item) => {
-        const quantityAndPrice = `   ${item.quantity}x${item.item_price.toFixed(0)}= ${item.total_price.toFixed(0)}`;
-        return quantityAndPrice;
-    });
-
-    return { receipt, itemsDetails };
-}
-
-/**
  * Print the receipt
  * @param {Object} pos_data - Processed POS data
  * @param {String} qrCodeURL - URL for QR Code
@@ -52,30 +23,37 @@ async function printReceipt(pos_data, qrCodeURL) {
         const printer = new Printer(device, options);
 
         // Nama kafe dicetak dengan bold dan rata tengah
-        const cafeName = "Cafe Protelolet";
+        const cafeName = "My Cafe Name";
         printer
             .align("ct") // Rata tengah
             .style("bold") // Bold
             .size(1, 1) // Ukuran normal
             .text(cafeName);
 
-        // Format receipt
-        const { receipt, itemsDetails } = formatReceipt(pos_data);
-
-        // Cetak header struk (non-bold)
+        // Header struk
         printer
-            .style("normal")
             .align("lt") // Rata kiri
-            .text(receipt);
+            .style("normal") // Normal untuk teks lain
+            .text(`Receipt No: ${pos_data.payment_no}`)
+            .text(`Date: ${new Date(pos_data.created_at).toLocaleString()}`)
+            .text(`--------------------------------`);
 
-        // Cetak nama barang (bold) dan detail harga (non-bold)
-        pos_data.checkouts.forEach((item, index) => {
-            // Nama barang (bold)
-            printer.style("bold").text(item.item_name);
+        // Daftar barang
+        pos_data.checkouts.forEach((item) => {
+            // Nama item (bold)
+            printer
+                .style("bold")
+                .text(item.item_name);
 
-            // Kuantitas dan total harga (non-bold)
-            const quantityAndPrice = `   ${item.quantity}x${item.item_price.toFixed(0)}= ${item.total_price.toFixed(0)}`;
-            printer.style("normal").text(quantityAndPrice);
+            // Perhitungan kuantitas dan harga
+            const quantityAndPrice = `   ${item.quantity}x${item.item_price.toFixed(0)}=`; // Menjorok sedikit
+            const totalPrice = `${item.total_price.toFixed(0)}`; // Hasil total harga rata kanan
+            printer
+                .style("normal") // Normal untuk perhitungan
+                .text(
+                    quantityAndPrice.padEnd(20, ' ') + // Perhitungan di kiri
+                    totalPrice.padStart(12, ' ') // Hasil di kanan
+                );
         });
 
         // Footer
@@ -87,8 +65,9 @@ async function printReceipt(pos_data, qrCodeURL) {
         printer.text(`--------------------------------`);
         printer.text(`Total:`.padEnd(20) + `${(pos_data.subtotal + pos_data.taxes + pos_data.gratuities - pos_data.discounts).toFixed(0).padStart(12)}`);
 
+        // Cetak QR code jika tersedia
         if (qrCodeURL) {
-            await printer.qrimage(qrCodeURL, { type: 'png', mode: 'dhdw', size: 4 });
+            await printer.qrimage(qrCodeURL, { type: 'png', mode: 'dhdw', size: 3 });
         }
 
         printer.cut().close();
@@ -116,26 +95,26 @@ const dummyData = {
             gratuity_amount: 0.00,
             note: null,
         },
-        {
-            item_name: "suprek",
-            tax_amount: 3000,
-            quantity: 1,
-            item_price: 30000,
-            total_price: 27000,
-            discount_amount: 2000,
-            gratuity_amount: 0.00,
-            note: null,
-        },
-        {
-            item_name: "warkam",
-            tax_amount: 5000,
-            quantity: 2,
-            item_price: 50000,
-            total_price: 45000,
-            discount_amount: 0.00,
-            gratuity_amount: 0.00,
-            note: null,
-        },
+        // {
+        //     item_name: "suprek",
+        //     tax_amount: 3000,
+        //     quantity: 1,
+        //     item_price: 30000,
+        //     total_price: 27000,
+        //     discount_amount: 2000,
+        //     gratuity_amount: 0.00,
+        //     note: null,
+        // },
+        // {
+        //     item_name: "warkam",
+        //     tax_amount: 5000,
+        //     quantity: 2,
+        //     item_price: 50000,
+        //     total_price: 45000,
+        //     discount_amount: 0.00,
+        //     gratuity_amount: 0.00,
+        //     note: null,
+        // },
     ]
 };
 
