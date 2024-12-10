@@ -22,8 +22,8 @@ async function pollMokaTransactions() {
             printing_data = mokaService.preprocessDataForPrinting(data);
 
             //! DEBUGGING
-            console.log("DB Data:", db_data);
-            console.log("Printing Data:", printing_data);
+            // console.log("DB Data:", db_data);
+            // console.log("Printing Data:", printing_data);
         
             // Generate and insert token record
             const tokenRecord = tokenService.generateTokenRecord(db_data);
