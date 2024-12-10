@@ -35,6 +35,21 @@ services:
     networks:
       - wifi-pos-network
 
+  mongodb:
+    image: mongo:7.0.15-jammy
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: wifi-pos
+    volumes:
+      - mongodb-data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - wifi-pos-network
+
 networks:
   wifi-pos-network:
     driver: bridge
+
+volumes:
+  mongodb-data:
