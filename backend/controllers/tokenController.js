@@ -1,6 +1,7 @@
 const tokenService = require('../services/tokenService');
 const printerService = require('../services/printerService');
 const dbService = require('../services/dbService/dbService');
+const mokaService = require('../services/mokaService');
 
 // Validate token
 async function validateToken(req, res) {
@@ -51,16 +52,19 @@ async function findToken(req, res){
 async function createTransaction(req, res) {
     try {
         const pos_data = req.body;
+
+        db_data = mokaService.preprocessDataForDB(pos_data);
+        printing_data = mokaService.preprocessDataForPrinting(pos_data);
     
         // Generate and insert token record
-        const tokenRecord = tokenService.generateTokenRecord(pos_data);
+        const tokenRecord = tokenService.generateTokenRecord(db_data);
         await dbService.insertTokenRecord(tokenRecord);
     
         // Generate QR code for the token
         const qrCodeURL = await tokenService.generateQR(tokenRecord.token);
 
         // Print receipt
-        printerService.printReceipt(pos_data, qrCodeURL);
+        // printerService.printReceipt(pos_data, qrCodeURL);
     
         res.status(200).json({ message: 'Transaction created successfully', data: { tokenRecord, qrCodeURL } });
     } catch (error) {
