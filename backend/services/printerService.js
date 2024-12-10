@@ -12,7 +12,6 @@ const product_id = parseInt(process.env.PRINTER_USB_PRODUCT_ID, 16);
  */
 function formatReceipt(pos_data) {
     const {
-        id,
         payment_no,
         created_at,
         discounts,
@@ -22,32 +21,36 @@ function formatReceipt(pos_data) {
         checkouts
     } = pos_data;
 
+    // Lebar total karakter per baris
+    const totalWidth = 32;
+    const leftColumnWidth = 20; // Lebar untuk nama barang
+    const rightColumnWidth = totalWidth - leftColumnWidth; // Lebar untuk angka
+
     let receipt = `Receipt No: ${payment_no}\n`;
     receipt += `Date: ${new Date(created_at).toLocaleString()}\n`;
-    receipt += `-----------------------------------\n`;
+    receipt += `--------------------------------\n`;
 
-    // Daftar barang tanpa pajak dan gratuity per item
-    checkouts.forEach((item, index) => {
-        receipt += `${index + 1}. ${item.item_name}\n`;
-        receipt += `   Qty: ${item.quantity} x ${item.item_price.toFixed(2)}\n`;
-        receipt += `   Subtotal: ${item.total_price.toFixed(2)}\n`;
-        if (item.discount_amount) {
-            receipt += `   Discount: -${item.discount_amount.toFixed(2)}\n`;
-        }
-        if (item.note) {
-            receipt += `   Note: ${item.note}\n`;
-        }
-        receipt += `-----------------------------------\n`;
+    // Daftar barang
+    checkouts.forEach((item) => {
+        // Nama barang di sebelah kiri
+        let line = item.item_name.padEnd(leftColumnWidth, ' ');
+
+        // Kuantitas dan total harga di sebelah kanan
+        const quantityAndPrice = `${item.quantity}x${item.item_price.toFixed(0)}=`.padEnd(10, ' ');
+        const totalPrice = `${item.total_price.toFixed(0)}`;
+        line += `${quantityAndPrice}${totalPrice.padStart(rightColumnWidth - quantityAndPrice.length, ' ')}`;
+
+        // Tambahkan baris ke struk
+        receipt += line + "\n";
     });
 
-    // Penjumlahan subtotal dan detail akhir
-    receipt += `Subtotal: ${subtotal.toFixed(2)}\n`;
-    receipt += `Discounts: -${discounts.toFixed(2)}\n`;
-    receipt += `-----------------------------------\n`;
-    receipt += `Taxes: ${taxes.toFixed(2)}\n`;
-    receipt += `Gratuities: ${gratuities.toFixed(2)}\n`;
-    receipt += `-----------------------------------\n`;
-    receipt += `Total: ${(subtotal + taxes + gratuities - discounts).toFixed(2)}\n`;
+    receipt += `--------------------------------\n`;
+    receipt += `Subtotal:`.padEnd(leftColumnWidth, ' ') + subtotal.toFixed(0).padStart(rightColumnWidth, ' ') + "\n";
+    receipt += `Discounts:`.padEnd(leftColumnWidth, ' ') + `-${discounts.toFixed(0)}`.padStart(rightColumnWidth, ' ') + "\n";
+    receipt += `Taxes:`.padEnd(leftColumnWidth, ' ') + taxes.toFixed(0).padStart(rightColumnWidth, ' ') + "\n";
+    receipt += `Gratuities:`.padEnd(leftColumnWidth, ' ') + gratuities.toFixed(0).padStart(rightColumnWidth, ' ') + "\n";
+    receipt += `--------------------------------\n`;
+    receipt += `Total:`.padEnd(leftColumnWidth, ' ') + (subtotal + taxes + gratuities - discounts).toFixed(0).padStart(rightColumnWidth, ' ') + "\n";
 
     return receipt;
 }
@@ -80,8 +83,7 @@ async function printReceipt(pos_data, qrCodeURL) {
 
         printer
             .font("a")
-            .align("ct")
-            .style("bu")
+            .align("lt") // Atur ke left-align
             .size(1, 1)
             .text(formattedReceipt);
 
@@ -104,23 +106,33 @@ const dummyData = {
     taxes: 10.00,
     checkouts: [
         {
-            item_name: "Apple",
+            item_name: "nabati peach",
             tax_amount: 2.00,
-            quantity: 2,
-            item_price: 10.00,
-            total_price: 20.00,
-            discount_amount: 1.00,
-            gratuity_amount: 0.50,
-            note: "Fresh fruit",
+            quantity: 1,
+            item_price: 2000,
+            total_price: 2000,
+            discount_amount: 0.00,
+            gratuity_amount: 0.00,
+            note: null,
         },
         {
-            item_name: "Orange",
+            item_name: "oreo vanilla 38",
             tax_amount: 3.00,
             quantity: 1,
-            item_price: 15.00,
-            total_price: 15.00,
-            discount_amount: 0.50,
-            gratuity_amount: 0.20,
+            item_price: 2000,
+            total_price: 2000,
+            discount_amount: 0.00,
+            gratuity_amount: 0.00,
+            note: null,
+        },
+        {
+            item_name: "tajimas gold grenjeng",
+            tax_amount: 0.00,
+            quantity: 2,
+            item_price: 9000,
+            total_price: 18000,
+            discount_amount: 0.00,
+            gratuity_amount: 0.00,
             note: null,
         },
     ]
