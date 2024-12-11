@@ -1,5 +1,6 @@
 require('dotenv').config();
 const axios = require('axios');
+const fs = require('fs');
 const isDocker = () => fs.existsSync('/.dockerenv');
 
 // Base URL for the Python API
@@ -8,6 +9,8 @@ const BASE_URL = isDocker()
     ? `http://python-api:${MIKROTIK_PYTHON_API_PORT}`
     : `http://localhost:${MIKROTIK_PYTHON_API_PORT}`;
 const dbService = require('../dbService/dbService');
+
+console.log(`Using MikroTik Python API at ${BASE_URL}`);
 
 // WHITELISTED MAC ADDRESS
 const WHITELISTED_MAC_ADDRESSES = [
@@ -152,12 +155,13 @@ async function syncMikroDb() {
                     console.log(`Checking device ${device.mac_address} (IP: ${device.ip_address}) against MikroTik...`);
                     const mikrotikDevice = mikrotikDeviceMap.get(device.mac_address);
 
-                    // Skip the whitelisted MAC addresses
+                    // SKIPS WHITELISTED MAC ADDRESSES
                     if (WHITELISTED_MAC_ADDRESSES.includes(device.mac_address)) {
                         console.log(`Device ${device.mac_address} is whitelisted. Skipping MikroTik modifications.`);
                         continue; // Skip further processing for whitelisted devices
                     }
-
+                    
+                    // ADD DEVICE TO MIKROTIK IF NOT EXIST
                     if (!mikrotikDevice) {
                         console.log(`Device ${device.mac_address} not found in MikroTik. Adding...`);
                         console.log(device);

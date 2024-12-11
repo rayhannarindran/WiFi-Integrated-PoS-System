@@ -8,8 +8,9 @@ const deviceRoutes = require('./routes/deviceRoutes.js');
 const tokenRoutes = require('./routes/tokenRoutes.js');
 const envRoutes = require('./routes/envRoutes.js');
 
-// MOKA API
+// UTILS
 const mokaPoller = require('./utils/mokaPoller.js');
+const systemManager = require('./utils/systemManager.js');
 
 const app = express();
 const PORT = parseInt(process.env.BACKEND_SERVER_PORT) || 3001;
@@ -34,8 +35,9 @@ app.use((err, req, res, next) => {
     res.status(500).json({ message: 'Internal Server Error' });
 });
 
-// Polling MOKA
+// Polling MOKA and System Update
 mokaPoller.startMokaPolling();
+systemManager.startSystemUpdatePolling();
 
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
