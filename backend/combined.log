@@ -2985,3 +2985,21 @@
 {"level":"info","message":"Connected to MongoDB","service":"db-service"}
 {"level":"info","message":"Latest Token Found!","service":"db-service"}
 {"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Transaction added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Transaction added successfully!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}

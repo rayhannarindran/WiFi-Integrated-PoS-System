@@ -85,6 +85,18 @@ const deviceUpdateSchema = Joi.object({
   disconnected_at: Joi.date().optional()
 });
 
+const transactionSchema = Joi.object({
+  order: Joi.object().required().messages({
+      'any.required': 'Order is required and must be a valid JSON object',
+  }),
+  qrUrl: Joi.string().uri().required().messages({
+      'any.required': 'QR URL is required',
+      'string.uri': 'QR URL must be a valid URI',
+  }),
+  created_at: Joi.date().default(() => new Date()),
+  updated_at: Joi.date().default(() => new Date()),
+});
+
 // VALIDATION FUNCTIONS
 
 async function validateTokenRecord(record, update = false) {
@@ -107,4 +119,13 @@ async function validateDeviceRecord(record, update = false) {
   }
 }
 
-module.exports = { validateTokenRecord, validateDeviceRecord };
+async function validateTransactionRecord(record) {
+  try {
+      const value = await transactionSchema.validateAsync(record);
+      return value;
+  } catch (error) {
+      throw new Error(`Validation error: ${error.message}`);
+  }
+}
+
+module.exports = { validateTokenRecord, validateDeviceRecord, validateTransactionRecord };
