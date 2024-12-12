@@ -4,6 +4,7 @@ const Device = require('../../models/Device'); // Device model
 const { getConnection, closeConnection } = require('./dbConnection');
 const { validateTokenRecord, validateDeviceRecord } = require('./dbValidation');
 const { DbServiceError, logger, retryOperation } = require('./dbUtils');
+const { get } = require('mongoose');
 
 // FOR UPDATING THE DATABASE TO SYNC WITH ENV VARIABLES
 async function databaseUpdate(){
@@ -345,7 +346,7 @@ async function runService(function_number = 0) {
                              max_devices: 3, max_bandwidth: parseInt(process.env.MAX_SYSTEM_BANDWIDTH/process.env.MAX_SYSTEM_DEVICES)*3, devices_connected: [], time_limit: parseInt(process.env.TIME_LIMIT_PER_TOKEN), 
                              created_at: current_date, updated_at: current_date };
 
-        const mockDevice = { ip_address: '192.168.12.28' , mac_address: '11:11:11:11:00' };
+        const mockDevice = { ip_address: '192.168.88.100' , mac_address: '9A:F9:41:1E:EA:37' };
 
         // function testing
         switch (test_func) {
@@ -376,7 +377,7 @@ async function runService(function_number = 0) {
                 console.log('Found records:\n', records);
                 break;
             case 6:
-                await addDevice('exampleToken', mockDevice);
+                await addDevice('63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_14cac7715d', mockDevice);
                 break;
             case 7:
                 await removeDevice('exampleToken', '00:00:00:00:00:11');
@@ -424,10 +425,12 @@ async function runService(function_number = 0) {
 // If this file is run directly (not imported as a module), execute the service
 if (require.main === module) {
     // Test services
-    runService(1);
+    runService(6);
 }
 
 module.exports = {
+    getConnection,
+    closeConnection,
     databaseUpdate,
     insertTokenRecord,
     findTokenRecord,

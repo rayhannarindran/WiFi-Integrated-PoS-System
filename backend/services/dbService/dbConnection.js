@@ -8,7 +8,7 @@ const MONGODB_URI = isDocker()
   : process.env.MONGODB_URI;
 let dbConnection = null;
 
-console.log(MONGODB_URI);
+//console.log(MONGODB_URI);
 
 async function getConnection() {
   if (!dbConnection) {

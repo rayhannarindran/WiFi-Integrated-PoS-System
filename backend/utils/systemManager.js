@@ -6,15 +6,14 @@ const POLLING_INTERVAL = 20000;
 
 async function updateSystem(){
     try {
-        console.log("Updating database");
+        console.log("SYNCING DATABASE");
         await dbService.databaseUpdate();
 
         //! UNCOMMENT THIS
-        // console.log("Synchronizing MikroTik");
-        // await routerService.syncMikroDb();
+        console.log("\n\nSYNCING MIKROTIK");
+        await routerService.syncMikroDb();
 
-        console.log("System update completed");
-
+        console.log("\n\nSYSTEM UPDATE COMPLETE!!!");
     } catch (error) {
         console.error("Error during system update:", error.message);
     }
@@ -26,6 +25,8 @@ function startSystemUpdatePolling() {
         updateSystem();
     }, POLLING_INTERVAL);
 }
+
+updateSystem();
 
 module.exports = {
     updateSystem,

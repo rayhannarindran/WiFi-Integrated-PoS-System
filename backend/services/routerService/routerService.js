@@ -10,7 +10,7 @@ const BASE_URL = isDocker()
     : `http://localhost:${MIKROTIK_PYTHON_API_PORT}`;
 const dbService = require('../dbService/dbService');
 
-console.log(`Using MikroTik Python API at ${BASE_URL}`);
+// console.log(`Using MikroTik Python API at ${BASE_URL}`);
 
 // WHITELISTED MAC ADDRESS
 const WHITELISTED_MAC_ADDRESSES = [
@@ -79,6 +79,26 @@ async function updateDeviceStatus(macAddress, status) {
     }
 }
 
+async function getAllBandwidthLimits() {
+    try {
+        const response = await axios.get(`${BASE_URL}/get-all-bandwidth-limits`);
+        return response.data;
+    } catch (error) {
+        handleError(error);
+    }
+}
+
+async function getBandwidthLimit(ip_address) {
+    try {
+        const response = await axios.get(`${BASE_URL}/get-bandwidth-limit`, {
+            params: { ip_address: ip_address }
+        });
+        return response.data;
+    } catch (error) {
+        handleError(error);
+    }
+}
+
 // SET BANDWIDTH LIMIT
 async function setBandwidthLimit(ip_address, int_download_limit, int_upload_limit) {
     if (!ip_address) {
@@ -96,9 +116,9 @@ async function setBandwidthLimit(ip_address, int_download_limit, int_upload_limi
             download_limit: download_limit,
             upload_limit: upload_limit
         };
-        console.log(`Payload for bandwidth limit:`, payload);
+        // console.log(`Payload for bandwidth limit:`, payload);
         const response = await axios.post(`${BASE_URL}/set-bandwidth-limit`, payload);
-        return response.data;
+        return response;
     } catch (error) {
         handleError(error);
     }
@@ -123,22 +143,26 @@ async function syncMikroDb() {
 
     try {
         // AMBIL TOKEN DARI DATABASE
+        console.log("FETCHING TOKENS FROM DATABASE...");
         const tokens = await dbService.findTokensByCriteria({});
         if (!tokens || tokens.length === 0) {
             console.log("No tokens found in the database. Exiting synchronization.");
             return;
         }
-
         // AMBIL DATA MIKROTIK IP BINDINGS
+        console.log("\nFETCHING IP BINDINGS FROM MIKROTIK...");
         const mikrotikDevices = await getIpBindings();
         const mikrotikDeviceMap = new Map(
             mikrotikDevices.data.map(device => [device.mac_address, device])
         );
+        console.log(`Found ${mikrotikDevices.data.length} devices (bindings) in MikroTik.`);
 
         // PROSES TOKEN UNTUK ADJUST BANDWIDTH MIKROTIK
+        console.log("\nPROCESSING TOKENS...");
         for (const token of tokens) {
-            console.log(`Processing token: ${token.token} with ${token.devices_connected.length} device connected`);
+            console.log(`PROCESSING TOKEN: ${token.token} WITH ${token.devices_connected.length} DEVICES CONNECTED`);
 
+            // SKIP TOKEN YANG TIDAK PUNYA DEVICE
             if (parseInt(token.devices_connected.length) < 1){
                 console.log(`${token.token} doesn't have connected device`)
                 continue;
@@ -147,6 +171,7 @@ async function syncMikroDb() {
             for (const connectedDevice of token.devices_connected) {
                 try {
                     const device = await dbService.findDeviceByID(connectedDevice._id);
+                    // SKIP DEVICE YANG TIDAK ADA DI DATABASE
                     if (!device) {
                         console.warn(`Device with ID ${connectedDevice._id} not found in database. Skipping...`);
                         continue;
@@ -170,19 +195,33 @@ async function syncMikroDb() {
                         console.log(`Device ${device.mac_address} added to MikroTik with IP ${device.ip_address} and bandwidth ${device.bandwidth}M.`);
                     }
                     
-                    //! FINIISH THIS!!!!!!
+                    //CHECK BANDWIDTH LIMIT
                     else {
-                        const { ip_address, download_limit, upload_limit } = mikrotikDevice;
-                        console.log("TEST:", mikrotikDevice);
+                        let { download_limit, upload_limit } = await getBandwidthLimit(device.ip_address);
+                        download_limit = parseInt(download_limit)/1000000;
+                        upload_limit = parseInt(upload_limit)/1000000;
+
+                        console.log(`Device ${device.mac_address} has bandwidth ${download_limit}/${upload_limit} in MikroTik.`);
+
                         if (download_limit !== device.bandwidth || upload_limit !== device.bandwidth) {
                             console.log(
                                 `Device ${device.mac_address} has mismatched bandwidth in MikroTik. Updating...`
                             );
-                            await setBandwidthLimit(
+                            bandwidth_response = await setBandwidthLimit(
                                 device.ip_address,
                                 device.bandwidth,
                                 device.bandwidth
                             );
+
+                            if (bandwidth_response.status !== 200) {
+                                console.error(`Failed to update bandwidth for device ${device.mac_address}`);
+                            } else {
+                                console.log(`Device ${device.mac_address} bandwidth updated to ${device.bandwidth}M in MikroTik.`);
+                            }
+                            
+                        }
+                        else {
+                            console.log(`Device ${device.mac_address} has correct bandwidth in MikroTik.`);
                         }
                     }
 
@@ -204,7 +243,8 @@ async function syncMikroDb() {
             }
         }
         
-        // Remove devices from MikroTik that are not in the database
+        // REMOVING DEVICE FROM MIKROTIK IF NOT IN DATABASE
+        console.log("\nCHECKING IF DEVICE IN MIKROTIK BUT NOT IN DATABASE...");
         const deviceMacInDb = new Set();
 
         for (const token of tokens) {
@@ -220,7 +260,7 @@ async function syncMikroDb() {
                 }
             }
         }
-
+        
         for (const mikrotikDevice of mikrotikDevices.data) {
             if (WHITELISTED_MAC_ADDRESSES.includes(mikrotikDevice.mac_address)) {
                 console.log(`Device ${mikrotikDevice.mac_address} is whitelisted. Skipping removal.`);
@@ -230,14 +270,15 @@ async function syncMikroDb() {
             if (!deviceMacInDb.has(mikrotikDevice.mac_address)) {
                 console.log(`Device ${mikrotikDevice.mac_address} is in MikroTik but not in the database. Removing...`);
                 //! ADD REMOVAL FUNCTION BUT BE CAREFUL NOT TO BLOCK/REMOVE ALL DEVICE
+            } else {
+                console.log(`Device ${mikrotikDevice.mac_address} is in both MikroTik and the database.`);
             }
         }
 
         console.log("Synchronization between database and MikroTik completed successfully!");
-        process.exit(0);
+        await dbService.closeConnection();
     } catch (error) {
         console.error("Error during synchronization:", error.message);
-        process.exit(1);
     }
 }
 
@@ -247,6 +288,8 @@ module.exports = {
     removeDevice,
     getDeviceStatus,
     updateDeviceStatus,
+    getAllBandwidthLimits,
+    getBandwidthLimit,
     setBandwidthLimit,
     syncMikroDb,
 };
