@@ -18,7 +18,7 @@ async function pollMokaTransactions() {
 
         if (data?.data?.payments?.length > 0 && data.data.payments[0].id !== last_transaction_id) {
             console.log("New Transactions Found");
-            
+             
             //! SEND DATA TO DATABASE
             db_data = mokaService.preprocessDataForDB(data);
             printing_data = mokaService.preprocessDataForPrinting(data);
@@ -32,8 +32,10 @@ async function pollMokaTransactions() {
             await dbService.insertTokenRecord(tokenRecord);
 
             //! PRINTING DATA
-            // const qrCodeURL = tokenService.generateQRCodeURL(tokenRecord.token);
+            const qrCodeURL = tokenService.generateQrURL(tokenRecord.token);
             // await printerService.printReceipt(printing_data, qrCodeURL);
+
+            console.log("Token QR Code:", qrCodeURL);
 
         } else {
             console.log("No new transactions found.");

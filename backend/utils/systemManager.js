@@ -9,7 +9,6 @@ async function updateSystem(){
         console.log("SYNCING DATABASE");
         await dbService.databaseUpdate();
 
-        //! UNCOMMENT THIS
         console.log("\n\nSYNCING MIKROTIK");
         await routerService.syncMikroDb();
 
@@ -25,8 +24,6 @@ function startSystemUpdatePolling() {
         updateSystem();
     }, POLLING_INTERVAL);
 }
-
-updateSystem();
 
 module.exports = {
     updateSystem,

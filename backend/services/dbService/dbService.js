@@ -112,7 +112,7 @@ async function findLatestTokenRecord(){
             const dbConnection = await getConnection();
             const record = await Token.findOne().sort({ created_at: -1 });
             if (!record) {
-                throw new DbServiceError('Token not found', 404);
+                return null;
             }
             logger.info('Latest Token Found!');
             return record;

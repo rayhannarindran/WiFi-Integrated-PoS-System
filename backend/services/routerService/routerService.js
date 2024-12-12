@@ -46,7 +46,7 @@ async function addDevice(macAddress) {
 }
 
 // REMOVE DEVICE
-async function removeDevice(macAddress) {
+async function removeDevice(macAddress, ipAddress) {
     try {
         const response = await axios.post(`${BASE_URL}/remove-device`, { mac_address: macAddress });
         return response.data;
@@ -245,7 +245,11 @@ async function removeInvalidMikrotikDevices(tokens, mikrotikDevices) {
 
         if (!deviceMacInDb.has(mikrotikDevice.mac_address)) {
             console.log(`Device ${mikrotikDevice.mac_address} not found in database. Removing from MikroTik...`);
-            //! Implement removal logic here
+            if (!mikrotikDevice.mac_address) 
+                console.log("MAC ADDRESS NOT FOUND, SKIPPING REMOVAL");
+            else{
+                await removeDevice(mikrotikDevice.mac_address);
+            }
         }
     }
 }
