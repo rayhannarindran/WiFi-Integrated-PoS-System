@@ -142,14 +142,13 @@ async function syncMikroDb() {
     console.log("Starting synchronization between database and MikroTik...");
 
     try {
-        // AMBIL TOKEN DARI DATABASE
         console.log("FETCHING TOKENS FROM DATABASE...");
         const tokens = await dbService.findTokensByCriteria({});
         if (!tokens || tokens.length === 0) {
             console.log("No tokens found in the database. Exiting synchronization.");
             return;
         }
-        // AMBIL DATA MIKROTIK IP BINDINGS
+
         console.log("\nFETCHING IP BINDINGS FROM MIKROTIK...");
         const mikrotikDevices = await getIpBindings();
         const mikrotikDeviceMap = new Map(
@@ -157,128 +156,97 @@ async function syncMikroDb() {
         );
         console.log(`Found ${mikrotikDevices.data.length} devices (bindings) in MikroTik.`);
 
-        // PROSES TOKEN UNTUK ADJUST BANDWIDTH MIKROTIK
-        console.log("\nPROCESSING TOKENS...");
+        console.log("\nPROCESSING TOKENS AND DEVICES...");
         for (const token of tokens) {
-            console.log(`PROCESSING TOKEN: ${token.token} WITH ${token.devices_connected.length} DEVICES CONNECTED`);
-
-            // SKIP TOKEN YANG TIDAK PUNYA DEVICE
-            if (parseInt(token.devices_connected.length) < 1){
-                console.log(`${token.token} doesn't have connected device`)
+            if (!token.devices_connected.length) {
+                console.log(`Token ${token.token} has no connected devices.`);
                 continue;
             }
 
             for (const connectedDevice of token.devices_connected) {
-                try {
-                    const device = await dbService.findDeviceByID(connectedDevice._id);
-                    // SKIP DEVICE YANG TIDAK ADA DI DATABASE
-                    if (!device) {
-                        console.warn(`Device with ID ${connectedDevice._id} not found in database. Skipping...`);
-                        continue;
-                    }
-
-                    console.log(`Checking device ${device.mac_address} (IP: ${device.ip_address}) against MikroTik...`);
-                    const mikrotikDevice = mikrotikDeviceMap.get(device.mac_address);
-
-                    // SKIPS WHITELISTED MAC ADDRESSES
-                    if (WHITELISTED_MAC_ADDRESSES.includes(device.mac_address)) {
-                        console.log(`Device ${device.mac_address} is whitelisted. Skipping MikroTik modifications.`);
-                        continue; // Skip further processing for whitelisted devices
-                    }
-                    
-                    // ADD DEVICE TO MIKROTIK IF NOT EXIST
-                    if (!mikrotikDevice) {
-                        console.log(`Device ${device.mac_address} not found in MikroTik. Adding...`);
-                        console.log(device);
-                        await addDevice(device.mac_address);
-                        await setBandwidthLimit(device.ip_address, device.bandwidth, device.bandwidth);
-                        console.log(`Device ${device.mac_address} added to MikroTik with IP ${device.ip_address} and bandwidth ${device.bandwidth}M.`);
-                    }
-                    
-                    //CHECK BANDWIDTH LIMIT
-                    else {
-                        let { download_limit, upload_limit } = await getBandwidthLimit(device.ip_address);
-                        download_limit = parseInt(download_limit)/1000000;
-                        upload_limit = parseInt(upload_limit)/1000000;
-
-                        console.log(`Device ${device.mac_address} has bandwidth ${download_limit}/${upload_limit} in MikroTik.`);
-
-                        if (download_limit !== device.bandwidth || upload_limit !== device.bandwidth) {
-                            console.log(
-                                `Device ${device.mac_address} has mismatched bandwidth in MikroTik. Updating...`
-                            );
-                            bandwidth_response = await setBandwidthLimit(
-                                device.ip_address,
-                                device.bandwidth,
-                                device.bandwidth
-                            );
-
-                            if (bandwidth_response.status !== 200) {
-                                console.error(`Failed to update bandwidth for device ${device.mac_address}`);
-                            } else {
-                                console.log(`Device ${device.mac_address} bandwidth updated to ${device.bandwidth}M in MikroTik.`);
-                            }
-                            
-                        }
-                        else {
-                            console.log(`Device ${device.mac_address} has correct bandwidth in MikroTik.`);
-                        }
-                    }
-
-                    // CHECKIN TOKEN TIDAK EXPIRED
-                    if (token.status !== 'valid' || new Date() > new Date(token.valid_until)) {
-                        console.log(`Device ${device.mac_address} associated with expired token. Disconnecting...`);
-                        await removeDevice(device.mac_address);
-                        await dbService.removeDevice(token.token, device.mac_address);
-                    }
-                } catch (deviceError) {
-                    console.warn(`Failed to process device ${connectedDevice.device_id}: ${deviceError.message}`);
-                }
-            }
-
-            // MARK EXPIRED TOKEN
-            if (token.status !== 'valid' || new Date() > new Date(token.valid_until)) {
-                console.log(`Marking token ${token.token} as expired.`);
-                await dbService.updateTokenRecord(token.token, { status: 'expired' });
+                await processDevice(token, connectedDevice, mikrotikDeviceMap);
             }
         }
-        
-        // REMOVING DEVICE FROM MIKROTIK IF NOT IN DATABASE
-        console.log("\nCHECKING IF DEVICE IN MIKROTIK BUT NOT IN DATABASE...");
-        const deviceMacInDb = new Set();
 
-        for (const token of tokens) {
-            // For each token, get the MAC addresses of the connected devices from the database
-            for (const connectedDevice of token.devices_connected) {
-                try {
-                    const device = await dbService.findDeviceByID(connectedDevice._id); // Await database call to get the device
-                    if (device) {
-                        deviceMacInDb.add(device.mac_address); // Add the device MAC address to the set
-                    }
-                } catch (error) {
-                    console.error(`Error fetching device with ID ${connectedDevice._id}:`, error);
-                }
-            }
-        }
-        
-        for (const mikrotikDevice of mikrotikDevices.data) {
-            if (WHITELISTED_MAC_ADDRESSES.includes(mikrotikDevice.mac_address)) {
-                console.log(`Device ${mikrotikDevice.mac_address} is whitelisted. Skipping removal.`);
-                continue; // Skip removal for whitelisted devices
-            }
-            // Check if the device is in the MikroTik data but not in the database
-            if (!deviceMacInDb.has(mikrotikDevice.mac_address)) {
-                console.log(`Device ${mikrotikDevice.mac_address} is in MikroTik but not in the database. Removing...`);
-                //! ADD REMOVAL FUNCTION BUT BE CAREFUL NOT TO BLOCK/REMOVE ALL DEVICE
-            } else {
-                console.log(`Device ${mikrotikDevice.mac_address} is in both MikroTik and the database.`);
-            }
-        }
+        await removeInvalidMikrotikDevices(tokens, mikrotikDevices);
 
         console.log("Synchronization between database and MikroTik completed successfully!");
         await dbService.closeConnection();
     } catch (error) {
         console.error("Error during synchronization:", error.message);
+    }
+}
+
+async function processDevice(token, connectedDevice, mikrotikDeviceMap) {
+    try {
+        const device = await dbService.findDeviceByID(connectedDevice._id);
+        if (!device) {
+            console.warn(`Device with ID ${connectedDevice._id} not found in database. Skipping...`);
+            return;
+        }
+
+        if (WHITELISTED_MAC_ADDRESSES.includes(device.mac_address)) {
+            console.log(`Device ${device.mac_address} is whitelisted. Skipping MikroTik modifications.`);
+            return;
+        }
+
+        const mikrotikDevice = mikrotikDeviceMap.get(device.mac_address);
+        if (!mikrotikDevice) {
+            console.log(`Device ${device.mac_address} not found in MikroTik. Adding...`);
+            await addDevice(device.mac_address);
+            await setBandwidthLimit(device.ip_address, device.bandwidth, device.bandwidth);
+            console.log(`Device ${device.mac_address} added with bandwidth ${device.bandwidth}M.`);
+        } else {
+            await verifyAndUpdateBandwidth(device);
+        }
+
+        if (isTokenExpired(token)) {
+            console.log(`Token ${token.token} expired. Disconnecting device ${device.mac_address}...`);
+            //await removeDevice(device.mac_address);
+            await dbService.removeDevice(token.token, device.mac_address);
+        }
+    } catch (error) {
+        console.warn(`Failed to process device ${connectedDevice.id}: ${error.message}`);
+    }
+}
+
+async function verifyAndUpdateBandwidth(device) {
+    const { download_limit, upload_limit } = await getBandwidthLimit(device.ip_address);
+    const dlLimit = parseInt(download_limit) / 1000000;
+    const ulLimit = parseInt(upload_limit) / 1000000;
+
+    if (dlLimit !== device.bandwidth || ulLimit !== device.bandwidth) {
+        console.log(`Device ${device.mac_address} bandwidth mismatch. Updating...`);
+        const response = await setBandwidthLimit(device.ip_address, device.bandwidth, device.bandwidth);
+        if (response.status === 200) {
+            console.log(`Bandwidth for ${device.mac_address} updated to ${device.bandwidth}M.`);
+        } else {
+            console.error(`Failed to update bandwidth for ${device.mac_address}.`);
+        }
+    } else {
+        console.log(`Device ${device.mac_address} bandwidth is correct.`);
+    }
+}
+
+function isTokenExpired(token) {
+    return token.status !== 'valid' || new Date() > new Date(token.valid_until);
+}
+
+async function removeInvalidMikrotikDevices(tokens, mikrotikDevices) {
+    const deviceMacInDb = new Set(
+        tokens.flatMap(token => token.devices_connected.map(device => device.mac_address))
+    );
+
+    for (const mikrotikDevice of mikrotikDevices.data) {
+        if (WHITELISTED_MAC_ADDRESSES.includes(mikrotikDevice.mac_address)) {
+            console.log(`Device ${mikrotikDevice.mac_address} is whitelisted. Skipping removal.`);
+            continue;
+        }
+
+        if (!deviceMacInDb.has(mikrotikDevice.mac_address)) {
+            console.log(`Device ${mikrotikDevice.mac_address} not found in database. Removing from MikroTik...`);
+            //! Implement removal logic here
+        }
     }
 }
 

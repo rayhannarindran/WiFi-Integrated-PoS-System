@@ -2462,3 +2462,32 @@
 {"level":"info","message":"Closed MongoDB connection","service":"db-service"}
 {"level":"info","message":"Connected to MongoDB","service":"db-service"}
 {"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Token '63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_14cac7715d' updated successfully!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Token '63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_14cac7715d' updated successfully!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '9A:F9:41:1E:EA:37' removed successfully!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}

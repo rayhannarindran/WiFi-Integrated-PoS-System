@@ -64,6 +64,7 @@ def add_device_to_ip_binding():
 
 
 # REMOVES DEVICE FROM IP BINDINGS
+# Removes a device from IP bindings
 @app.route('/remove-device', methods=['POST'])
 def remove_device_from_ip_binding():
     data = request.json
@@ -77,16 +78,23 @@ def remove_device_from_ip_binding():
         
         # Fetch all IP bindings
         bindings = api.path('ip/hotspot/ip-binding').select('.id', 'mac-address')
+        if not bindings:
+            return jsonify({"status": "error", "message": "No IP bindings found in MikroTik"}), 404
         
+        # Filter out bindings without 'mac-address'
+        valid_bindings = [b for b in bindings if 'mac-address' in b]
+        if not valid_bindings:
+            return jsonify({"status": "error", "message": "No valid MAC addresses found in MikroTik"}), 404
+
         # Find the binding with the matching MAC address
-        matching_binding = next((b for b in bindings if b['mac-address'].lower() == mac_address.lower()), None)
+        matching_binding = next((b for b in valid_bindings if b['mac-address'].lower() == mac_address.lower()), None)
         
         if not matching_binding:
             return jsonify({"status": "error", "message": f"No IP binding found for MAC address {mac_address}"}), 404
         
         # Remove the found binding
         binding_id = matching_binding['.id']
-        api.path('ip/hotspot/ip-binding').remove(matching_binding['.id'])
+        api.path('ip/hotspot/ip-binding').remove(binding_id)
         
         return jsonify({"status": "success", "message": f"Device {mac_address} removed from IP Binding"}), 200
     

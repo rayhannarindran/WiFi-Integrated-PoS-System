@@ -49,7 +49,7 @@ async function databaseUpdate(){
                 }
 
             }
-            logger.info('Database updated successfully!');
+            logger.info('DATABASE UPDATED SUCCESSFULLY!');
         });
     }
     catch (error) {
