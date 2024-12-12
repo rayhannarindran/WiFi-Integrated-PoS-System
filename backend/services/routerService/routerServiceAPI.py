@@ -23,17 +23,15 @@ def get_ip_binding_ids():
         api = connect_to_mikrotik()
         
         # Fetch all IP bindings
-        bindings = api.path('ip/hotspot/ip-binding').select('.id', 'mac-address', 'address', 'to-address', 'type')
+        bindings = api.path('ip/hotspot/ip-binding')#.select('.id', 'mac-address', 'ip-address', 'to-address', 'type')
         
         # Extract the IDs and associated information
         binding_info = [{
             'id': binding['.id'],
             'mac_address': binding.get('mac-address', ''),
-            'address': binding.get('address', ''),
-            'to_address': binding.get('to-address', ''),
             'type': binding.get('type', '')
         } for binding in bindings]
-        
+
         return jsonify({
             "status": "success",
             "message": f"Retrieved {len(binding_info)} IP binding entries",
@@ -66,6 +64,7 @@ def add_device_to_ip_binding():
 
 
 # REMOVES DEVICE FROM IP BINDINGS
+# Removes a device from IP bindings
 @app.route('/remove-device', methods=['POST'])
 def remove_device_from_ip_binding():
     data = request.json
@@ -79,16 +78,23 @@ def remove_device_from_ip_binding():
         
         # Fetch all IP bindings
         bindings = api.path('ip/hotspot/ip-binding').select('.id', 'mac-address')
+        if not bindings:
+            return jsonify({"status": "error", "message": "No IP bindings found in MikroTik"}), 404
         
+        # Filter out bindings without 'mac-address'
+        valid_bindings = [b for b in bindings if 'mac-address' in b]
+        if not valid_bindings:
+            return jsonify({"status": "error", "message": "No valid MAC addresses found in MikroTik"}), 404
+
         # Find the binding with the matching MAC address
-        matching_binding = next((b for b in bindings if b['mac-address'].lower() == mac_address.lower()), None)
+        matching_binding = next((b for b in valid_bindings if b['mac-address'].lower() == mac_address.lower()), None)
         
         if not matching_binding:
             return jsonify({"status": "error", "message": f"No IP binding found for MAC address {mac_address}"}), 404
         
         # Remove the found binding
         binding_id = matching_binding['.id']
-        api.path('ip/hotspot/ip-binding').remove(matching_binding['.id'])
+        api.path('ip/hotspot/ip-binding').remove(binding_id)
         
         return jsonify({"status": "success", "message": f"Device {mac_address} removed from IP Binding"}), 200
     
@@ -136,6 +142,55 @@ def update_device_status():
         return jsonify({"status": "error", "message": f"No IP binding found for MAC address {mac_address}"}), 404
     except TrapError as e:
         return jsonify({"status": "error", "message": str(e)}), 500
+    
+# Get bandwidth limit for a device using Simple Queues
+@app.route('/get-all-bandwidth-limits', methods=['GET'])
+def get_all_bandwidth_limits():
+    try:
+        api = connect_to_mikrotik()
+        
+        # Fetch all Simple Queues
+        queues = api.path('queue/simple').select('.id', 'name', 'target', 'max-limit')
+        
+        # Extract the IDs and associated information
+        queue_info = [{
+            'id': queue['.id'],
+            'name': queue['name'],
+            'target': queue['target'],
+            'max_limit': queue['max-limit']
+        } for queue in queues]
+
+        return jsonify({
+            "status": "success",
+            "message": f"Retrieved {len(queue_info)} Simple Queues",
+            "data": queue_info
+        }), 200
+    
+    except TrapError as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+    except Exception as e:
+        return jsonify({"status": "error", "message": f"An unexpected error occurred: {str(e)}"}), 500
+    
+# Get bandwidth limit for a device using Simple Queues
+@app.route('/get-bandwidth-limit', methods=['GET'])
+def get_bandwidth_limit():
+    ip_address = request.args.get('ip_address')
+
+    try:
+        api = connect_to_mikrotik()
+        queues = api.path('queue/simple').select('.id', 'name', 'target', 'max-limit')
+        
+        for queue in queues:
+            if queue['target'].split('/')[0] == ip_address:
+                return jsonify({
+                    "status": "found",
+                    "ip_address": queue['target'].split('/')[0],
+                    "upload_limit": queue['max-limit'].split('/')[1],
+                    "download_limit": queue['max-limit'].split('/')[0]
+                }), 200
+        return jsonify({"status": "not found"}), 404
+    except TrapError as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 # Set bandwidth limit for a device using Simple Queues
 @app.route('/set-bandwidth-limit', methods=['POST'])
@@ -154,16 +209,29 @@ def set_bandwidth_limit():
         return jsonify({"status": "error", "message": "Failed to connect to MikroTik"}), 500
 
     try:
-        # Set bandwidth limit via Simple Queues
-        print(f"Setting bandwidth limit for {ip_address} to {download_limit}/{upload_limit}")
-        
-        api.path('queue/simple').add(
-            name=f"{ip_address}_limit", 
-            target=ip_address, 
-            **{'max-limit': f"{download_limit}/{upload_limit}"}
-        )
-        
-        return jsonify({"status": "success", "message": f"Bandwidth limit set for {ip_address}"}), 200
+        # Check if a rule already exists for this IP
+        queues = api.path('queue/simple').select('.id', 'name', 'target')
+        existing_queue = next((q for q in queues if q['target'].split('/')[0] == ip_address), None)
+
+        if existing_queue:
+            # Update existing rule
+            api.path('queue/simple').update(
+                **{
+                    '.id': existing_queue['.id'],
+                    'max-limit': f"{upload_limit}/{download_limit}"
+                }
+            )
+            message = f"Bandwidth limit updated for {ip_address}"
+        else:
+            # Add new rule
+            api.path('queue/simple').add(
+                name=f"{ip_address}_limit", 
+                target=ip_address, 
+                **{'max-limit': f"{upload_limit}/{download_limit}"}
+            )
+            message = f"Bandwidth limit set for {ip_address}"
+
+        return jsonify({"status": "success", "message": message}), 200
     except TrapError as e:
         print(f"TrapError: {str(e)}")
         return jsonify({"status": "error", "message": str(e)}), 500
