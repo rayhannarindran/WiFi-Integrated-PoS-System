@@ -1,7 +1,7 @@
 require('dotenv').config();
 const axios = require('axios');
 const fs = require('fs');
-const isDocker = process.env.IS_DOCKER === 'true';
+const isDocker = process.env.RUNNING_IN_DOCKER === 'true';
 
 // Base URL for the Python API
 const MIKROTIK_PYTHON_API_PORT = process.env.MIKROTIK_PYTHON_API_PORT;
