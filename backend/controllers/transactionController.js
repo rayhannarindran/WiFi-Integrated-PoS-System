@@ -13,15 +13,15 @@ async function getAllTransactions(req, res){
     }
 }
 
-// async function printTransaction(req, res){
-//     try{
-//         const transaction_data = req.body;
-//     }
-//     catch(error){
-//         console.error('Error printing transaction: ', error);
-//         res.status(500).json({ message: 'Failed to print transaction', error: error.message });
-//     }
-// }
+async function printTransaction(req, res){
+    try{
+        
+    }
+    catch(error){
+        console.error('Error printing transaction: ', error);
+        res.status(500).json({ message: 'Failed to print transaction', error: error.message });
+    }
+}
 
 module.exports = {
     getAllTransactions,
