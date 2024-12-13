@@ -349,6 +349,24 @@ async function getAllTransactions(){
     }
 }
 
+async function getTransaction(order_id) {
+    try {
+        return await retryOperation(async () => {
+            const dbConnection = await getConnection();
+            const transaction = await Transaction.findOne({ "order.id": order_id });
+            if (!transaction) {
+                console.log('Transaction not found');
+            } else {
+                console.log('Transaction found:', transaction);
+            }
+            return transaction;
+        });
+    } catch (error) {
+        logger.error('Error finding transaction:', error);
+        throw error;
+    }
+}
+
 async function addTransaction(order, qrUrl) {
     try {
         return await retryOperation(async () => {
@@ -484,6 +502,10 @@ async function runService(function_number = 0) {
             case 16:
                 await addTransaction(mockOrder, 'https://example.com/qr');
                 break;
+            case 17:
+                transaction_by_id = await getTransaction('c6c529ce-70f2-4849-8af5-adef63c32143');
+                console.log('Found transaction:\n', transaction_by_id);
+                break;
             default:
                 console.log('TEST FUNCTION NOT FOUND');
         }
@@ -498,7 +520,7 @@ async function runService(function_number = 0) {
 // If this file is run directly (not imported as a module), execute the service
 if (require.main === module) {
     // Test services
-    runService(16);
+    runService(17);
 }
 
 module.exports = {
@@ -519,5 +541,6 @@ module.exports = {
     findDevice,
     findDeviceByID,
     getAllTransactions,
+    getTransaction,
     addTransaction,
 };
