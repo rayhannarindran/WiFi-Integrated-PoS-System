@@ -357,7 +357,7 @@ async function getTransaction(order_id) {
             if (!transaction) {
                 console.log('Transaction not found');
             } else {
-                console.log('Transaction found:', transaction);
+                console.log(`Transaction with order ID ${order_id} found!`);
             }
             return transaction;
         });
