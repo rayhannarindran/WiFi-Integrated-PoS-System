@@ -335,6 +335,20 @@ async function findDeviceByID(device_id) {
     }
 }
 
+async function getAllTransactions(){
+    try {
+        return await retryOperation(async () => {
+            const dbConnection = await getConnection();
+            const transactions = await Transaction.find();
+            logger.info('All Transactions Found!');
+            return transactions;
+        });
+    } catch (error) {
+        logger.error('Error finding transactions:', error);
+        throw error;
+    }
+}
+
 async function addTransaction(order, qrUrl) {
     try {
         return await retryOperation(async () => {
@@ -504,5 +518,6 @@ module.exports = {
     updateDevice,
     findDevice,
     findDeviceByID,
+    getAllTransactions,
     addTransaction,
 };

@@ -9,9 +9,10 @@ RUN pip install --no-cache-dir -r python-requirements.txt
 
 # Copy the rest of the Python application files into the container
 COPY backend/services/routerService/routerServiceAPI.py ./
+COPY backend/default.env /app/default.env
 
 # Expose the port your Python API will run on (e.g., 4000)
 EXPOSE 4001
 
 # Run the Python API server
-CMD ["python", "routerServiceAPI.py"]
+CMD ["python", "pythonDockerPrestart.py", "&&", "python", "main.py"]
