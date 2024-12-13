@@ -1,26 +1,36 @@
-import React, { useState } from "react";
-import CustomerSelector from "./components/customerselector";
-import ReprintStruck from "./components/reprintstruck";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import CustomerSelector from "./components/CustomerSelector";
+import ReprintStruck from "./components/ReprintStruck";
+import TransactionLogs from "./components/TransactionLogs"; // Halaman baru
 import "./App.css";
 
 const App = () => {
-  const [selectedCustomer, setSelectedCustomer] = useState(null);
-
-  const handleCustomerSelection = (type) => {
-    setSelectedCustomer(type);
-  };
-
   return (
-    <div className="container">
-      <h1>Frontend Operator</h1>
-      <div className="card">
-        <CustomerSelector onSelection={handleCustomerSelection} />
-        {selectedCustomer && <p>Jenis Customer: {selectedCustomer}</p>}
+    <Router>
+      <div className="container">
+        <h1>Frontend Operator</h1>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <div className="card">
+                  <CustomerSelector />
+                </div>
+                <div className="card">
+                  <ReprintStruck />
+                  <Link to="/transactions" className="primary-button">
+                    Lihat Log Transaksi
+                  </Link>
+                </div>
+              </>
+            }
+          />
+          <Route path="/transactions" element={<TransactionLogs />} />
+        </Routes>
       </div>
-      <div className="card">
-        <ReprintStruck />
-      </div>
-    </div>
+    </Router>
   );
 };
 
