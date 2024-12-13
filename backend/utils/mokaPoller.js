@@ -5,7 +5,6 @@ const printerService = require('../services/printerService');
 
 // Keep track of the last processed transaction
 const POLLING_INTERVAL = 15000;
-let last_transaction_id = null;
 
 // Function to poll transactions periodically
 async function pollMokaTransactions() {
@@ -13,25 +12,29 @@ async function pollMokaTransactions() {
         console.log("Polling Moka API for new transactions...");
         const data = await mokaService.getMokaTransactions();
 
+        // Get the last transaction ID from the database
+        const latest_token_record = await dbService.findLatestTokenRecord();
+        const last_transaction_id = latest_token_record?.purchase_id || null;
+
         if (data?.data?.payments?.length > 0 && data.data.payments[0].id !== last_transaction_id) {
-            last_transaction_id = data.data.payments[0].id;
             console.log("New Transactions Found");
-            
+             
             //! SEND DATA TO DATABASE
             db_data = mokaService.preprocessDataForDB(data);
             printing_data = mokaService.preprocessDataForPrinting(data);
-
-            //! DEBUGGING
-            console.log("DB Data:", db_data);
-            console.log("Printing Data:", printing_data);
         
             // Generate and insert token record
             const tokenRecord = tokenService.generateTokenRecord(db_data);
             await dbService.insertTokenRecord(tokenRecord);
 
-            //! PRINTING DATA
-            // const qrCodeURL = tokenService.generateQRCodeURL(tokenRecord.token);
+            //! SAVING RECEIPT TO DATABASE
+            const qrCodeURL = tokenService.generateQrURL(tokenRecord.token);
+            await dbService.addTransaction(printing_data, qrCodeURL);
+
+            //! PRINT RECEIPT
             // await printerService.printReceipt(printing_data, qrCodeURL);
+
+            console.log("Token QR Code:", qrCodeURL);
 
         } else {
             console.log("No new transactions found.");
@@ -48,8 +51,6 @@ function startMokaPolling() {
         pollMokaTransactions();
     }, POLLING_INTERVAL);
 }
-
-pollMokaTransactions();
 
 module.exports = {
     startMokaPolling

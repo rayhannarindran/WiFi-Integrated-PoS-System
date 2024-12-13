@@ -2,30 +2,30 @@ require('dotenv').config();
 const dbService = require('../services/dbService/dbService');
 const routerService = require('../services/routerService/routerService');
 
+const POLLING_INTERVAL = 20000;
+
 async function updateSystem(){
     try {
-        console.log("Updating database");
+        console.log("SYNCING DATABASE");
         await dbService.databaseUpdate();
 
-        console.log("Synchronizing MikroTik");
+        console.log("\n\nSYNCING MIKROTIK");
         await routerService.syncMikroDb();
 
-        console.log("System update completed");
-
+        console.log("\n\nSYSTEM UPDATE COMPLETE!!!");
     } catch (error) {
         console.error("Error during system update:", error.message);
     }
 }
 
-(async () => {
-    try {
-        await updateSystem();
-        // console.log("Update completed successfully!");
-    } catch (error) {
-        // console.error("Failed to complete update:", error.message);
-    }
-})();
+function startSystemUpdatePolling() {
+    console.log("Starting system update polling...");
+    setInterval(() => {
+        updateSystem();
+    }, POLLING_INTERVAL);
+}
 
 module.exports = {
     updateSystem,
+    startSystemUpdatePolling
 };

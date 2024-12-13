@@ -6,6 +6,10 @@
   "author": "rayhannarindran",
   "license": "ISC",
   "description": "This is the backend of the project, it is responsible for the API and the database",
+  "scripts": {
+    "start": "node server.js",
+    "start-pm2": "pm2 start server.js --name backend"
+  },
   "dependencies": {
     "@node-escpos/adapter": "^0.0.1",
     "@node-escpos/core": "^0.6.0",

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Settings.css';
 
-const BACKEND_ENV_API_URL = `http://localhost:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/env`;
+const BACKEND_ENV_API_URL = `http://127.0.0.1:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/env`;
 
 function App() {
   // State to manage the visibility of each section
@@ -10,6 +10,7 @@ function App() {
   const [showMikrotik, setShowMikrotik] = useState(false);
   const [showPrinter, setShowPrinter] = useState(false);
   const [showNetworkSpec, setShowNetworkSpec] = useState(false);
+  const [showMoka, setShowMoka] = useState(false);
 
   // Handle form input states
   const [formData, setFormData] = useState({
@@ -25,6 +26,10 @@ function App() {
     MAX_SYSTEM_DEVICES: '',
     MINIMUM_PAYMENT_PER_DEVICE: '',
     TIME_LIMIT_PER_TOKEN: '',
+    MOKA_MERCHANT_ID: '',
+    MOKA_CLIENT_ID: '',
+    MOKA_CLIENT_SECRET: '',
+    MOKA_CALLBACK_URI: '',
   });
 
   // Fetch environment variables from the backend when the component mounts
@@ -265,6 +270,61 @@ function App() {
             </div>
           </div>
         )}
+
+        {/* Moka API Variables Section */}
+        <button type="button" onClick={() => setShowMoka(!showMoka)}>
+          {showMoka ? 'Hide' : 'Show'} Moka API Credentials
+        </button>
+        {showMoka && (
+          <div className="section">
+            <div>
+              <label htmlFor="MOKA_MERCHANT_ID">Moka Merchant ID:</label>
+              <input
+                type="text"
+                id="MOKA_MERCHANT_ID"
+                name="MOKA_MERCHANT_ID"
+                value={formData.MOKA_MERCHANT_ID}
+                onChange={handleChange}
+                placeholder={formData.MOKA_MERCHANT_ID || "merchant_id"}
+              />
+            </div>
+            <div>
+              <label htmlFor="MOKA_CLIENT_ID">Moka Client ID:</label>
+              <input
+                type="text"
+                id="MOKA_CLIENT_ID"
+                name="MOKA_CLIENT_ID"
+                value={formData.MOKA_CLIENT_ID}
+                onChange={handleChange}
+                placeholder={formData.MOKA_CLIENT_ID || "client_id"}
+              />
+            </div>
+            <div>
+              <label htmlFor="MOKA_CLIENT_SECRET">Moka Client Secret:</label>
+              <input
+                type="password"
+                id="MOKA_CLIENT_SECRET"
+                name="MOKA_CLIENT_SECRET"
+                value={formData.MOKA_CLIENT_SECRET}
+                onChange={handleChange}
+                placeholder={formData.MOKA_CLIENT_SECRET || "client_secret"}
+              />
+            </div>
+            <div>
+              <label htmlFor="MOKA_CALLBACK_URI">Moka Callback URI:</label>
+              <input
+                type="text"
+                id="MOKA_CALLBACK_URI"
+                name="MOKA_CALLBACK_URI"
+                value={formData.MOKA_CALLBACK_URI}
+                onChange={handleChange}
+                placeholder={formData.MOKA_CALLBACK_URI || "http://localhost:6001/moka/callback"}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Submit Button */}
 
         <button
           type="submit"

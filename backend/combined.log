@@ -2094,3 +2094,1363 @@
 {"level":"info","message":"Connected to MongoDB","service":"db-service"}
 {"level":"info","message":"Token inserted successfully!","service":"db-service"}
 {"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Device '9A:F9:41:1E:EA:37' added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Token '63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_14cac7715d' updated successfully!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Token '63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_14cac7715d' updated successfully!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Token '63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_14cac7715d' updated successfully!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Token '63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_14cac7715d' updated successfully!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Token '63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_14cac7715d' updated successfully!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Token '63428a08-86a8-4f64-915a-d2fd2c6e076a_2022-10-20T08:09:59.496Z_14cac7715d' updated successfully!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Database updated successfully!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675ad9c22c03ccc7d5c5cf45' Found!","service":"db-service"}
+{"level":"info","message":"Device '9A:F9:41:1E:EA:37' removed successfully!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"0 Tokens with criteria '{}' Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding token: Token not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Token not found\n    at C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:115:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async retryOperation (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbUtils.js:34:14)\n    at async Object.findLatestTokenRecord (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:111:16)\n    at async pollMokaTransactions (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\utils\\mokaPoller.js:16:37)","statusCode":404}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"0 Tokens with criteria '{}' Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding token: Token not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Token not found\n    at C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:115:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async retryOperation (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbUtils.js:34:14)\n    at async Object.findLatestTokenRecord (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:111:16)\n    at async pollMokaTransactions (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\utils\\mokaPoller.js:16:37)","statusCode":404}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"0 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"0 Tokens with criteria '{}' Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding token: Token not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Token not found\n    at C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:115:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async retryOperation (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbUtils.js:34:14)\n    at async Object.findLatestTokenRecord (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:111:16)\n    at async pollMokaTransactions (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\utils\\mokaPoller.js:16:37)","statusCode":404}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"0 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"0 Tokens with criteria '{}' Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"0 Tokens with criteria '{}' Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding token: Token not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Token not found\n    at C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:115:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async retryOperation (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbUtils.js:34:14)\n    at async Object.findLatestTokenRecord (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:111:16)\n    at async pollMokaTransactions (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\utils\\mokaPoller.js:17:37)","statusCode":404}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"0 Tokens with criteria '{}' Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding token: Token not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Token not found\n    at C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:115:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async retryOperation (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbUtils.js:34:14)\n    at async Object.findLatestTokenRecord (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:111:16)\n    at async pollMokaTransactions (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\utils\\mokaPoller.js:16:37)","statusCode":404}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"0 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"0 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding token: Token not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Token not found\n    at C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:81:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async retryOperation (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbUtils.js:34:14)\n    at async Object.findTokenRecord (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:77:16)\n    at async validateToken (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\controllers\\tokenController.js:10:29)","statusCode":404}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"error":{"name":"DbServiceError","statusCode":404},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
+{"level":"error","message":"Error finding token: Token not found","name":"DbServiceError","service":"db-service","stack":"DbServiceError: Token not found\n    at C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:81:23\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async retryOperation (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbUtils.js:34:14)\n    at async Object.findTokenRecord (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\services\\dbService\\dbService.js:77:16)\n    at async validateToken (C:\\Users\\rayha\\OneDrive - Institut Teknologi Sepuluh Nopember\\UNIVERSITY\\Year 4\\Semester 7\\Proyek Telematika\\WiFi-Integrated-PoS-System\\backend\\controllers\\tokenController.js:10:29)","statusCode":404}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token 'abc42b02-e41f-4a6e-9d72-0d8a4be5c8a3_2024-12-12T15:44:04.113Z_1918a5dd76' Found!","service":"db-service"}
+{"level":"info","message":"Token 'abc42b02-e41f-4a6e-9d72-0d8a4be5c8a3_2024-12-12T15:44:04.113Z_1918a5dd76' Found!","service":"db-service"}
+{"level":"info","message":"Device '56:59:51:E5:3E:3E' added successfully!","service":"db-service"}
+{"level":"info","message":"Token 'abc42b02-e41f-4a6e-9d72-0d8a4be5c8a3_2024-12-12T15:44:04.113Z_1918a5dd76' Found!","service":"db-service"}
+{"level":"info","message":"Device '56:59:51:E5:3E:3E' updated successfully!","service":"db-service"}
+{"level":"info","message":"Device '675b09728b56bc6b91d8a6c5' Found!","service":"db-service"}
+{"level":"info","message":"Device '56:59:51:E5:3E:3E' updated successfully!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b09728b56bc6b91d8a6c5' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b09728b56bc6b91d8a6c5' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b09728b56bc6b91d8a6c5' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b09728b56bc6b91d8a6c5' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b09728b56bc6b91d8a6c5' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b09728b56bc6b91d8a6c5' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b09728b56bc6b91d8a6c5' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b09728b56bc6b91d8a6c5' Found!","service":"db-service"}
+{"level":"info","message":"Device '56:59:51:E5:3E:3E' removed successfully!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Token 'c6c529ce-70f2-4849-8af5-adef63c32143_2024-12-12T16:16:18.874Z_3378990d29' Found!","service":"db-service"}
+{"level":"info","message":"Token 'c6c529ce-70f2-4849-8af5-adef63c32143_2024-12-12T16:16:18.874Z_3378990d29' Found!","service":"db-service"}
+{"level":"info","message":"Device '56:59:51:E5:3E:3E' added successfully!","service":"db-service"}
+{"level":"info","message":"Token 'c6c529ce-70f2-4849-8af5-adef63c32143_2024-12-12T16:16:18.874Z_3378990d29' Found!","service":"db-service"}
+{"level":"info","message":"Device '56:59:51:E5:3E:3E' updated successfully!","service":"db-service"}
+{"level":"info","message":"Device '675b0ca87057d7c097cf7b88' Found!","service":"db-service"}
+{"level":"info","message":"Device '56:59:51:E5:3E:3E' updated successfully!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b0ca87057d7c097cf7b88' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b0ca87057d7c097cf7b88' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b0ca87057d7c097cf7b88' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b0ca87057d7c097cf7b88' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b0ca87057d7c097cf7b88' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b0ca87057d7c097cf7b88' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b0ca87057d7c097cf7b88' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Device '675b0ca87057d7c097cf7b88' Found!","service":"db-service"}
+{"level":"info","message":"Device '56:59:51:E5:3E:3E' removed successfully!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"2 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Transaction added successfully!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Transaction added successfully!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Closed MongoDB connection","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"1 Tokens with criteria '{}' Found!","service":"db-service"}

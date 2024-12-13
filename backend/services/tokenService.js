@@ -18,11 +18,11 @@ function generateToken(pos_data) {
 }
 
 // Generate a QR code for the token
-async function generateQR(token) {
+function generateQrURL(token) {
   try {
     // Generate QR code using await
-    URL = "hotspot.wifipos.id/login?token=" + token;
-    return URL;  // Return the QR code URL
+    qrURL = "http://hotspot.wifipos.id/login?token=" + token;
+    return qrURL;  // Return the QR code URL
   } catch (err) {
     console.log("Error:", err);
     throw err;  // Throw the error to be handled by the caller
@@ -57,6 +57,6 @@ function generateTokenRecord(pos_data) {
 // Export the functions
 module.exports = {
   generateToken,
-  generateQR,
+  generateQrURL,
   generateTokenRecord
 };
