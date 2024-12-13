@@ -1,6 +1,6 @@
 const { baseModelName } = require('../models/Transaction');
 const dbService = require('../services/dbService/dbService');
-const printerService = require('../services/printerService/printerService');
+const printerService = require('../services/printerService');
 
 async function getAllTransactions(req, res){
     try{
