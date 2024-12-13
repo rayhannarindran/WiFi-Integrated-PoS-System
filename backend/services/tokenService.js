@@ -43,8 +43,8 @@ function generateTokenRecord(pos_data) {
     purchase_id: pos_data.id,
     valid_from: valid_from_date.toISOString(),
     valid_until: valid_until_date.toISOString(),
-    max_devices: Math.floor((pos_data.subtotal + pos_data.gratuities + pos_data.taxes)/MINIMUM_PAYMENT_PER_DEVICE), // For every Rp30,000, the user can connect one device
-    max_bandwidth: BANDWIDTH_PER_DEVICE * Math.floor((pos_data.subtotal + pos_data.gratuities + pos_data.taxes)/MINIMUM_PAYMENT_PER_DEVICE),
+    max_devices: Math.max(1, Math.floor((pos_data.subtotal + pos_data.gratuities + pos_data.taxes)/MINIMUM_PAYMENT_PER_DEVICE)), // For every Rp30,000, the user can connect one device
+    max_bandwidth: Math.max(BANDWIDTH_PER_DEVICE, BANDWIDTH_PER_DEVICE * Math.floor((pos_data.subtotal + pos_data.gratuities + pos_data.taxes)/MINIMUM_PAYMENT_PER_DEVICE)),
     devices_connected: [],
     time_limit: time_limit,
     created_at: new Date().toISOString(),
