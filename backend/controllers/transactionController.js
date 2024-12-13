@@ -15,7 +15,11 @@ async function getAllTransactions(req, res){
 
 async function printTransaction(req, res){
     try{
-        
+        const transaction = req.body;
+        const order = transaction.order;
+        const qrCodeURL = transaction.qrUrl;
+        await printerService.printReceipt(order, qrCodeURL);
+        res.status(200).json({ message: 'Transaction printed' });
     }
     catch(error){
         console.error('Error printing transaction: ', error);
@@ -25,5 +29,5 @@ async function printTransaction(req, res){
 
 module.exports = {
     getAllTransactions,
-    // printTransaction
+    printTransaction
 };
