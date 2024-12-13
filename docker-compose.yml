@@ -8,6 +8,8 @@ services:
       - "3001:3001"  # Expose Node.js backend on port 3001
     env_file:
       - ./backend/.env
+    environment:
+      - RUNNING_IN_DOCKER=true
     networks:
       - wifi-pos-network
 
@@ -20,6 +22,8 @@ services:
       - "4001:4001"  # Expose Python API on port 4001
     env_file:
       - ./backend/.env
+    environment:
+      - RUNNING_IN_DOCKER=true
     networks:
       - wifi-pos-network
 
@@ -32,6 +36,8 @@ services:
       - "5001:5001"  # Expose frontend on port 5001
     env_file:
       - ./frontend-admin/.env
+    environment:
+      - VITE_RUNNING_IN_DOCKER=true
     networks:
       - wifi-pos-network
 

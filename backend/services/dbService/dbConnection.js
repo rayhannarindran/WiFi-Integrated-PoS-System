@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
 const { logger } = require('./dbUtils');
 const fs = require('fs');
-const isDocker = () => fs.existsSync('/.dockerenv');
+const isDocker = process.env.RUNNING_IN_DOCKER === 'true';
 
-const MONGODB_URI = isDocker()
-  ? 'mongodb://mongodb:27017/wifi-pos'
-  : process.env.MONGODB_URI;
+const MONGODB_URI = isDocker ? 'mongodb://mongodb:27017/wifi-pos' : process.env.MONGODB_URI;
 let dbConnection = null;
 
 //console.log(MONGODB_URI);

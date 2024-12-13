@@ -21,7 +21,7 @@ function generateToken(pos_data) {
 function generateQrURL(token) {
   try {
     // Generate QR code using await
-    qrURL = "hotspot.wifipos.id/login?token=" + token;
+    qrURL = "http://hotspot.wifipos.id/login?token=" + token;
     return qrURL;  // Return the QR code URL
   } catch (err) {
     console.log("Error:", err);

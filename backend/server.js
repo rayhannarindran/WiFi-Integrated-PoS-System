@@ -3,10 +3,14 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
+//PRESTART
+require('./backend-prestart.js');
+
 // API Routes
 const deviceRoutes = require('./routes/deviceRoutes.js');
 const tokenRoutes = require('./routes/tokenRoutes.js');
 const envRoutes = require('./routes/envRoutes.js');
+const systemRoutes = require('./routes/systemRoutes.js');
 
 // UTILS
 const mokaPoller = require('./utils/mokaPoller.js');
@@ -28,6 +32,7 @@ app.get('/health', (req, res) => {
 app.use('/api/device', deviceRoutes);
 app.use('/api/token', tokenRoutes);
 app.use('/api/env', envRoutes);
+app.use('/api/system', systemRoutes);
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {

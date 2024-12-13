@@ -22,17 +22,16 @@ async function pollMokaTransactions() {
             //! SEND DATA TO DATABASE
             db_data = mokaService.preprocessDataForDB(data);
             printing_data = mokaService.preprocessDataForPrinting(data);
-
-            //! DEBUGGING
-            // console.log("DB Data:", db_data);
-            // console.log("Printing Data:", printing_data);
         
             // Generate and insert token record
             const tokenRecord = tokenService.generateTokenRecord(db_data);
             await dbService.insertTokenRecord(tokenRecord);
 
-            //! PRINTING DATA
+            //! SAVING RECEIPT TO DATABASE
             const qrCodeURL = tokenService.generateQrURL(tokenRecord.token);
+            await dbService.addTransaction(printing_data, qrCodeURL);
+
+            //! PRINT RECEIPT
             // await printerService.printReceipt(printing_data, qrCodeURL);
 
             console.log("Token QR Code:", qrCodeURL);

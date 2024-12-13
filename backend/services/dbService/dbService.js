@@ -1,6 +1,7 @@
 require('dotenv').config();
 const Token = require('../../models/Token'); // Token model
 const Device = require('../../models/Device'); // Device model
+const Transaction = require('../../models/Transaction'); // Transaction model
 const { getConnection, closeConnection } = require('./dbConnection');
 const { validateTokenRecord, validateDeviceRecord } = require('./dbValidation');
 const { DbServiceError, logger, retryOperation } = require('./dbUtils');
@@ -334,6 +335,20 @@ async function findDeviceByID(device_id) {
     }
 }
 
+async function addTransaction(order, qrUrl) {
+    try {
+        return await retryOperation(async () => {
+            const dbConnection = await getConnection();
+            const newTransaction = new Transaction({ order, qrUrl });
+            await newTransaction.save();
+            logger.info('Transaction added successfully!');
+        });
+    } catch (error) {
+        logger.error('Error adding transaction:', error);
+        throw error;
+    }
+}
+
 // TESTING FUNCTION
 async function runService(function_number = 0) {
     try {
@@ -347,6 +362,47 @@ async function runService(function_number = 0) {
                              created_at: current_date, updated_at: current_date };
 
         const mockDevice = { ip_address: '192.168.88.100' , mac_address: '9A:F9:41:1E:EA:37' };
+        const mockOrder = {
+            id: "123456",
+            payment_no: "INV-20241210-001",
+            created_at: "2024-12-10T12:30:00Z",
+            discounts: 3000,
+            subtotal: 95000,
+            gratuities: 5000,
+            taxes: 9500,
+            checkouts: [
+                {
+                    item_name: "pancong",
+                    tax_amount: 1500,
+                    quantity: 1,
+                    item_price: 15000,
+                    total_price: 13500,
+                    discount_amount: 1000,
+                    gratuity_amount: 0.00,
+                    note: null,
+                },
+                {
+                    item_name: "suprek",
+                    tax_amount: 3000,
+                    quantity: 1,
+                    item_price: 30000,
+                    total_price: 27000,
+                    discount_amount: 2000,
+                    gratuity_amount: 0.00,
+                    note: null,
+                },
+                {
+                    item_name: "warkam",
+                    tax_amount: 5000,
+                    quantity: 2,
+                    item_price: 50000,
+                    total_price: 45000,
+                    discount_amount: 0.00,
+                    gratuity_amount: 0.00,
+                    note: null,
+                },
+            ]
+        };
 
         // function testing
         switch (test_func) {
@@ -411,6 +467,9 @@ async function runService(function_number = 0) {
                 const latestToken = await findLatestTokenRecord();
                 console.log('Latest Token:', latestToken);
                 break;
+            case 16:
+                await addTransaction(mockOrder, 'https://example.com/qr');
+                break;
             default:
                 console.log('TEST FUNCTION NOT FOUND');
         }
@@ -425,7 +484,7 @@ async function runService(function_number = 0) {
 // If this file is run directly (not imported as a module), execute the service
 if (require.main === module) {
     // Test services
-    runService(6);
+    runService(16);
 }
 
 module.exports = {
@@ -445,4 +504,5 @@ module.exports = {
     updateDevice,
     findDevice,
     findDeviceByID,
+    addTransaction,
 };

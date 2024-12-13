@@ -6,6 +6,7 @@ WORKDIR /app
 # Copy package.json and install dependencies
 COPY backend/package*.json ./
 RUN npm install
+RUN npm install -g pm2
 
 # Copy the rest of the backend source code
 COPY backend/ ./
@@ -14,4 +15,4 @@ COPY backend/ ./
 EXPOSE 3001
 
 # Start the backend server
-CMD ["npm", "start"]
+CMD ["pm2-runtime", "server.js", "--name", "backend"]

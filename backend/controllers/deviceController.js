@@ -96,9 +96,6 @@ async function disconnectDevice(req, res){
             }
         }
 
-        // Update router configuration
-        //await routerService.removeDevice(mac_address);
-
         res.status(200).json({ 
             message: 'Device disconnected successfully', 
             data: { token, mac_address }
