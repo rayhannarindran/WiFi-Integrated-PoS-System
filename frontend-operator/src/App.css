@@ -1,0 +1,98 @@
+/* Reset & Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.card button {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.card button:hover {
+  background-color: #0056b3;
+}
+
+button.primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+button.secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
+}
