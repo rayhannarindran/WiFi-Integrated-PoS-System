@@ -3,43 +3,111 @@
 /* Styling for the main page container */
 .main-page {
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  background: linear-gradient(135deg, #f7f7f7); /* Gradient background */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align content to the top of the container */
-  min-height: 100vh; /* Use min-height to ensure the container takes up at least the full viewport height */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   margin: 0;
-  padding-top: 2rem;
-  width: 100vw; /* Use width to make the container use the full viewport width */
+  padding: 2rem;
   box-sizing: border-box;
   overflow-y: auto;
 }
-  
-  /* Styling for the button container with shadow */
+
+/* Centered content box with rounded edges */
+.button-container {
+  background-color: #ffffff; /* White box background */
+  border-radius: 24px; /* Rounded corners */
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); /* Softer shadow for a floating effect */
+  padding: 3rem 2rem; /* Balanced padding */
+  width: 90%; /* Full width on smaller screens */
+  max-width: 500px; /* Maximum width for the box */
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out; /* Smooth fade-in animation */
+  position: relative;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styling for the admin image */
+.admin-image {
+  width: 100px; /* Adjusted size */
+  height: auto;
+  margin-bottom: 1.5rem; /* Space below the image */
+  border-radius: 50%; /* Circular shape */
+  border: 3px solid #007bff; /* Blue border for emphasis */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  background-color: #f9f9f9; /* Light background inside the circle */
+}
+
+/* Hover effect for admin image */
+.admin-image:hover {
+  transform: scale(1.1); /* Slight zoom-in on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+}
+
+/* Title Styling */
+h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 2rem; /* Spacing between title and buttons */
+  color: #333333; /* Darker text color */
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Styling for the buttons */
+.main-page-button {
+  background-color: #007bff; /* Blue button color */
+  color: #ffffff; /* White text */
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px; /* Rounded buttons */
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  width: 100%; /* Full width inside the container */
+  max-width: 300px; /* Limit button width */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Hover effect for buttons */
+.main-page-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
   .button-container {
-    background-color: rgb(255, 255, 255);
-    margin: 0 auto;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
+    padding: 2rem 1.5rem; /* Compact padding for smaller screens */
   }
-  
-  /* Styling for the buttons */
+
+  .admin-image {
+    width: 80px; /* Smaller image size for mobile */
+  }
+
+  h1 {
+    font-size: 1.4rem; /* Adjust title size for smaller screens */
+  }
+
   .main-page-button {
-    padding: 0.7rem;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-    margin-top: 1rem;
+    font-size: 0.9rem; /* Adjust button text size */
+    max-width: 100%; /* Allow full-width buttons on small screens */
   }
-  
-  .main-page-button:hover {
-    background-color: #45a049;
-  }
-  
+}

@@ -1,88 +1,167 @@
+/* DeviceManager.css */
+
+/* Main container styling */
 .device-manager {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  text-align: center;
+  background-color: #f4f7fa; /* Soft background for better contrast */
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  animation: fadeIn 0.6s ease-in-out; /* Smooth fade-in animation */
+}
+
+/* Add a fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .device-manager h1 {
-    margin-bottom: 20px;
-    color: #444;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .tokens-list {
-    margin-top: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  .token-item {
-    border-bottom: 1px solid #ddd;
+}
+
+/* Header styling */
+.device-manager h1 {
+  margin-bottom: 20px;
+  color: #2c3e50; /* Darker color for better readability */
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Tokens list container */
+.tokens-list {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #ffffff; /* White background for card effect */
+  overflow: hidden; /* Ensure rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Card-like shadow */
+}
+
+/* Individual token item */
+.token-item {
+  border-bottom: 1px solid #eee;
+  padding: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.token-item:last-child {
+  border-bottom: none;
+}
+
+/* Hover effect for token items */
+.token-item:hover {
+  background-color: #f0f9ff; /* Light blue background on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15); /* Elevated shadow on hover */
+}
+
+/* Token header styling */
+.token-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.token-header div {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #34495e; /* Muted text color */
+}
+
+/* Toggle button styling */
+.toggle-button {
+  padding: 6px 20px;
+  background-color: #007bff; /* Blue button */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.toggle-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Button shadow on hover */
+}
+
+/* Status styling */
+.status {
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.status.valid {
+  color: #27ae60;
+  background-color: #eafaf1; /* Light green background */
+}
+
+.status.expired {
+  color: #e74c3c;
+  background-color: #fdecea; /* Light red background */
+}
+
+/* Devices dropdown styling */
+.devices-dropdown {
+  margin-top: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Individual device item */
+.device-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.device-item:hover {
+  background-color: #e8f5ff; /* Light blue on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Last child spacing fix */
+.device-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Message for no devices */
+.no-devices {
+  color: #999;
+  font-style: italic;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .device-manager {
     padding: 15px;
   }
-  
-  .token-item:last-child {
-    border-bottom: none;
-  }
-  
+
   .token-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .token-header div {
-    margin-bottom: 10px;
-  }
-  
+
   .toggle-button {
-    padding: 5px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .toggle-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .status {
-    font-weight: bold;
-  }
-  
-  .status.valid {
-    color: green;
-  }
-  
-  .status.expired {
-    color: red;
-  }
-  
-  .devices-dropdown {
     margin-top: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px;
+    width: 100%; /* Full-width button on smaller screens */
   }
-  
-  .device-item {
-    margin-bottom: 10px;
-    text-align: left;
-  }
-  
-  .device-item:last-child {
-    margin-bottom: 0;
-  }
-  
-  .no-devices {
-    color: #999;
-    font-style: italic;
-  }
-  
+}
