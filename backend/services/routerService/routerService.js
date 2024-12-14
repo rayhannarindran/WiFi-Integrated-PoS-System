@@ -203,19 +203,19 @@ async function processDevice(token, connectedDevice, mikrotikDeviceMap) {
             return;
         }
 
-        // const latestToken = await getLatestTokenOfDevice(device._id);
+        const latestToken = await getLatestTokenOfDevice(device._id);
 
-        // if(!latestToken) {
-        //     console.log(`No valid token found for device ${device.mac_address}. Disconnecting...`);
-        //     //! await removeDevice(device.mac_address); //! UNCOMMENT IF WORKS AS EXPECTED
-        //     await dbService.removeDevice(token.token, device.mac_address);
-        //     return;
-        // }
+        if(!latestToken) {
+            console.log(`No valid token found for device ${device.mac_address}. Disconnecting...`);
+            await removeDevice(device.mac_address); //! UNCOMMENT IF WORKS AS EXPECTED
+            await dbService.removeDevice(token.token, device.mac_address);
+            return;
+        }
 
-        // if(latestToken.token !== token.token) {
-        //     console.log(`Token ${token.token} is not the latest token for device ${device.mac_address}. Skipping...`);
-        //     return;
-        // }
+        if(latestToken.token !== token.token) {
+            console.log(`Token ${token.token} is not the latest token for device ${device.mac_address}. Skipping...`);
+            return;
+        }
 
         const mikrotikDevice = mikrotikDeviceMap.get(device.mac_address);
         if (!mikrotikDevice) {
@@ -240,7 +240,7 @@ async function processDevice(token, connectedDevice, mikrotikDeviceMap) {
 //! GET LATEST TOKEN OF DEVICE (SEE IF THIS WORKS)
 async function getLatestTokenOfDevice(device_id) {
     try {
-        const tokens = await dbService.findTokensByCriteria({ 'devices_connected.device_id': device_id, status: 'valid' });
+        const tokens = await dbService.findTokensByCriteria({ 'devices_connected._id': device_id, status: 'valid' });
         if (!tokens || tokens.length === 0) {
             return null; // No tokens found
         }
@@ -280,9 +280,16 @@ function isTokenExpired(token) {
 }
 
 async function removeInvalidMikrotikDevices(tokens, mikrotikDevices) {
-    const deviceMacInDb = new Set(
-        tokens.flatMap(token => token.devices_connected.map(device => device.mac_address))
-    );
+    const deviceMacInDb = new Set();
+
+    for (const token of tokens){
+        for (const device of token.devices_connected) {
+            const dbDevice = await dbService.findDeviceByID(device._id);
+            if (dbDevice) {
+                deviceMacInDb.add(dbDevice.mac_address);
+            }
+        }
+    }
 
     for (const mikrotikDevice of mikrotikDevices.data) {
         if (WHITELISTED_MAC_ADDRESSES.includes(mikrotikDevice.mac_address)) {
