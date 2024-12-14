@@ -46,7 +46,6 @@ async function connectDevice(req, res){
 
         // Update router configuration
         await routerService.addDevice(newDevice.mac_address);
-        await routerService.setBandwidthLimit(newDevice.mac_address, newBandwidth.bandwidth, newBandwidth.bandwidth);
 
         res.status(200).json({ 
             message: 'Device connected successfully', 
