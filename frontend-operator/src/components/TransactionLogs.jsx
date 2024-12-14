@@ -4,12 +4,12 @@ import "./TransactionLogs.css";
 const TransactionLogs = () => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
-  const BACKEND_TRANSACTIONS_API_URL = `http://localhost:3001/api/transaction/get-all-transactions`;
+  const BACKEND_TRANSACTIONS_API_URL = `http://localhost:3001/api/transaction`;
 
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const response = await fetch(BACKEND_TRANSACTIONS_API_URL);
+        const response = await fetch(`${BACKEND_TRANSACTIONS_API_URL}/get-all-transactions`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -28,13 +28,11 @@ const TransactionLogs = () => {
   const handlePrint = async (id) => {
     try {
       const transaction = transactions.find((t) => t.order.id === id);
-      const data_to_print = { "order": transaction.order, "qrUrl": transaction.qrUrl }
-      const response = await fetch(`http://localhost:3001/api/transaction/print-transaction`, data_to_print, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ envName: "PRINTER_USB_VENDOR_ID" }),
+      const data_to_print = { "order": transaction.order, "qrUrl": transaction.qrUrl };
+      const response = await fetch(`${BACKEND_TRANSACTIONS_API_URL}/print-transaction`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data_to_print) ,
       });
       if (!response.ok) {
         throw new Error(`Failed to print receipt: ${response.statusText}`);

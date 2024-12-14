@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import MainPage from "./components/MainPage"
 import CustomerSelector from "./components/CustomerSelector";
-import TransactionLogs from "./components/transactionlogs";
+import TransactionLogs from "./components/TransactionLogs";
 
 const App = () => {
   return (
