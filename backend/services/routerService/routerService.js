@@ -33,6 +33,16 @@ async function getIpBindings() {
     }
 }
 
+//! GET ACTIVE HOSTS (CHECK IF THIS WORKS)
+async function getActiveHosts() {
+    try {
+        const response = await axios.get(`${BASE_URL}/get-active-hosts`);
+        return response.data;
+    } catch (error) {
+        handleError(error);
+    }
+}
+
 // ADD DEVICE TO IP BINDINGS
 async function addDevice(macAddress) {
     try {
@@ -140,6 +150,11 @@ async function syncMikroDb() {
     console.log("Starting synchronization between database and MikroTik...");
 
     try {
+        // //! CHECK IF THIS WORKS TOO
+        // console.log("GETTING ACTIVE HOSTS FROM MIKROTIK...");
+        // const activeHosts = await getActiveHosts();
+        // const activeMacAddresses = activeHosts.data.map(host => host.mac_address);
+
         console.log("FETCHING TOKENS FROM DATABASE...");
         const tokens = await dbService.findTokensByCriteria({});
         if (!tokens || tokens.length === 0) {
@@ -188,6 +203,20 @@ async function processDevice(token, connectedDevice, mikrotikDeviceMap) {
             return;
         }
 
+        const latestToken = await getLatestTokenOfDevice(device._id);
+
+        if(!latestToken) {
+            console.log(`No valid token found for device ${device.mac_address}. Disconnecting...`);
+            //! await removeDevice(device.mac_address); //! UNCOMMENT IF WORKS AS EXPECTED
+            await dbService.removeDevice(token.token, device.mac_address);
+            return;
+        }
+
+        if(latestToken.token !== token.token) {
+            console.log(`Token ${token.token} is not the latest token for device ${device.mac_address}. Skipping...`);
+            return;
+        }
+
         const mikrotikDevice = mikrotikDeviceMap.get(device.mac_address);
         if (!mikrotikDevice) {
             console.log(`Device ${device.mac_address} not found in MikroTik. Adding...`);
@@ -200,11 +229,31 @@ async function processDevice(token, connectedDevice, mikrotikDeviceMap) {
 
         if (isTokenExpired(token)) {
             console.log(`Token ${token.token} expired. Disconnecting device ${device.mac_address}...`);
-            //await removeDevice(device.mac_address);
+            //! await removeDevice(device.mac_address); //! UNCOMMENT IF WORKS AS EXPECTED
             await dbService.removeDevice(token.token, device.mac_address);
         }
     } catch (error) {
         console.warn(`Failed to process device ${connectedDevice.id}: ${error.message}`);
+    }
+}
+
+//! GET LATEST TOKEN OF DEVICE (SEE IF THIS WORKS)
+async function getLatestTokenOfDevice(device_id) {
+    try {
+        const tokens = await dbService.findTokensByCriteria({ 'devices_connected.device_id': device_id, status: 'valid' });
+        if (!tokens || tokens.length === 0) {
+            return null; // No tokens found
+        }
+
+        // Find the latest token by comparing valid_until dates
+        const latestToken = tokens.reduce((latest, current) => 
+            new Date(latest.valid_until) > new Date(current.valid_until) ? latest : current
+        );
+
+        return latestToken; // Return the latest token
+    } catch (error) {
+        console.error('Error fetching latest token for device:', error.message);
+        throw error; // Propagate the error to be handled by the caller
     }
 }
 
@@ -254,6 +303,7 @@ async function removeInvalidMikrotikDevices(tokens, mikrotikDevices) {
 
 module.exports = {
     getIpBindings,
+    getActiveHosts,
     addDevice,
     removeDevice,
     getDeviceStatus,

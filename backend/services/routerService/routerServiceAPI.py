@@ -43,6 +43,33 @@ def get_ip_binding_ids():
     except Exception as e:
         return jsonify({"status": "error", "message": f"An unexpected error occurred: {str(e)}"}), 500
 
+#! GET ACTIVE HOSTS (CHECK IF THIS WORKS)
+@app.route('/get-active-hosts', methods=['GET'])
+def get_active_hosts():
+    try:
+        api = connect_to_mikrotik()
+        
+        # Fetch all active hosts
+        active_hosts = api.path('ip/hotspot/active').select('.id', 'mac-address', 'ip-address', 'uptime')
+        
+        # Extract the IDs and associated information
+        active_host_info = [{
+            'id': host['.id'],
+            'mac_address': host.get('mac-address', ''),
+            'ip_address': host.get('ip-address', ''),
+            'uptime': host.get('uptime', '')
+        } for host in active_hosts]
+
+        return jsonify({
+            "status": "success",
+            "message": f"Retrieved {len(active_host_info)} active hosts",
+            "data": active_host_info
+        }), 200
+    
+    except TrapError as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+    except Exception as e:
+        return jsonify({"status": "error", "message": f"An unexpected error occurred: {str(e)}"}), 500
 
 # ADDS DEVICE TO IP BINDINGS
 @app.route('/add-device', methods=['POST'])

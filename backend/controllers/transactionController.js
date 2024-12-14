@@ -9,21 +9,25 @@ async function getAllTransactions(req, res){
     }
     catch(error){
         console.error('Error getting all transactions: ', error);
-        res.status(500).json({ message: 'Failed to get tokens', error: error.message });
+        res.status(500).json({ message: 'Failed to get all transactions', error: error.message });
     }
 }
 
-// async function printTransaction(req, res){
-//     try{
-//         const transaction_data = req.body;
-//     }
-//     catch(error){
-//         console.error('Error printing transaction: ', error);
-//         res.status(500).json({ message: 'Failed to print transaction', error: error.message });
-//     }
-// }
+async function printTransaction(req, res){
+    try{
+        const transaction = req.body;
+        const order = transaction.order;
+        const qrCodeURL = transaction.qrUrl;
+        await printerService.printReceipt(order, qrCodeURL);
+        res.status(200).json({ message: 'Transaction printed' });
+    }
+    catch(error){
+        console.error('Error printing transaction: ', error);
+        res.status(500).json({ message: 'Failed to print transaction', error: error.message });
+    }
+}
 
 module.exports = {
     getAllTransactions,
-    // printTransaction
+    printTransaction
 };
