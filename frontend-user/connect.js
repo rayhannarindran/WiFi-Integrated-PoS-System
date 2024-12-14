@@ -26,7 +26,7 @@ connectButton.addEventListener("click", async function () {
 
     try {
         // Validate token
-        const response = await fetch(`${apiUrl}/token/validate-token?timestamp=${Date.now()}`, {
+        const response = await fetch(`${apiUrl}/token/validate-token`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -43,7 +43,7 @@ connectButton.addEventListener("click", async function () {
             if (data.data.isValid) {
                 // Save device info to database
                 try {
-                    const responseDevice = await fetch(`${apiUrl}/device/connect-device?timestamp=${Date.now()}`, {
+                    const responseDevice = await fetch(`${apiUrl}/device/connect-device`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -68,19 +68,19 @@ connectButton.addEventListener("click", async function () {
                 }
 
                 // Redirect to success page
-                window.location.href = `infos.html?qrData=${encodeURIComponent(qrData)}&status=valid`;
+                window.location.href = `https://www.google.com`;
             } else {
                 // Redirect to invalid page
-                window.location.href = `infos.html?qrData=${encodeURIComponent(qrData)}&status=invalid`;
+                window.location.href = `https://www.google.com`;
             }
         } else {
             console.error(`API call failed with status: ${response.status}`);
             // Redirect to error page
-            window.location.href = `infos.html?qrData=${encodeURIComponent(qrData)}&status=error`;
+            window.location.href = `https://www.google.com`;
         }
     } catch (error) {
         console.error("Error validating token:", error);
         // Redirect to error page
-        window.location.href = `infos.html?qrData=${encodeURIComponent(qrData)}&status=error`;
+        window.location.href = `https://www.google.com`;
     }
 });
