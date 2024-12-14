@@ -71,7 +71,7 @@ async function insertTokenRecord(record) {
       logger.error('Error inserting token:', error);
       throw new DbServiceError('Failed to insert token', 500);
     }
-  }
+}
 
 async function findTokenRecord(token) {
     try {
@@ -234,22 +234,19 @@ async function removeDevice(token, mac_address) {
         return await retryOperation(async () => {
             const dbConnection = await getConnection();
             const tokenRecord = await Token.findOne({ token });
-
-            // Previous validation checks remain the same...
             
-            // Find the device record first
+            // Delete the device record and remove from database
             const deviceRecord = await Device.findOneAndDelete({ mac_address });
             if (!deviceRecord) {
                 throw new DbServiceError('Device not found', 404);
             }
 
-            // More robust device removal
+            // Remove the device from the token record
             const initialLength = tokenRecord.devices_connected.length;
             tokenRecord.devices_connected = tokenRecord.devices_connected.filter(
                 connectedDeviceId => !connectedDeviceId.equals(deviceRecord._id)
             );
 
-            // Optional: Log if no device was removed
             if (tokenRecord.devices_connected.length === initialLength) {
                 logger.warn(`No device ID found for MAC address: ${mac_address}`);
             }
