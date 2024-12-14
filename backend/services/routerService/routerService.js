@@ -203,19 +203,19 @@ async function processDevice(token, connectedDevice, mikrotikDeviceMap) {
             return;
         }
 
-        const latestToken = await getLatestTokenOfDevice(device._id);
+        // const latestToken = await getLatestTokenOfDevice(device._id);
 
-        if(!latestToken) {
-            console.log(`No valid token found for device ${device.mac_address}. Disconnecting...`);
-            //! await removeDevice(device.mac_address); //! UNCOMMENT IF WORKS AS EXPECTED
-            await dbService.removeDevice(token.token, device.mac_address);
-            return;
-        }
+        // if(!latestToken) {
+        //     console.log(`No valid token found for device ${device.mac_address}. Disconnecting...`);
+        //     //! await removeDevice(device.mac_address); //! UNCOMMENT IF WORKS AS EXPECTED
+        //     await dbService.removeDevice(token.token, device.mac_address);
+        //     return;
+        // }
 
-        if(latestToken.token !== token.token) {
-            console.log(`Token ${token.token} is not the latest token for device ${device.mac_address}. Skipping...`);
-            return;
-        }
+        // if(latestToken.token !== token.token) {
+        //     console.log(`Token ${token.token} is not the latest token for device ${device.mac_address}. Skipping...`);
+        //     return;
+        // }
 
         const mikrotikDevice = mikrotikDeviceMap.get(device.mac_address);
         if (!mikrotikDevice) {
@@ -229,7 +229,7 @@ async function processDevice(token, connectedDevice, mikrotikDeviceMap) {
 
         if (isTokenExpired(token)) {
             console.log(`Token ${token.token} expired. Disconnecting device ${device.mac_address}...`);
-            //! await removeDevice(device.mac_address); //! UNCOMMENT IF WORKS AS EXPECTED
+            await removeDevice(device.mac_address); //! UNCOMMENT IF WORKS AS EXPECTED
             await dbService.removeDevice(token.token, device.mac_address);
         }
     } catch (error) {
