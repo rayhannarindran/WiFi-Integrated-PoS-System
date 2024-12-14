@@ -25,12 +25,23 @@ services:
       - wifi-pos-network
 
   # Frontend Service
-  frontend:
+  frontend-admin:
     build:
       context: . # Path to the frontend folder
       dockerfile: frontend-admin/Dockerfile  # Dockerfile for frontend
     ports:
       - "5001:5001"  # Expose frontend on port 5001
+    environment:
+      - VITE_RUNNING_IN_DOCKER=true
+    networks:
+      - wifi-pos-network
+
+  frontend-operator:
+    build:
+      context: . # Path to the frontend folder
+      dockerfile: frontend-operator/Dockerfile  # Dockerfile for frontend
+    ports:
+      - "5002:5002"  # Expose frontend on port 5002
     environment:
       - VITE_RUNNING_IN_DOCKER=true
     networks:

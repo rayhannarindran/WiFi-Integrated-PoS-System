@@ -1,0 +1,61 @@
+/* Reset Global Margin and Padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%; /* Ensure body and html span full height */
+    width: 100%; /* Ensure body and html span full width */
+    display: flex; /* Make the body a flex container */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #f9fafb; /* Light gray background */
+  }
+  
+  /* Main Container */
+  .main-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Header Style */
+  .main-page h1 {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 40px;
+  }
+  
+  /* Link Buttons Container */
+  .links {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 20px; /* Space between buttons */
+  }
+  
+  /* Button Styles */
+  .link-button {
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 250px; /* Consistent button width */
+    text-align: center;
+  }
+  
+  .link-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .link-button:active {
+    background-color: #004494;
+    transform: scale(0.95);
+  }
+  
