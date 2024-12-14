@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Information</title>
+    <link rel="stylesheet" href="infos.css">
+</head>
+<body>
+  <div class="container">
+    <h1>QR Code Information</h1>
+    <p>QR Code Data: <span class="highlight" id="token">Loading...</span></p>
+    <p>Validation Status: <span class="highlight" id="validation-status">Checking...</span></p>
+    <div class="button-container">
+      <button onclick="location.reload()">Refresh</button>
+      <button onclick="copyToClipboard()">Copy Data</button>
+    </div>
+  </div>
+
+  <script src="infos.js"></script>
+</body>
+</html>

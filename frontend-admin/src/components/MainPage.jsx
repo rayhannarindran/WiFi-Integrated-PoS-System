@@ -2,12 +2,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MainPage.css';
+import AdminImage from '../assets/admin.png'; // Import the image
 
 const MainPage = () => {
   return (
     <div className='main-page'>
+      <img src={AdminImage} alt="Admin Panel" className="admin-image" />
       <h1>WiFi PoS Integration Manager</h1>
-      
       <div className="button-container">
         <div className="section">
             <Link to="/placeholder1">

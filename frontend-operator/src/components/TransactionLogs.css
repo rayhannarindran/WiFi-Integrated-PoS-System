@@ -1,0 +1,136 @@
+/* TransactionLogs.css */
+
+/* Container Styles */
+.card {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid #e6e6e6; /* Light border for definition */
+  transition: transform 0.3s ease-in-out; /* Interactive hover animation */
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Slight lift on hover */
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Header Styling */
+h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 20px;
+  font-size: 28px; /* Larger font for emphasis */
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase; /* Add uppercase styling */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for text */
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'Arial', sans-serif; /* Modern font */
+  overflow: hidden;
+  border-radius: 10px; /* Rounded edges for the table */
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 15px; /* Slightly larger padding for better readability */
+  text-align: center;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase; /* Consistent uppercase styling */
+}
+
+td {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Zebra Stripes */
+tr:nth-child(even) {
+  background-color: #f9fafb; /* Softer gray for alternating rows */
+}
+
+tr:hover {
+  background-color: #eaf4ff; /* Highlighted blue on hover */
+  transition: background-color 0.3s;
+}
+
+/* Button Styles */
+.primary-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 18px; /* Slightly larger padding for better clickability */
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0px 4px 6px rgba(0, 123, 255, 0.2); /* Button shadow for depth */
+}
+
+.primary-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Slight hover lift */
+  box-shadow: 0px 6px 10px rgba(0, 123, 255, 0.3); /* Enhanced shadow on hover */
+}
+
+.primary-button:active {
+  background-color: #004494;
+  transform: scale(0.97); /* Slight shrink on click */
+  box-shadow: 0px 3px 5px rgba(0, 123, 255, 0.2); /* Reduced shadow on click */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  h2 {
+    font-size: 22px; /* Adjust font size for smaller screens */
+  }
+
+  th, td {
+    font-size: 12px;
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .primary-button {
+    font-size: 12px;
+    padding: 8px 14px; /* Smaller buttons on smaller screens */
+  }
+
+  table {
+    border-radius: 8px; /* Adjust table rounding for smaller screens */
+  }
+}
+
+/* Add Scrollable Table for Small Devices */
+@media (max-width: 576px) {
+  .card {
+    overflow-x: auto; /* Enable horizontal scrolling */
+  }
+
+  table {
+    display: block; /* Table becomes block for better responsiveness */
+    width: 100%; /* Full width inside scrollable container */
+  }
+
+  th, td {
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+}

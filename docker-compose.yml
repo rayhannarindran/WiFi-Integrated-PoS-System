@@ -6,10 +6,9 @@ services:
       dockerfile: backend/Dockerfile  # Dockerfile for Node.js backend
     ports:
       - "3001:3001"  # Expose Node.js backend on port 3001
-    env_file:
-      - ./backend/.env
     environment:
       - RUNNING_IN_DOCKER=true
+    privileged: true
     networks:
       - wifi-pos-network
 
@@ -20,22 +19,29 @@ services:
       dockerfile: backend/Dockerfile.python  # Dockerfile for Python API
     ports:
       - "4001:4001"  # Expose Python API on port 4001
-    env_file:
-      - ./backend/.env
     environment:
       - RUNNING_IN_DOCKER=true
     networks:
       - wifi-pos-network
 
   # Frontend Service
-  frontend:
+  frontend-admin:
     build:
       context: . # Path to the frontend folder
       dockerfile: frontend-admin/Dockerfile  # Dockerfile for frontend
     ports:
       - "5001:5001"  # Expose frontend on port 5001
-    env_file:
-      - ./frontend-admin/.env
+    environment:
+      - VITE_RUNNING_IN_DOCKER=true
+    networks:
+      - wifi-pos-network
+
+  frontend-operator:
+    build:
+      context: . # Path to the frontend folder
+      dockerfile: frontend-operator/Dockerfile  # Dockerfile for frontend
+    ports:
+      - "5002:5002"  # Expose frontend on port 5002
     environment:
       - VITE_RUNNING_IN_DOCKER=true
     networks:

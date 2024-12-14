@@ -1,7 +1,7 @@
 // Define the API URL and access token
 const axios = require('axios');
-const API_URL = "https://api.mokapos.com/v3/outlets/1042820/reports/get_latest_transactions";
-const ACCESS_TOKEN = "89f905736a339143964ea0209f04a913b858a9c898844254d4cf09e6f729392e";
+const API_URL = `https://api.mokapos.com/v3/outlets/${process.env.MOKA_MERCHANT_ID}/reports/get_latest_transactions`;
+const ACCESS_TOKEN = process.env.MOKA_ACCESS_TOKEN;
 const REQUEST_TIMEOUT = 10000;
 const MAX_RETRIES = 3;
 

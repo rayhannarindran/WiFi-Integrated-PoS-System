@@ -33,6 +33,16 @@ async function getIpBindings() {
     }
 }
 
+//! GET ACTIVE HOSTS (CHECK IF THIS WORKS)
+async function getActiveHosts() {
+    try {
+        const response = await axios.get(`${BASE_URL}/get-active-hosts`);
+        return response.data;
+    } catch (error) {
+        handleError(error);
+    }
+}
+
 // ADD DEVICE TO IP BINDINGS
 async function addDevice(macAddress) {
     try {
@@ -140,6 +150,11 @@ async function syncMikroDb() {
     console.log("Starting synchronization between database and MikroTik...");
 
     try {
+        // //! CHECK IF THIS WORKS TOO
+        // console.log("GETTING ACTIVE HOSTS FROM MIKROTIK...");
+        // const activeHosts = await getActiveHosts();
+        // const activeMacAddresses = activeHosts.data.map(host => host.mac_address);
+
         console.log("FETCHING TOKENS FROM DATABASE...");
         const tokens = await dbService.findTokensByCriteria({});
         if (!tokens || tokens.length === 0) {
@@ -188,6 +203,20 @@ async function processDevice(token, connectedDevice, mikrotikDeviceMap) {
             return;
         }
 
+        const latestToken = await getLatestTokenOfDevice(device._id);
+
+        if(!latestToken) {
+            console.log(`No valid token found for device ${device.mac_address}. Disconnecting...`);
+            await removeDevice(device.mac_address); //! UNCOMMENT IF WORKS AS EXPECTED
+            await dbService.removeDevice(token.token, device.mac_address);
+            return;
+        }
+
+        if(latestToken.token !== token.token) {
+            console.log(`Token ${token.token} is not the latest token for device ${device.mac_address}. Skipping...`);
+            return;
+        }
+
         const mikrotikDevice = mikrotikDeviceMap.get(device.mac_address);
         if (!mikrotikDevice) {
             console.log(`Device ${device.mac_address} not found in MikroTik. Adding...`);
@@ -200,7 +229,7 @@ async function processDevice(token, connectedDevice, mikrotikDeviceMap) {
 
         if (isTokenExpired(token)) {
             console.log(`Token ${token.token} expired. Disconnecting device ${device.mac_address}...`);
-            //await removeDevice(device.mac_address);
+            await removeDevice(device.mac_address); //! UNCOMMENT IF WORKS AS EXPECTED
             await dbService.removeDevice(token.token, device.mac_address);
         }
     } catch (error) {
@@ -208,32 +237,76 @@ async function processDevice(token, connectedDevice, mikrotikDeviceMap) {
     }
 }
 
-async function verifyAndUpdateBandwidth(device) {
-    const { download_limit, upload_limit } = await getBandwidthLimit(device.ip_address);
-    const dlLimit = parseInt(download_limit) / 1000000;
-    const ulLimit = parseInt(upload_limit) / 1000000;
-
-    if (dlLimit !== device.bandwidth || ulLimit !== device.bandwidth) {
-        console.log(`Device ${device.mac_address} bandwidth mismatch. Updating...`);
-        const response = await setBandwidthLimit(device.ip_address, device.bandwidth, device.bandwidth);
-        if (response.status === 200) {
-            console.log(`Bandwidth for ${device.mac_address} updated to ${device.bandwidth}M.`);
-        } else {
-            console.error(`Failed to update bandwidth for ${device.mac_address}.`);
+//! GET LATEST TOKEN OF DEVICE (SEE IF THIS WORKS)
+async function getLatestTokenOfDevice(device_id) {
+    try {
+        const tokens = await dbService.findTokensByCriteria({ 'devices_connected._id': device_id, status: 'valid' });
+        if (!tokens || tokens.length === 0) {
+            return null; // No tokens found
         }
-    } else {
-        console.log(`Device ${device.mac_address} bandwidth is correct.`);
+
+        // Find the latest token by comparing valid_until dates
+        const latestToken = tokens.reduce((latest, current) => 
+            new Date(latest.valid_until) > new Date(current.valid_until) ? latest : current
+        );
+
+        return latestToken; // Return the latest token
+    } catch (error) {
+        console.error('Error fetching latest token for device:', error.message);
+        throw error; // Propagate the error to be handled by the caller
     }
 }
+
+async function verifyAndUpdateBandwidth(device) {
+    try {
+        const { download_limit, upload_limit } = await getBandwidthLimit(device.ip_address);
+
+        if (!download_limit || !upload_limit) {
+            console.log(`No queue exists for device ${device.mac_address}. Adding queue...`);
+            const response = await setBandwidthLimit(device.ip_address, device.bandwidth, device.bandwidth);
+            if (response.status === 200) {
+                console.log(`Queue added for ${device.mac_address} with bandwidth ${device.bandwidth}M.`);
+            } else {
+                console.error(`Failed to add queue for ${device.mac_address}.`);
+            }
+            return;
+        }
+
+        const dlLimit = parseInt(download_limit) / 1000000;
+        const ulLimit = parseInt(upload_limit) / 1000000;
+
+        if (dlLimit !== device.bandwidth || ulLimit !== device.bandwidth) {
+            console.log(`Device ${device.mac_address} bandwidth mismatch. Updating...`);
+            const response = await setBandwidthLimit(device.ip_address, device.bandwidth, device.bandwidth);
+            if (response.status === 200) {
+                console.log(`Bandwidth for ${device.mac_address} updated to ${device.bandwidth}M.`);
+            } else {
+                console.error(`Failed to update bandwidth for ${device.mac_address}.`);
+            }
+        } else {
+            console.log(`Device ${device.mac_address} bandwidth is correct.`);
+        }
+    } catch (error) {
+        console.error(`Error verifying or updating bandwidth for ${device.mac_address}: ${error.message}`);
+    }
+}
+
 
 function isTokenExpired(token) {
     return token.status !== 'valid' || new Date() > new Date(token.valid_until);
 }
 
 async function removeInvalidMikrotikDevices(tokens, mikrotikDevices) {
-    const deviceMacInDb = new Set(
-        tokens.flatMap(token => token.devices_connected.map(device => device.mac_address))
-    );
+    const deviceMacInDb = new Set();
+
+    for (const token of tokens){
+        for (const device of token.devices_connected) {
+            const dbDevice = await dbService.findDeviceByID(device._id);
+            if (dbDevice) {
+                deviceMacInDb.add(dbDevice.mac_address);
+            }
+        }
+    }
 
     for (const mikrotikDevice of mikrotikDevices.data) {
         if (WHITELISTED_MAC_ADDRESSES.includes(mikrotikDevice.mac_address)) {
@@ -254,6 +327,7 @@ async function removeInvalidMikrotikDevices(tokens, mikrotikDevices) {
 
 module.exports = {
     getIpBindings,
+    getActiveHosts,
     addDevice,
     removeDevice,
     getDeviceStatus,
