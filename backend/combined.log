@@ -6737,3 +6737,119 @@
 {"error":{},"level":"warn","message":"Operation failed, retrying (1/3)","service":"db-service"}
 {"error":{},"level":"warn","message":"Operation failed, retrying (3/3)","service":"db-service"}
 {"error":{},"level":"warn","message":"Operation failed, retrying (2/3)","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Token inserted successfully!","service":"db-service"}
+{"level":"info","message":"Transaction added successfully!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}

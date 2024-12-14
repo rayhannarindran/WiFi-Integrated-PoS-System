@@ -27,8 +27,14 @@ const TransactionLogs = () => {
 
   const handlePrint = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/env/get-env`, {
-        method: "GET",
+      const transaction = transactions.find((t) => t.order.id === id);
+      const data_to_print = { "order": transaction.order, "qrUrl": transaction.qrUrl }
+      const response = await fetch(`http://localhost:3001/api/transaction/print-transaction`, data_to_print, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ envName: "PRINTER_USB_VENDOR_ID" }),
       });
       if (!response.ok) {
         throw new Error(`Failed to print receipt: ${response.statusText}`);
@@ -58,9 +64,9 @@ const TransactionLogs = () => {
         </thead>
         <tbody>
           {transactions.map((transaction) => (
-            <tr key={transaction._id}>
+            <tr key={transaction.order.id}>
               <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-                {transaction._id}
+                {transaction.order.id}
               </td>
               <td style={{ border: "1px solid #ddd", padding: "8px" }}>
                 {new Date(transaction.created_at).toLocaleString()}
@@ -71,7 +77,7 @@ const TransactionLogs = () => {
               <td style={{ border: "1px solid #ddd", padding: "8px" }}>
                 <button
                   className="primary-button"
-                  onClick={() => handlePrint(transaction._id)}
+                  onClick={() => handlePrint(transaction.order.id)}
                 >
                   Print Struk
                 </button>
