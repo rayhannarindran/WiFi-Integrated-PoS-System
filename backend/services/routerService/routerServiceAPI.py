@@ -230,15 +230,24 @@ def set_bandwidth_limit():
     if not ip_address:
         return jsonify({"status": "error", "message": "IP address is required"}), 400
 
+    # Ensure IP address includes a subnet mask
+    if '/' not in ip_address:
+        ip_address = f"{ip_address}/32"
+
     api = connect_to_mikrotik()
 
     if api is None:
         return jsonify({"status": "error", "message": "Failed to connect to MikroTik"}), 500
 
     try:
+        # Debugging: Print the formatted target
+        print(f"Formatted target for queue: {ip_address}")
+
         # Check if a rule already exists for this IP
         queues = api.path('queue/simple').select('.id', 'name', 'target')
-        existing_queue = next((q for q in queues if q['target'].split('/')[0] == ip_address), None)
+        print(f"Fetched queues: {queues}")  # Debugging queues
+
+        existing_queue = next((q for q in queues if q['target'] == ip_address), None)
 
         if existing_queue:
             # Update existing rule
@@ -265,6 +274,7 @@ def set_bandwidth_limit():
     except Exception as e:
         print(f"Error: {str(e)}")
         return jsonify({"status": "error", "message": f"An unexpected error occurred: {str(e)}"}), 500
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.getenv('MIKROTIK_PYTHON_API_PORT')))
