@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
+import "./TransactionLogs.css";
 
 const TransactionLogs = () => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
-  const BACKEND_TRANSACTIONS_API_URL = `http://127.0.0.1:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/transactions`;
+  const BACKEND_TRANSACTIONS_API_URL = `http://localhost:3001/api/transaction/get-all-transactions`;
 
   useEffect(() => {
-    // Fetch data transaksi dari backend
     const fetchTransactions = async () => {
       try {
         const response = await fetch(BACKEND_TRANSACTIONS_API_URL);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
-        setTransactions(data);
+        setTransactions(data.data.transactions || []); // Pastikan hanya mengambil array transactions
         setLoading(false);
       } catch (err) {
         console.error("Error fetching transactions:", err);
@@ -22,18 +25,20 @@ const TransactionLogs = () => {
     fetchTransactions();
   }, []);
 
-  const handleReprint = async (id) => {
+  const handlePrint = async (id) => {
     try {
-      const response = await fetch(`${BACKEND_TRANSACTIONS_API_URL}/${id}/reprint`, {
-        method: "POST",
+      const response = await fetch(`http://localhost:3001/api/env/get-env`, {
+        method: "GET",
       });
+      if (!response.ok) {
+        throw new Error(`Failed to print receipt: ${response.statusText}`);
+      }
       const data = await response.json();
-      alert(data.message);
+      alert(data.message || "Struk berhasil dicetak!");
     } catch (err) {
-      console.error("Error reprinting receipt:", err);
+      console.error("Error printing receipt:", err);
     }
   };
-  
 
   if (loading) {
     return <p>Memuat data transaksi...</p>;
@@ -46,8 +51,8 @@ const TransactionLogs = () => {
         <thead>
           <tr>
             <th style={{ border: "1px solid #ddd", padding: "8px" }}>ID Transaksi</th>
-            <th style={{ border: "1px solid #ddd", padding: "8px" }}>QR URL</th>
-            <th style={{ border: "1px solid #ddd", padding: "8px" }}>Tanggal</th>
+            <th style={{ border: "1px solid #ddd", padding: "8px" }}>Tanggal Dibuat</th>
+            <th style={{ border: "1px solid #ddd", padding: "8px" }}>Data QR</th>
             <th style={{ border: "1px solid #ddd", padding: "8px" }}>Aksi</th>
           </tr>
         </thead>
@@ -58,19 +63,17 @@ const TransactionLogs = () => {
                 {transaction._id}
               </td>
               <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-                <a href={transaction.qrUrl} target="_blank" rel="noopener noreferrer">
-                  Lihat QR
-                </a>
+                {new Date(transaction.created_at).toLocaleString()}
               </td>
               <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-                {new Date(transaction.created_at).toLocaleString()}
+                {transaction.qrUrl}
               </td>
               <td style={{ border: "1px solid #ddd", padding: "8px" }}>
                 <button
                   className="primary-button"
-                  onClick={() => handleReprint(transaction._id)}
+                  onClick={() => handlePrint(transaction._id)}
                 >
-                  Cetak Ulang
+                  Print Struk
                 </button>
               </td>
             </tr>
