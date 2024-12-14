@@ -258,22 +258,39 @@ async function getLatestTokenOfDevice(device_id) {
 }
 
 async function verifyAndUpdateBandwidth(device) {
-    const { download_limit, upload_limit } = await getBandwidthLimit(device.ip_address);
-    const dlLimit = parseInt(download_limit) / 1000000;
-    const ulLimit = parseInt(upload_limit) / 1000000;
+    try {
+        const { download_limit, upload_limit } = await getBandwidthLimit(device.ip_address);
 
-    if (dlLimit !== device.bandwidth || ulLimit !== device.bandwidth) {
-        console.log(`Device ${device.mac_address} bandwidth mismatch. Updating...`);
-        const response = await setBandwidthLimit(device.ip_address, device.bandwidth, device.bandwidth);
-        if (response.status === 200) {
-            console.log(`Bandwidth for ${device.mac_address} updated to ${device.bandwidth}M.`);
-        } else {
-            console.error(`Failed to update bandwidth for ${device.mac_address}.`);
+        if (!download_limit || !upload_limit) {
+            console.log(`No queue exists for device ${device.mac_address}. Adding queue...`);
+            const response = await setBandwidthLimit(device.ip_address, device.bandwidth, device.bandwidth);
+            if (response.status === 200) {
+                console.log(`Queue added for ${device.mac_address} with bandwidth ${device.bandwidth}M.`);
+            } else {
+                console.error(`Failed to add queue for ${device.mac_address}.`);
+            }
+            return;
         }
-    } else {
-        console.log(`Device ${device.mac_address} bandwidth is correct.`);
+
+        const dlLimit = parseInt(download_limit) / 1000000;
+        const ulLimit = parseInt(upload_limit) / 1000000;
+
+        if (dlLimit !== device.bandwidth || ulLimit !== device.bandwidth) {
+            console.log(`Device ${device.mac_address} bandwidth mismatch. Updating...`);
+            const response = await setBandwidthLimit(device.ip_address, device.bandwidth, device.bandwidth);
+            if (response.status === 200) {
+                console.log(`Bandwidth for ${device.mac_address} updated to ${device.bandwidth}M.`);
+            } else {
+                console.error(`Failed to update bandwidth for ${device.mac_address}.`);
+            }
+        } else {
+            console.log(`Device ${device.mac_address} bandwidth is correct.`);
+        }
+    } catch (error) {
+        console.error(`Error verifying or updating bandwidth for ${device.mac_address}: ${error.message}`);
     }
 }
+
 
 function isTokenExpired(token) {
     return token.status !== 'valid' || new Date() > new Date(token.valid_until);
