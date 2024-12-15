@@ -1,8 +1,17 @@
 const { spawn } = require('child_process');
 const path = require('path');
 
+const isWindows = process.platform === 'win32';
+
+const getCommand = (cmd) => {
+  if (isWindows && cmd === 'npm') {
+    return 'npm.cmd';
+  }
+  return cmd;
+};
+
 const services = {
-  backend: { command: 'node', args: ['server.js'], cwd: './backend', process: null },
+  backend: { command: 'npm', args: ['run', 'start'], cwd: './backend', process: null },
   frontendAdmin: { command: 'npm', args: ['run', 'dev'], cwd: './frontend-admin', process: null },
   frontendOperator: { command: 'npm', args: ['run', 'dev'], cwd: './frontend-operator', process: null },
   pythonAPI: { command: 'python', args: ['routerServiceAPI.py'], cwd: './backend/services/routerService', process: null },
@@ -17,10 +26,11 @@ function runService(serviceName) {
 
   console.log(`Starting ${serviceName}...`);
 
-  const child = spawn(service.command, service.args, {
+  const command = getCommand(service.command);
+  const child = spawn(command, service.args, {
     cwd: path.join(__dirname, service.cwd),
     stdio: 'inherit',
-    shell: process.platform === 'win32', // Use shell for Windows compatibility
+    shell: isWindows
   });
 
   service.process = child;
