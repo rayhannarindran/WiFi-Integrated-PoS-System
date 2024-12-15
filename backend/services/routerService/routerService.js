@@ -5,7 +5,7 @@ const isDocker = process.env.RUNNING_IN_DOCKER === 'true';
 
 // Base URL for the Python API
 const MIKROTIK_PYTHON_API_PORT = process.env.MIKROTIK_PYTHON_API_PORT;
-const BASE_URL = isDocker ? `http://mikrotik:${MIKROTIK_PYTHON_API_PORT}` : `http://localhost:${MIKROTIK_PYTHON_API_PORT}`;
+const BASE_URL = isDocker ? `http://python-api:${MIKROTIK_PYTHON_API_PORT}` : `http://localhost:${MIKROTIK_PYTHON_API_PORT}`;
 const dbService = require('../dbService/dbService');
 
 // console.log(`Using MikroTik Python API at ${BASE_URL}`);

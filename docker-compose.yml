@@ -9,6 +9,9 @@ services:
     environment:
       - RUNNING_IN_DOCKER=true
     privileged: true
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - /dev:/dev
     networks:
       - wifi-pos-network
 
