@@ -4,6 +4,7 @@ const crypto = require('crypto'); //crypto module
 require('dotenv').config(); //dotenv module
 
 BANDWIDTH_PER_DEVICE = parseInt(process.env.MAX_SYSTEM_BANDWIDTH) / parseInt(process.env.MAX_SYSTEM_DEVICES);
+MAX_BANDWIDTH_PER_TOKEN = parseInt(process.env.MAX_BANDWIDTH_PER_TOKEN);
 MINIMUM_PAYMENT_PER_DEVICE = parseInt(process.env.MINIMUM_PAYMENT_PER_DEVICE);
 TIME_LIMIT_PER_TOKEN = parseInt(process.env.TIME_LIMIT_PER_TOKEN);
 
@@ -44,7 +45,7 @@ function generateTokenRecord(pos_data) {
     valid_from: valid_from_date.toISOString(),
     valid_until: valid_until_date.toISOString(),
     max_devices: Math.max(1, Math.floor((pos_data.subtotal + pos_data.gratuities + pos_data.taxes)/MINIMUM_PAYMENT_PER_DEVICE)), // For every Rp30,000, the user can connect one device
-    max_bandwidth: Math.max(BANDWIDTH_PER_DEVICE, BANDWIDTH_PER_DEVICE * Math.floor((pos_data.subtotal + pos_data.gratuities + pos_data.taxes)/MINIMUM_PAYMENT_PER_DEVICE)),
+    max_bandwidth: Math.min(Math.max(BANDWIDTH_PER_DEVICE, BANDWIDTH_PER_DEVICE * Math.floor((pos_data.subtotal + pos_data.gratuities + pos_data.taxes)/MINIMUM_PAYMENT_PER_DEVICE)), MAX_BANDWIDTH_PER_TOKEN),
     devices_connected: [],
     time_limit: time_limit,
     created_at: new Date().toISOString(),

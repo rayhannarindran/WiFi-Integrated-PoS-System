@@ -203,10 +203,13 @@ def get_all_bandwidth_limits():
 def get_bandwidth_limit():
     ip_address = request.args.get('ip_address')
 
+    if not ip_address:
+        return jsonify({"status": "error", "message": "IP address is required"}), 400
+
     try:
         api = connect_to_mikrotik()
         queues = api.path('queue/simple').select('.id', 'name', 'target', 'max-limit')
-        
+
         for queue in queues:
             if queue['target'].split('/')[0] == ip_address:
                 return jsonify({
@@ -215,9 +218,20 @@ def get_bandwidth_limit():
                     "upload_limit": queue['max-limit'].split('/')[1],
                     "download_limit": queue['max-limit'].split('/')[0]
                 }), 200
-        return jsonify({"status": "not found"}), 404
+
+        # If no matching queue is found, return a response with status "not found"
+        return jsonify({
+            "status": "not found",
+            "message": f"No bandwidth limit found for IP address {ip_address}"
+        }), 200
     except TrapError as e:
         return jsonify({"status": "error", "message": str(e)}), 500
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": f"An unexpected error occurred: {str(e)}"
+        }), 500
+
 
 # Set bandwidth limit for a device using Simple Queues
 @app.route('/set-bandwidth-limit', methods=['POST'])
@@ -230,15 +244,24 @@ def set_bandwidth_limit():
     if not ip_address:
         return jsonify({"status": "error", "message": "IP address is required"}), 400
 
+    # Ensure IP address includes a subnet mask
+    if '/' not in ip_address:
+        ip_address = f"{ip_address}/32"
+
     api = connect_to_mikrotik()
 
     if api is None:
         return jsonify({"status": "error", "message": "Failed to connect to MikroTik"}), 500
 
     try:
+        # Debugging: Print the formatted target
+        print(f"Formatted target for queue: {ip_address}")
+
         # Check if a rule already exists for this IP
         queues = api.path('queue/simple').select('.id', 'name', 'target')
-        existing_queue = next((q for q in queues if q['target'].split('/')[0] == ip_address), None)
+        print(f"Fetched queues: {queues}")  # Debugging queues
+
+        existing_queue = next((q for q in queues if q['target'] == ip_address), None)
 
         if existing_queue:
             # Update existing rule
@@ -265,6 +288,7 @@ def set_bandwidth_limit():
     except Exception as e:
         print(f"Error: {str(e)}")
         return jsonify({"status": "error", "message": f"An unexpected error occurred: {str(e)}"}), 500
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.getenv('MIKROTIK_PYTHON_API_PORT')))
