@@ -10110,3 +10110,11 @@
 {"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
 {"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
 {"level":"info","message":"7 Tokens with criteria '{}' Found!","service":"db-service"}
+{"level":"info","message":"Connected to MongoDB","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"All Transactions Found!","service":"db-service"}
+{"level":"info","message":"Latest Token Found!","service":"db-service"}
+{"level":"info","message":"DATABASE UPDATED SUCCESSFULLY!","service":"db-service"}
+{"level":"info","message":"10 Tokens with criteria '{}' Found!","service":"db-service"}
