@@ -15,6 +15,26 @@
     color: #ffffff; /* White text for better contrast */
 }
 
+.settings-image {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    margin: 0 auto 20px; /* Center the image and add spacing below */
+    display: block;
+    border-radius: 50%; /* Optional: make it circular */
+    animation: rotate 10s linear infinite; /* Add rotation animation */
+  }
+  
+  /* Keyframes for rotation */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg); /* Start at 0 degrees */
+    }
+    to {
+      transform: rotate(360deg); /* End at 360 degrees for a full rotation */
+    }
+  }
+  
+
 /* Styling for the title */
 h1 {
     text-align: center;

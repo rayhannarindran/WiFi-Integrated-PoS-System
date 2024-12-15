@@ -1,9 +1,7 @@
-/* MainPage.css */
-
 /* Styling for the main page container */
 .main-page {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #f7f7f7); /* Gradient background */
+  background: linear-gradient(135deg, #f7f7f7); /* Light gradient background */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,56 +13,55 @@
   overflow-y: auto;
 }
 
-/* Centered content box with rounded edges */
-.button-container {
-  background-color: #ffffff; /* White box background */
-  border-radius: 24px; /* Rounded corners */
-  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); /* Softer shadow for a floating effect */
-  padding: 3rem 2rem; /* Balanced padding */
-  width: 90%; /* Full width on smaller screens */
-  max-width: 500px; /* Maximum width for the box */
+/* Box around the title and image */
+.header-container {
+  background-color: #e3e5e9; /* White background */
+  border-radius: 16px; /* Rounded corners */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 2rem; /* Add spacing inside the box */
   text-align: center;
-  animation: fadeIn 0.6s ease-in-out; /* Smooth fade-in animation */
-  position: relative;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  margin-bottom: 2rem; /* Spacing below the container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Styling for the admin image */
 .admin-image {
-  width: 100px; /* Adjusted size */
+  width: 130px; /* Adjusted size */
   height: auto;
-  margin-bottom: 1.5rem; /* Space below the image */
-  border-radius: 50%; /* Circular shape */
-  border: 3px solid #007bff; /* Blue border for emphasis */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  margin-bottom: 3rem; /* Space below the image */
+  border-radius: 80%; /* Circular shape */
   background-color: #f9f9f9; /* Light background inside the circle */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
 
-/* Hover effect for admin image */
+/* Hover effect for the admin image */
 .admin-image:hover {
   transform: scale(1.1); /* Slight zoom-in on hover */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
 }
 
-/* Title Styling */
+/* Title Styling inside the container */
 h1 {
   font-size: 1.6rem;
   font-weight: bold;
-  margin-bottom: 2rem; /* Spacing between title and buttons */
   color: #333333; /* Darker text color */
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin: 0; /* Remove default margins */
+  text-transform: uppercase; /* Uppercase for emphasis */
+}
+
+/* Button container */
+.button-container {
+  background-color: transparent;
+  border-radius: 24px; /* Rounded corners */
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); /* Softer shadow for a floating effect */
+  padding: 2rem; /* Balanced padding */
+  width: 90%; /* Full width on smaller screens */
+  max-width: 500px; /* Maximum width for the box */
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out; /* Smooth fade-in animation */
 }
 
 /* Styling for the buttons */
@@ -92,10 +89,22 @@ h1 {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow on hover */
 }
 
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-  .button-container {
-    padding: 2rem 1.5rem; /* Compact padding for smaller screens */
+  .header-container {
+    padding: 1.5rem;
   }
 
   .admin-image {
@@ -104,6 +113,10 @@ h1 {
 
   h1 {
     font-size: 1.4rem; /* Adjust title size for smaller screens */
+  }
+
+  .button-container {
+    padding: 1.5rem;
   }
 
   .main-page-button {

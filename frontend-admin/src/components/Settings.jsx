@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Settings.css';
+import SettingsImage from '../assets/settings.png';
 
 const BACKEND_ENV_API_URL = `http://127.0.0.1:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/env`;
 
@@ -107,6 +108,7 @@ function App() {
 
   return (
     <div className="App">
+      <img src={SettingsImage} alt="Settings" className="settings-image" />
       <h1>Environment Variables Editor</h1>
 
       {/* Back button to main page */}
