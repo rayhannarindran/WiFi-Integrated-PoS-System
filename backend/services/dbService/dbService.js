@@ -7,6 +7,9 @@ const { validateTokenRecord, validateDeviceRecord } = require('./dbValidation');
 const { DbServiceError, logger, retryOperation } = require('./dbUtils');
 const { get } = require('mongoose');
 
+BANDWIDTH_PER_DEVICE = parseInt(process.env.MAX_SYSTEM_BANDWIDTH) / parseInt(process.env.MAX_SYSTEM_DEVICES);
+MAX_BANDWIDTH_PER_TOKEN = parseInt(process.env.MAX_BANDWIDTH_PER_TOKEN);
+
 // FOR UPDATING THE DATABASE TO SYNC WITH ENV VARIABLES
 async function databaseUpdate(){
     try{
@@ -22,8 +25,8 @@ async function databaseUpdate(){
 
                 if (token.status === 'valid') {
                     // UPDATING MAX BANDWIDTH
-                    if (token.max_bandwidth !== (parseInt(process.env.MAX_SYSTEM_BANDWIDTH) / parseInt(process.env.MAX_SYSTEM_DEVICES)) * token.max_devices) {
-                        token.max_bandwidth = (parseInt(process.env.MAX_SYSTEM_BANDWIDTH) / parseInt(process.env.MAX_SYSTEM_DEVICES)) * token.max_devices;
+                    if (token.max_bandwidth !== Math.min(BANDWIDTH_PER_DEVICE * token.max_devices, MAX_BANDWIDTH_PER_TOKEN)) {
+                        token.max_bandwidth = Math.min(BANDWIDTH_PER_DEVICE * token.max_devices, MAX_BANDWIDTH_PER_TOKEN);
                         await token.save();
                     }
 
@@ -71,7 +74,7 @@ async function insertTokenRecord(record) {
       logger.error('Error inserting token:', error);
       throw new DbServiceError('Failed to insert token', 500);
     }
-  }
+}
 
 async function findTokenRecord(token) {
     try {
@@ -234,22 +237,19 @@ async function removeDevice(token, mac_address) {
         return await retryOperation(async () => {
             const dbConnection = await getConnection();
             const tokenRecord = await Token.findOne({ token });
-
-            // Previous validation checks remain the same...
             
-            // Find the device record first
+            // Delete the device record and remove from database
             const deviceRecord = await Device.findOneAndDelete({ mac_address });
             if (!deviceRecord) {
                 throw new DbServiceError('Device not found', 404);
             }
 
-            // More robust device removal
+            // Remove the device from the token record
             const initialLength = tokenRecord.devices_connected.length;
             tokenRecord.devices_connected = tokenRecord.devices_connected.filter(
                 connectedDeviceId => !connectedDeviceId.equals(deviceRecord._id)
             );
 
-            // Optional: Log if no device was removed
             if (tokenRecord.devices_connected.length === initialLength) {
                 logger.warn(`No device ID found for MAC address: ${mac_address}`);
             }
@@ -331,6 +331,38 @@ async function findDeviceByID(device_id) {
         });
     } catch (error) {
         logger.error('Error finding device:', error);
+        throw error;
+    }
+}
+
+async function getAllTransactions(){
+    try {
+        return await retryOperation(async () => {
+            const dbConnection = await getConnection();
+            const transactions = await Transaction.find();
+            logger.info('All Transactions Found!');
+            return transactions;
+        });
+    } catch (error) {
+        logger.error('Error finding transactions:', error);
+        throw error;
+    }
+}
+
+async function getTransaction(order_id) {
+    try {
+        return await retryOperation(async () => {
+            const dbConnection = await getConnection();
+            const transaction = await Transaction.findOne({ "order.id": order_id });
+            if (!transaction) {
+                console.log('Transaction not found');
+            } else {
+                console.log(`Transaction with order ID ${order_id} found!`);
+            }
+            return transaction;
+        });
+    } catch (error) {
+        logger.error('Error finding transaction:', error);
         throw error;
     }
 }
@@ -470,6 +502,10 @@ async function runService(function_number = 0) {
             case 16:
                 await addTransaction(mockOrder, 'https://example.com/qr');
                 break;
+            case 17:
+                transaction_by_id = await getTransaction('c6c529ce-70f2-4849-8af5-adef63c32143');
+                console.log('Found transaction:\n', transaction_by_id);
+                break;
             default:
                 console.log('TEST FUNCTION NOT FOUND');
         }
@@ -484,7 +520,7 @@ async function runService(function_number = 0) {
 // If this file is run directly (not imported as a module), execute the service
 if (require.main === module) {
     // Test services
-    runService(16);
+    runService(17);
 }
 
 module.exports = {
@@ -504,5 +540,7 @@ module.exports = {
     updateDevice,
     findDevice,
     findDeviceByID,
+    getAllTransactions,
+    getTransaction,
     addTransaction,
 };

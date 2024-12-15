@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./deviceManager.css";
+import DeviceImage from "../assets/device.png"; 
 
 const BACKEND_TOKEN_API_URL = `http://127.0.0.1:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/token`;
 const BACKEND_DEVICE_API_URL = `http://127.0.0.1:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/device`;
@@ -139,6 +140,7 @@ const DeviceManager = () => {
 
   return (
     <div className="device-manager">
+      <img src={DeviceImage} alt="Device Manager" className="device-image" />
       <h1>Token and Device Manager</h1>
       <Link to="/">Back to Home</Link>
       <div className="tokens-list">

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Settings.css';
+import SettingsImage from '../assets/settings.png';
 
 const BACKEND_ENV_API_URL = `http://127.0.0.1:${import.meta.env.VITE_BACKEND_SERVER_PORT}/api/env`;
 
@@ -24,6 +25,7 @@ function App() {
     PRINTER_USB_PRODUCT_ID: '',
     MAX_SYSTEM_BANDWIDTH: '',
     MAX_SYSTEM_DEVICES: '',
+    MAX_BANDWIDTH_PER_TOKEN:'',
     MINIMUM_PAYMENT_PER_DEVICE: '',
     TIME_LIMIT_PER_TOKEN: '',
     MOKA_MERCHANT_ID: '',
@@ -107,6 +109,7 @@ function App() {
 
   return (
     <div className="App">
+      <img src={SettingsImage} alt="Settings" className="settings-image" />
       <h1>Environment Variables Editor</h1>
 
       {/* Back button to main page */}
@@ -224,6 +227,17 @@ function App() {
         </button>
         {showNetworkSpec && (
           <div className="section">
+            <div>
+              <label htmlFor="MAX_BANDWIDTH_PER_TOKEN">Max Bandwidth Per Token (Mbps):</label>
+              <input
+                type="text"
+                id="MAX_BANDWIDTH_PER_TOKEN"
+                name="MAX_BANDWIDTH_PER_TOKEN"
+                value={formData.MAX_BANDWIDTH_PER_TOKEN}
+                onChange={handleChange}
+                placeholder={formData.MAX_BANDWIDTH_PER_TOKEN || "300"}
+              />
+            </div>
             <div>
               <label htmlFor="MAX_SYSTEM_BANDWIDTH">Max System Bandwidth (Mbps):</label>
               <input

@@ -1,83 +1,165 @@
 /* Container for the entire app */
 .App {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Gradient background for a modern look */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align content to the top of the container */
-    min-height: 100vh; /* Use min-height to ensure the container takes up at least the full viewport height */
+    justify-content: flex-start;
+    align-items: center; /* Center content horizontally */
+    min-height: 100vh;
     margin: 0;
     padding-top: 2rem;
-    width: 100vw; /* Use width to make the container use the full viewport width */
+    width: 100vw;
     box-sizing: border-box;
-    overflow-y: auto; /* Add vertical scroll when content exceeds viewport height */
+    overflow-y: auto;
+    color: #ffffff; /* White text for better contrast */
 }
+
+.settings-image {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    margin: 0 auto 20px; /* Center the image and add spacing below */
+    display: block;
+    border-radius: 50%; /* Optional: make it circular */
+    animation: rotate 10s linear infinite; /* Add rotation animation */
+  }
   
+  /* Keyframes for rotation */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg); /* Start at 0 degrees */
+    }
+    to {
+      transform: rotate(360deg); /* End at 360 degrees for a full rotation */
+    }
+  }
+  
+
 /* Styling for the title */
 h1 {
     text-align: center;
-    margin-top: 0; /* Remove top margin to ensure title is visible even when scrolled up */
-    margin-bottom: 1.5rem; /* Margin to give space between title and form */
-    font-size: 2rem; /* Larger font size for title */
-    color: #333;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #ffffff; /* White text */
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Subtle text shadow */
 }
-  
+
 /* Styling for the form */
 form {
-    background-color: rgb(255, 255, 255);
+    background-color: #ffffff; /* White card for contrast */
     margin: 0 auto;
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px; /* Rounded corners for modern look */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Card shadow for depth */
     width: 100%;
     max-width: 600px;
+    animation: fadeIn 0.6s ease-in-out; /* Smooth fade-in effect */
 }
-  
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Styling for the buttons */
 button {
-    padding: 0.7rem;
-    background-color: #4CAF50;
-    color: white;
+    padding: 0.8rem 1rem;
+    background-color: #007bff;
+    color: #ffffff;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
     margin-top: 1rem;
+    text-transform: uppercase; /* Make button text uppercase for emphasis */
 }
-  
+
 button:hover {
-    background-color: #45a049;
+    background-color: #0056b3;
+    transform: translateY(-3px); /* Lift button slightly on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
 }
 
 button[type="submit"] {
-    background-color: #007bff;
+    background-color: #28a745; /* Green for submit button */
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* Darker green on hover */
 }
 
 button[type="main-page-button"] {
-    background-color: #5d635d;
-    margin-top: 4rem; /* Add more gap from the button above it */
+    background-color: #6c757d; /* Gray button for navigation */
+    margin-top: 4rem;
+}
+
+button[type="main-page-button"]:hover {
+    background-color: #5a6268; /* Darker gray on hover */
 }
 
 /* Styling for the form sections */
 .section {
     margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #f8f9fa; /* Light gray background for sections */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for sections */
 }
 
 /* Styling for the input fields */
 input[type="text"], input[type="number"], input[type="password"] {
-    padding: 0.5rem;
+    padding: 0.75rem;
     margin-bottom: 1rem;
     width: 100%;
-    border: 1px solid #ccc;
-    background-color: white;
-    border-radius: 4px;
-    color: #333;
+    border: 1px solid #ced4da;
+    background-color: #ffffff;
+    border-radius: 6px;
+    color: #495057;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus effect for input fields */
+input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25); /* Blue shadow on focus */
+    outline: none; /* Remove default outline */
 }
 
 label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold;
-    color: #333;
+    color: #333; /* Dark label color */
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+
+    input[type="text"], input[type="number"], input[type="password"] {
+        font-size: 0.9rem;
+    }
 }

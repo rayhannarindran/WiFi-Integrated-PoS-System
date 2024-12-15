@@ -11,6 +11,7 @@ const deviceRoutes = require('./routes/deviceRoutes.js');
 const tokenRoutes = require('./routes/tokenRoutes.js');
 const envRoutes = require('./routes/envRoutes.js');
 const systemRoutes = require('./routes/systemRoutes.js');
+const transactionRoutes = require('./routes/transactionRoutes')
 
 // UTILS
 const mokaPoller = require('./utils/mokaPoller.js');
@@ -33,6 +34,7 @@ app.use('/api/device', deviceRoutes);
 app.use('/api/token', tokenRoutes);
 app.use('/api/env', envRoutes);
 app.use('/api/system', systemRoutes);
+app.use('/api/transaction', transactionRoutes);
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {

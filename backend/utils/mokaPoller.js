@@ -32,7 +32,7 @@ async function pollMokaTransactions() {
             await dbService.addTransaction(printing_data, qrCodeURL);
 
             //! PRINT RECEIPT
-            // await printerService.printReceipt(printing_data, qrCodeURL);
+            await printerService.printReceipt(printing_data, qrCodeURL);
 
             console.log("Token QR Code:", qrCodeURL);
 

@@ -1,0 +1,124 @@
+/* Reset Global Margin and Padding */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%; /* Ensure body and html span full height */
+  width: 100%; /* Ensure body and html span full width */
+  display: flex; /* Make the body a flex container */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: #f3f4f6; /* Soft gray background */
+  font-family: 'Arial', sans-serif; /* Default font family */
+}
+
+/* Main Container with Box */
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 90%; /* Limit width for responsiveness */
+  max-width: 600px; /* Maximum width for the container */
+  padding: 30px; /* Add padding inside the box */
+  background-color: #ffffff; /* White background for the box */
+  border-radius: 15px; /* Rounded corners for the box */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  animation: fadeIn 1s ease; /* Smooth fade-in animation */
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Style */
+.main-page h1 {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 1px; /* Slight letter spacing for readability */
+  text-transform: uppercase; /* Uppercase for emphasis */
+}
+
+/* Gaya untuk logo/gambar */
+.main-page-logo {
+  max-width: 120px; /* Limit max width of the logo */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 15px; /* Space between logo and header */
+  border-radius: 50%; /* Circular logo for a modern look */
+  border: 3px solid #007bff; /* Add border to match theme */
+  transition: transform 0.3s ease; /* Add hover animation */
+}
+
+.main-page-logo:hover {
+  transform: scale(1.1); /* Enlarge slightly on hover */
+}
+
+/* Link Buttons Container */
+.links {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 15px; /* Space between buttons */
+  width: 100%; /* Full container width for alignment */
+}
+
+/* Button Styles */
+.link-button {
+  background-color: #064b96;
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 10px; /* Rounded corners */
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  width: 100%; /* Full width of the container */
+  max-width: 300px; /* Maximum width of buttons */
+  text-align: center;
+  align-self: center; /* Center buttons within the container */
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* Button shadow */
+}
+
+/* Hover Effects */
+.link-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-3px); /* Slight hover lift */
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3); /* Enhanced shadow */
+}
+
+/* Active Effects */
+.link-button:active {
+  background-color: #004494; /* Even darker blue when pressed */
+  transform: scale(0.98); /* Slight shrink effect */
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2); /* Reduced shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-page {
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  .main-page h1 {
+    font-size: 2rem; /* Reduce font size */
+  }
+
+  .link-button {
+    font-size: 1rem; /* Adjust button text size */
+    padding: 12px 16px; /* Adjust padding */
+  }
+
+  .main-page-logo {
+    max-width: 100px; /* Smaller logo for mobile */
+  }
+}
