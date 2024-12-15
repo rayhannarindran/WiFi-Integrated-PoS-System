@@ -13,27 +13,12 @@
   overflow-y: auto;
 }
 
-/* Box around the title and image */
-.header-container {
-  background-color: #e3e5e9; /* White background */
-  border-radius: 16px; /* Rounded corners */
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  padding: 2rem; /* Add spacing inside the box */
-  text-align: center;
-  margin-bottom: 2rem; /* Spacing below the container */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 /* Styling for the admin image */
 .admin-image {
-  width: 130px; /* Adjusted size */
+  width: 200px; /* Adjusted size */
   height: auto;
-  margin-bottom: 3rem; /* Space below the image */
-  border-radius: 80%; /* Circular shape */
-  background-color: #f9f9f9; /* Light background inside the circle */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  margin-bottom: 1rem; /* Space below the image */
+  transition: transform 0.3s ease, box-shadow 0.1s ease; /* Smooth hover effect */
 }
 
 /* Hover effect for the admin image */
@@ -69,7 +54,7 @@ h1 {
   background-color: #007bff; /* Blue button color */
   color: #ffffff; /* White text */
   padding: 0.8rem 1rem;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: bold;
   border: none;
   border-radius: 12px; /* Rounded buttons */
@@ -77,7 +62,7 @@ h1 {
   text-transform: uppercase;
   margin-top: 1rem;
   width: 100%; /* Full width inside the container */
-  max-width: 300px; /* Limit button width */
+  max-width: 3000px; /* Limit button width */
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
