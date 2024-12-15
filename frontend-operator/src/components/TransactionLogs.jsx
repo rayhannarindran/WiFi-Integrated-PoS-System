@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Import Link
 import "./TransactionLogs.css";
+import TransactionImage from "../assets/transaction.png";
 
 const TransactionLogs = () => {
   const [transactions, setTransactions] = useState([]);
@@ -50,6 +52,11 @@ const TransactionLogs = () => {
 
   return (
     <div className="card">
+      <img
+        src={TransactionImage}
+        alt="Transaction Logs"
+        className="transaction-image"
+      />
       <h2>Log Transaksi</h2>
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
         <thead>
@@ -84,6 +91,9 @@ const TransactionLogs = () => {
           ))}
         </tbody>
       </table>
+      <Link to="/" className="back-button">
+        Back
+      </Link>
     </div>
   );
 };

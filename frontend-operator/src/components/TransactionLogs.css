@@ -1,20 +1,74 @@
-/* TransactionLogs.css */
+/* Animated Background */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #c2bcbc, #fafafa); /* Gradient fallback */
+  overflow: hidden;
+  position: relative;
+}
 
-/* Container Styles */
+/* Add animated circles to the background */
+body::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(85, 84, 84, 0.1);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Card Container */
 .card {
+  position: relative;
+  z-index: 1; /* Ensure the card appears above the background */
   max-width: 900px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 30px;
   background-color: #ffffff;
-  border-radius: 15px; /* Rounded corners */
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  border: 1px solid #e6e6e6; /* Light border for definition */
-  transition: transform 0.3s ease-in-out; /* Interactive hover animation */
+  border-radius: 20px; /* Larger rounded corners */
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+  border: none;
+  transition: transform 0.3s ease-in-out;
 }
 
 .card:hover {
-  transform: translateY(-10px); /* Slight lift on hover */
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Transaction Image */
+.transaction-image {
+  width: 100px;
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+  animation: float 3s ease-in-out infinite; /* Floating animation */
 }
 
 /* Header Styling */
@@ -22,34 +76,34 @@ h2 {
   text-align: center;
   color: #007bff;
   margin-bottom: 20px;
-  font-size: 28px; /* Larger font for emphasis */
+  font-size: 30px; /* Larger font size */
   font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase; /* Add uppercase styling */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for text */
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2); /* Stronger shadow for emphasis */
 }
 
-/* Table Styles */
+/* Table Styling */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  font-family: 'Arial', sans-serif; /* Modern font */
+  font-family: 'Arial', sans-serif;
   overflow: hidden;
-  border-radius: 10px; /* Rounded edges for the table */
+  border-radius: 15px; /* Larger rounded corners */
 }
 
 th, td {
   border: 1px solid #ddd;
-  padding: 15px; /* Slightly larger padding for better readability */
+  padding: 15px;
   text-align: center;
 }
 
 th {
-  background-color: #007bff;
+  background-color: #4904e9;
   color: white;
   font-weight: bold;
-  text-transform: uppercase; /* Consistent uppercase styling */
+  text-transform: uppercase;
 }
 
 td {
@@ -57,80 +111,102 @@ td {
   color: #555;
 }
 
-/* Zebra Stripes */
 tr:nth-child(even) {
-  background-color: #f9fafb; /* Softer gray for alternating rows */
+  background-color: #f9fafb;
 }
 
 tr:hover {
-  background-color: #eaf4ff; /* Highlighted blue on hover */
+  background-color: #eaf4ff;
   transition: background-color 0.3s;
 }
 
-/* Button Styles */
+/* Button Styling */
 .primary-button {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 18px; /* Slightly larger padding for better clickability */
-  font-size: 14px;
-  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0px 4px 6px rgba(0, 123, 255, 0.2); /* Button shadow for depth */
+  box-shadow: 0px 6px 10px rgba(0, 123, 255, 0.2);
 }
 
 .primary-button:hover {
   background-color: #0056b3;
-  transform: translateY(-2px); /* Slight hover lift */
-  box-shadow: 0px 6px 10px rgba(0, 123, 255, 0.3); /* Enhanced shadow on hover */
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 12px rgba(0, 123, 255, 0.3);
 }
 
 .primary-button:active {
   background-color: #004494;
-  transform: scale(0.97); /* Slight shrink on click */
-  box-shadow: 0px 3px 5px rgba(0, 123, 255, 0.2); /* Reduced shadow on click */
+  transform: scale(0.97);
+  box-shadow: 0px 3px 5px rgba(0, 123, 255, 0.2);
+}
+
+/* Back Button Styling */
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 6px 10px rgba(0, 123, 255, 0.2);
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 12px rgba(0, 123, 255, 0.3);
+}
+
+.back-button:active {
+  background-color: #004494;
+  transform: scale(0.97);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .card {
-    padding: 15px;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 15px;
   }
 
   h2 {
-    font-size: 22px; /* Adjust font size for smaller screens */
+    font-size: 24px;
   }
 
   th, td {
     font-size: 12px;
-    padding: 10px; /* Adjust padding for smaller screens */
+    padding: 10px;
   }
 
   .primary-button {
-    font-size: 12px;
-    padding: 8px 14px; /* Smaller buttons on smaller screens */
-  }
-
-  table {
-    border-radius: 8px; /* Adjust table rounding for smaller screens */
+    font-size: 14px;
+    padding: 10px 16px;
   }
 }
 
-/* Add Scrollable Table for Small Devices */
 @media (max-width: 576px) {
   .card {
-    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-x: auto;
   }
 
   table {
-    display: block; /* Table becomes block for better responsiveness */
-    width: 100%; /* Full width inside scrollable container */
+    display: block;
+    width: 100%;
   }
 
   th, td {
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
   }
 }

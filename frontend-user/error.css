@@ -1,15 +1,4 @@
-@keyframes twinkle {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-@keyframes fall {
-    0% { transform: translateY(-100vh) translateX(0); opacity: 1; }
-    70% { opacity: 1; }
-    100% { transform: translateY(100vh) translateX(100px); opacity: 0; }
-}
-
+/* General reset */
 body, html {
     margin: 0;
     padding: 0;
@@ -43,6 +32,7 @@ body, html {
     background-size: var(--gap) var(--gap);
 }
 
+/* Container styling */
 .container {
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -51,8 +41,10 @@ body, html {
     padding: 32px;
     width: 100%;
     max-width: 400px;
+    text-align: center;
     transition: all 0.3s ease;
     z-index: 1;
+    animation: fadeIn 1s ease-in-out; /* New animation */
 }
 
 .container:hover {
@@ -60,44 +52,33 @@ body, html {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Error icon styling */
+.error-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    animation: swing 1s infinite ease-in-out; /* New animation */
+}
+
+/* Error title */
 h1 {
     text-align: center;
     color: #ffffff;
     font-size: 28px;
     margin-bottom: 24px;
     transition: color 0.3s ease;
+    animation: bounceIn 1.2s ease; /* New animation */
 }
 
+/* Error description */
 p {
     margin: 16px 0;
     transition: opacity 0.3s ease;
     color: #ffffff;
+    animation: fadeInUp 1.5s ease; /* New animation */
 }
 
-.highlight {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 14px;
-    font-weight: 600;
-    color: #ffffff;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    display: block;
-}
-
-.highlight:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.02);
-}
-
-#validation-status.valid {
-    color: #4ade80;
-}
-
-#validation-status.invalid {
-    color: #f87171;
-}
-
+/* Button container */
 .button-container {
     display: flex;
     justify-content: space-between;
@@ -116,6 +97,7 @@ button {
     transition: all 0.3s ease;
     flex: 1;
     margin: 0 8px;
+    animation: pulseButton 1.5s infinite; /* New animation */
 }
 
 button:hover {
@@ -127,6 +109,46 @@ button:hover {
 button:active {
     transform: translateY(0);
     box-shadow: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes swing {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    60% { opacity: 1; transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseButton {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100vh) translateX(0); opacity: 1; }
+    70% { opacity: 1; }
+    100% { transform: translateY(100vh) translateX(100px); opacity: 0; }
 }
 
 .loading {
