@@ -43,7 +43,7 @@ app.use((err, req, res, next) => {
 });
 
 // Polling MOKA and System Update
-mokaPoller.startMokaPolling();
+// mokaPoller.startMokaPolling();
 systemManager.startSystemUpdatePolling();
 
 // Start server
